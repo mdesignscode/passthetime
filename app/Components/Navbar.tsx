@@ -84,22 +84,23 @@ export default function Navbar() {
       >
         {navLinks.map((link, index) => {
           return (
-            <Link
-              key={link.name}
-              href={link.path}
-              style={{
-                opacity: isCollapsed ? 0 : 1,
-                animationDelay: `${index * 200}ms`,
-              }}
-              className={`${
-                isCollapsed && "absolute -z-10 hidden"
-              } animate__animated animate__faster ${
-                !isCollapsed && "animate__flipInX"
-              } hover:scale-110 active:scale-95 flex gap-3 hover:text-accent-primary hover:scale-110`}
-            >
-              {link.icon}
-              {link.name}
-            </Link>
+            <button onClick={handleMenu} key={link.name}>
+              <Link
+                href={link.path}
+                style={{
+                  opacity: isCollapsed ? 0 : 1,
+                  animationDelay: `${index * 200}ms`,
+                }}
+                className={`${
+                  isCollapsed && "absolute -z-10 hidden"
+                } animate__animated animate__faster ${
+                  !isCollapsed && "animate__flipInX"
+                } hover:scale-110 active:scale-95 flex gap-3 hover:text-accent-primary hover:scale-110`}
+              >
+                {link.icon}
+                {link.name}
+              </Link>
+            </button>
           );
         })}
       </nav>

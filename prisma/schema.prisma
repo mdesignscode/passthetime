@@ -58,3 +58,34 @@ model WinningMatch {
   RockPaperScissor   RockPaperScissor? @relation(fields: [rockPaperScissorId], references: [id])
   rockPaperScissorId Int?
 }
+
+// schema.prisma
+
+model Recipe {
+  id           Int      @id @default(autoincrement())
+  name         String
+  category     String
+  area         String
+  instructions String
+  thumbnail    String
+  tags         String?
+  youtubeUrl   String?
+  source       String?
+
+  ingredients  Ingredient[]
+  measurements Measurement[]
+}
+
+model Ingredient {
+  id    Int    @id @default(autoincrement())
+  name  String
+  recipeId Int
+  recipe Recipe @relation(fields: [recipeId], references: [id])
+}
+
+model Measurement {
+  id    Int    @id @default(autoincrement())
+  name  String
+  recipeId Int
+  recipe Recipe @relation(fields: [recipeId], references: [id])
+}
