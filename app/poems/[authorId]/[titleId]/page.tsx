@@ -1,6 +1,8 @@
 import { PrismaClient } from "@prisma/client";
 import { useMemo } from "react";
 import Header from "./Components/Header";
+import classNames from "classnames";
+import { backgroundLight } from "@/Components/TailwindClasses";
 
 export default async function Page({
   params: { titleId, authorId },
@@ -31,7 +33,12 @@ export default async function Page({
   if (!poem) return "Poem not found";
 
   return (
-    <main className="p-2 gap-2 flex flex-col w-2/3 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-light h-5/6 rounded-lg shadow-lg">
+    <main
+      className={classNames(
+        backgroundLight,
+        "gap-2 flex flex-col w-2/3 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 h-5/6"
+      )}
+    >
       <Header
         {...{
           totalPoems: poems.length,

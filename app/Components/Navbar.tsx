@@ -11,6 +11,8 @@ import "animate.css";
 import AuthorIcon from "./Icons/Author";
 import GameIcon from "./Icons/Game";
 import FoodIcon from "./Icons/Food";
+import classNames from "classnames";
+import { flexCenter } from "./TailwindClasses";
 
 export default function Navbar() {
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -63,9 +65,11 @@ export default function Navbar() {
 
   return (
     <header
-      className={`absolute flex items-center flex-col justify-around gap-0 md:gap-2 md:flex-row left-2 top-2 border-2 transition-all duration-1000 border-accent-primary md:border px-4 py-2 rounded-lg will-change-content ${
-        showLightbox && !isCollapsed ? "z-20" : "z-0"
-      }`}
+      className={classNames(
+        "absolute flex-col gap-0 md:gap-2 md:flex-row left-2 top-2 transition-all duration-1000 border-accent-primary border px-4 py-2 rounded-lg will-change-content",
+        showLightbox && !isCollapsed ? "z-20" : "z-0",
+        flexCenter
+      )}
     >
       <button
         onClick={handleMenu}
@@ -84,9 +88,10 @@ export default function Navbar() {
       </button>
 
       <nav
-        className={`${
-          !isCollapsed && "m-2"
-        } flex flex-col gap-2 justify-center text-2xl text-light`}
+        className={classNames(
+          { "m-2": !isCollapsed, hidden: isCollapsed },
+          "flex flex-col gap-2 justify-center text-2xl text-light"
+        )}
       >
         {navLinks.map((link, index) => {
           return (
@@ -97,11 +102,11 @@ export default function Navbar() {
                   opacity: isCollapsed ? 0 : 1,
                   animationDelay: `${index * 200}ms`,
                 }}
-                className={`${
-                  isCollapsed && "absolute -z-10 hidden"
-                } animate__animated animate__faster ${
-                  !isCollapsed && "animate__flipInX"
-                } hover:scale-110 active:scale-95 flex gap-3 hover:text-accent-primary`}
+                className={classNames(
+                  "animate__animated animate__faster",
+                  { animate__flipInX: !isCollapsed },
+                  "hover:scale-110 active:scale-95 flex gap-3 hover:text-accent-primary"
+                )}
               >
                 {link.icon}
                 {link.name}

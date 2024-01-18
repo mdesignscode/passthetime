@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { GlobalContext } from "@/context/globalContext";
 import { AuthorContext } from "./context";
 import dynamic from "next/dynamic";
+import { buttonPrimary } from "@/Components/TailwindClasses";
 
 const ScaleIn = dynamic(() => import("@/Components/ScaleIn"));
 
@@ -29,11 +30,7 @@ export default function TitleButton({
 
   return (
     <ScaleIn index={index}>
-      <button
-        type="button"
-        className="fruit-button border-2 border-accent-primary p-2 rounded-lg bg-primary hover:-translate-y-1 active:translate-y-0"
-        onClick={handleShowInfo}
-      >
+      <button type="button" className={buttonPrimary} onClick={handleShowInfo}>
         {poem.title}
       </button>
     </ScaleIn>

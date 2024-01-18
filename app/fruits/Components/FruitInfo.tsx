@@ -33,7 +33,7 @@ export default function FruitInfo() {
           transform: "translate(-50%, -50%)",
         }}
         className={classNames(
-          "flex flex-col absolute border-lg top-1/2 left-1/2 gap-2",
+          "flex flex-col absolute top-1/2 left-1/2 gap-2",
           showInfo ? "z-20" : "-z-10"
         )}
       >
