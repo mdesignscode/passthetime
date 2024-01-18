@@ -1,44 +1,35 @@
 "use client";
 
-import {
-  absoluteCenter,
-  buttonHover,
-  buttonPrimary,
-} from "@/Components/TailwindClasses";
+import { absoluteCenter, buttonPrimary } from "@/Components/TailwindClasses";
 import Image from "next/image";
-import ArrowIcon from "@/Components/Icons/Arrow";
 import { TRPSObject } from "./PickAnObject";
 
 interface IShowObjectsProps {
   showObjects: boolean;
   handleHideObjects(): void;
-  currentIndex: number;
-  handlePaginatePrevious(): void;
-  handlePaginateNext(): void;
-  PAGE_COUNT: number;
-  LAST_PAGE: number;
   partialList: TRPSObject[];
   handleSelectObject(object: TRPSObject): void;
   handleStartPlaying(): void;
   playerObject: TRPSObject | null;
+  NextButton: () => JSX.Element;
+  PreviousButton: () => JSX.Element;
 }
 
 export default function ShowObjects({
   showObjects,
   handleHideObjects,
-  currentIndex,
-  handlePaginatePrevious,
-  handlePaginateNext,
-  PAGE_COUNT,
-  LAST_PAGE,
   partialList,
   handleSelectObject,
   handleStartPlaying,
   playerObject,
+  NextButton,
+  PreviousButton,
 }: IShowObjectsProps) {
   return (
     showObjects && (
-      <div className={`z-20 ${absoluteCenter} h-full overflow-y-auto w-full grid p-4 place-items-center`}>
+      <div
+        className={`z-20 ${absoluteCenter} h-full overflow-y-auto w-full grid p-4 place-items-center`}
+      >
         <section className={`w-5/6 md:w-2/3`}>
           <section className="flex gap-4 items-center">
             <button className="grid" type="button" onClick={handleHideObjects}>
@@ -64,15 +55,7 @@ export default function ShowObjects({
             </button>
           </section>
           <section className="border-2 border-light p-4 rounded-lg flex flex-col gap-4 mt-2 items-center">
-            <button
-              className={`${buttonHover} ${
-                !currentIndex && "opacity-50 pointer-events-none"
-              } grid text-light transition-all`}
-              type="button"
-              onClick={handlePaginatePrevious}
-            >
-              <ArrowIcon />
-            </button>
+            <PreviousButton />
             <section className="flex flex-wrap gap-2 items-center justify-center">
               {partialList.map((object) => (
                 <button
@@ -85,16 +68,7 @@ export default function ShowObjects({
                 </button>
               ))}
             </section>
-            <button
-              className={`${buttonHover} ${
-                currentIndex + PAGE_COUNT > LAST_PAGE &&
-                "opacity-50 pointer-events-none"
-              } rotate-180 hover:translate-y-2 grid text-light transition-all`}
-              type="button"
-              onClick={handlePaginateNext}
-            >
-              <ArrowIcon />
-            </button>
+            <NextButton />
           </section>
         </section>
       </div>

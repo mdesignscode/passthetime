@@ -2,19 +2,6 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-interface IRecipe {
-  name: string;
-  category: string;
-  area: string;
-  instructions: string;
-  thumbnail: string;
-  tags: string | null;
-  youtubeUrl: string | null;
-  ingredients: { name: string }[];
-  measurements: { name: string }[];
-  source: string;
-}
-
 async function main() {
   const url = "https://www.themealdb.com/api/json/v1/1/random.php",
     recipes: Record<string, true> = {},
@@ -28,7 +15,6 @@ async function main() {
       recipeModel = {
         youtubeUrl: meal.strYoutube,
         thumbnail: meal.strMealThumb,
-        tags: meal.strTags,
         source: meal.strSource,
         name: meal.strMeal,
         area: meal.strArea,
@@ -48,7 +34,8 @@ async function main() {
         // create ingredients list
         .map(key => ({ name: meal[key] as string }))
         // remove empty keys
-        .filter(obj => !!obj.name)
+        .filter(obj => !!obj.name),
+      tags = meal.strTags ? meal.strTags.split(",").map((tag: string) => ({ name: tag.trim() })) : []
 
     // add record if not a duplicate
     if (!recipes[meal.idMeal])
@@ -60,6 +47,9 @@ async function main() {
           },
           measurements: {
             create: measurements
+          },
+          tags: {
+            create: tags
           }
         }
       }))

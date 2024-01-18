@@ -12,7 +12,8 @@ export default function ScaleIn({
   return (
     <motion.span
       initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index ? index / 60 : 0 }}
     >
       {children}

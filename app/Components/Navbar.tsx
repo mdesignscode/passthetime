@@ -10,6 +10,7 @@ import { GlobalContext } from "@/context/globalContext";
 import "animate.css";
 import AuthorIcon from "./Icons/Author";
 import GameIcon from "./Icons/Game";
+import FoodIcon from "./Icons/Food";
 
 export default function Navbar() {
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -33,6 +34,11 @@ export default function Navbar() {
       path: "/rock-paper-scissors",
       icon: <GameIcon />,
       name: "Rock, Paper, Scissors",
+    },
+    {
+      path: "/recipes",
+      icon: <FoodIcon />,
+      name: "Recipes",
     },
   ];
 
@@ -95,7 +101,7 @@ export default function Navbar() {
                   isCollapsed && "absolute -z-10 hidden"
                 } animate__animated animate__faster ${
                   !isCollapsed && "animate__flipInX"
-                } hover:scale-110 active:scale-95 flex gap-3 hover:text-accent-primary hover:scale-110`}
+                } hover:scale-110 active:scale-95 flex gap-3 hover:text-accent-primary`}
               >
                 {link.icon}
                 {link.name}

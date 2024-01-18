@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { RPSContext } from "./context";
 import ShowObjects from "./ShowObjects";
 import { motion } from "framer-motion";
+import usePaginateList from "@/hooks/paginateList";
 
 export type TRPSObject = {
   winningMatches: {
@@ -26,10 +27,11 @@ export default function PickAnObject({
 }) {
   const [showObjects, setShowObjects] = useState(false),
     PAGE_COUNT = 20,
-    LAST_PAGE = playObjects.length - PAGE_COUNT,
+    { partialList, NextButton, PreviousButton } = usePaginateList<TRPSObject>(
+      playObjects,
+      PAGE_COUNT
+    ),
     { setShowLightbox } = useContext(GlobalContext),
-    [currentIndex, setCurrentIndex] = useState(0),
-    [partialList, setPartialList] = useState(playObjects.slice(0, PAGE_COUNT)),
     { setPlayerObject, playerObject, setPlayState, playState } =
       useContext(RPSContext);
 
@@ -45,32 +47,6 @@ export default function PickAnObject({
   function handleHideObjects() {
     setShowLightbox(false);
     setShowObjects(false);
-  }
-
-  function handlePaginateNext() {
-    setCurrentIndex((state) => {
-      const newIndex = state + PAGE_COUNT,
-        IS_LAST_PAGE = newIndex + PAGE_COUNT > LAST_PAGE;
-
-      setPartialList(
-        playObjects.slice(
-          newIndex,
-          IS_LAST_PAGE ? undefined : newIndex + PAGE_COUNT
-        )
-      );
-
-      return newIndex;
-    });
-  }
-
-  function handlePaginatePrevious() {
-    setCurrentIndex((state) => {
-      const newIndex = state - PAGE_COUNT;
-
-      setPartialList(playObjects.slice(newIndex, state));
-
-      return newIndex;
-    });
   }
 
   function handleStartPlaying() {
@@ -105,15 +81,12 @@ export default function PickAnObject({
 
         <ShowObjects
           {...{
+            NextButton,
+            PreviousButton,
             handleHideObjects,
             handleStartPlaying,
             playerObject,
             showObjects,
-            currentIndex,
-            handlePaginatePrevious,
-            handlePaginateNext,
-            PAGE_COUNT,
-            LAST_PAGE,
             partialList,
             handleSelectObject,
           }}
