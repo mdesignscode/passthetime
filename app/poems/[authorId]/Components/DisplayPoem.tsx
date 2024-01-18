@@ -2,7 +2,6 @@
 
 import { useContext } from "react";
 import { AuthorContext } from "./context";
-import _ from "lodash";
 import Image from "next/image";
 import { GlobalContext } from "@/context/globalContext";
 
@@ -29,7 +28,7 @@ export default function DisplayPoem() {
 
         <div className="bg-light md:text-lg overflow-y-auto rounded-lg p-4">
           {poem.lines.split("\n").map((line) => (
-            <p key={_.uniqueId()}>{line}</p>
+            <p key={line}>{line}</p>
           ))}
         </div>
       </article>

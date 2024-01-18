@@ -1,6 +1,5 @@
 import { PrismaClient } from "@prisma/client";
 import { useMemo } from "react";
-import _ from "lodash";
 import Header from "./Components/Header";
 
 export default async function Page({
@@ -45,7 +44,7 @@ export default async function Page({
       />
       <article className="overflow-auto">
         {poem.lines.split("\n").map((line) => (
-          <p key={_.uniqueId()}>{line}</p>
+          <p key={line}>{line}</p>
         ))}
       </article>
     </main>

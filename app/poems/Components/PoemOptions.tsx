@@ -1,11 +1,12 @@
 "use client";
 
-import ScaleIn from "@/Components/ScaleIn";
-import QueryUrl from "./QueryUrl";
-import SelectAuthor from "./SelectAuthor";
-import SelectRandom from "./SelectRandom";
-import SelectTitle from "./SelectTitle";
+import dynamic from "next/dynamic";
 import { PoemsProvider } from "./context";
+
+const SelectAuthor = dynamic(() => import("./SelectAuthor"));
+const SelectRandom = dynamic(() => import("./SelectRandom"));
+const SelectTitle = dynamic(() => import("./SelectTitle"));
+const QueryUrl = dynamic(() => import("./QueryUrl"));
 
 type TAuthor = {
   id: number;
@@ -32,41 +33,29 @@ interface IPoemOptionsProps {
 export default function PoemOptions({ poems, authors }: IPoemOptionsProps) {
   return (
     <PoemsProvider>
-      <ScaleIn>
-        <section className="flex m-auto flex-col w-11/12 md:w-2/3 p-4 gap-4 border-2 border-dark rounded-lg">
-          <p className="font-bold">
-            Select one of 3 options below to view poems
-          </p>
+      <section className="flex m-auto flex-col w-11/12 md:w-2/3 p-4 gap-4 border-2 border-dark rounded-lg">
+        <p className="font-bold">Select one of 3 options below to view poems</p>
 
-          <ScaleIn index={1}>
-            <SelectAuthor
-              authors={authors.map((author) => ({
-                name: author.name,
-                id: author.id,
-              }))}
-            />
-          </ScaleIn>
+        <SelectAuthor
+          authors={authors.map((author) => ({
+            name: author.name,
+            id: author.id,
+          }))}
+        />
 
-          <ScaleIn index={2}>
-            <SelectTitle
-              titles={Object.values(poems).map((poem) => ({
-                author: poem.Author?.name,
-                authorId: poem.Author?.id,
-                title: poem.title,
-                titleId: poem.id,
-              }))}
-            />
-          </ScaleIn>
+        <SelectTitle
+          titles={Object.values(poems).map((poem) => ({
+            author: poem.Author?.name,
+            authorId: poem.Author?.id,
+            title: poem.title,
+            titleId: poem.id,
+          }))}
+        />
 
-          <ScaleIn index={3}>
-            <SelectRandom />
-          </ScaleIn>
+        <SelectRandom />
 
-          <ScaleIn index={4}>
-            <QueryUrl />
-          </ScaleIn>
-        </section>
-      </ScaleIn>
+        <QueryUrl />
+      </section>
     </PoemsProvider>
   );
 }

@@ -1,13 +1,13 @@
 "use client";
 
 import { Dispatch, SetStateAction, createContext, useState } from "react";
-import IFruit from "./fruitInterface";
+import { TFruit } from "./RenderFruits";
 
 export interface IFruitContext {
   showInfo: boolean;
   setShowInfo: Dispatch<SetStateAction<boolean>>;
-  fruit: IFruit | null;
-  setFruit: Dispatch<SetStateAction<IFruit | null>>;
+  fruit: TFruit | null;
+  setFruit: Dispatch<SetStateAction<TFruit | null>>;
 }
 
 export const initialFruitContext: IFruitContext = {
@@ -22,7 +22,7 @@ export const FruitContext = createContext<IFruitContext>(initialFruitContext);
 export function FruitProvider({ children }: { children: React.ReactNode }) {
   // Fruit state
   const [showInfo, setShowInfo] = useState(false);
-  const [fruit, setFruit] = useState<IFruit | null>(null);
+  const [fruit, setFruit] = useState<TFruit | null>(null);
 
   // store object
   const store: IFruitContext = { showInfo, setShowInfo, fruit, setFruit };

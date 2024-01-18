@@ -5,14 +5,14 @@ import { GlobalContext } from "@/context/globalContext";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { FruitContext } from "./context";
-import IFruit from "./fruitInterface";
 import ScaleIn from "@/Components/ScaleIn";
+import { TFruit } from "./RenderFruits";
 
 export default function FruitButton({
   fruit,
   index,
 }: {
-  fruit: IFruit;
+  fruit: TFruit;
   index: number;
 }) {
   const { setShowInfo, setFruit } = useContext(FruitContext);

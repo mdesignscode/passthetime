@@ -3,7 +3,9 @@
 import { useContext } from "react";
 import { GlobalContext } from "@/context/globalContext";
 import { AuthorContext } from "./context";
-import ScaleIn from "@/Components/ScaleIn";
+import dynamic from "next/dynamic";
+
+const ScaleIn = dynamic(() => import("@/Components/ScaleIn"));
 
 interface IPoem {
   title: string;

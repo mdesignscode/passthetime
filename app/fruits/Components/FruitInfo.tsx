@@ -44,7 +44,7 @@ export default function FruitInfo() {
           />
         </button>
 
-        <div className="flex flex-col md:flex-row gap-2 md:gap-6 bg-light gap-4 rounded-lg px-6 py-4 md:text-lg">
+        <div className="flex flex-col md:flex-row md:gap-6 bg-light gap-4 rounded-lg px-6 py-4 md:text-lg">
           <div>
             <h1 className="font-bold">General information</h1>
             <div className="flex gap-4">

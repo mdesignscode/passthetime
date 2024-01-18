@@ -4,9 +4,11 @@ import { buttonPrimary } from "@/Components/TailwindClasses";
 import { GlobalContext } from "@/context/globalContext";
 import { useContext, useState } from "react";
 import { RPSContext } from "./context";
-import ShowObjects from "./ShowObjects";
 import { motion } from "framer-motion";
 import usePaginateList from "@/hooks/paginateList";
+import dynamic from "next/dynamic";
+
+const ShowObjects = dynamic(() => import("./ShowObjects"));
 
 export type TRPSObject = {
   winningMatches: {
@@ -79,7 +81,7 @@ export default function PickAnObject({
           Play
         </button>
 
-        <ShowObjects
+        {showObjects && <ShowObjects
           {...{
             NextButton,
             PreviousButton,
@@ -90,7 +92,7 @@ export default function PickAnObject({
             partialList,
             handleSelectObject,
           }}
-        />
+        />}
       </motion.section>
     )
   );

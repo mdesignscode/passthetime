@@ -1,7 +1,6 @@
 "use client";
 
 import DiceIcon from "@/Components/Icons/Dice";
-import _ from "lodash";
 import { useState } from "react";
 
 interface IRandomPoemProps {
@@ -47,7 +46,7 @@ export default function RandomPoem({ poems, initialIndex }: IRandomPoemProps) {
         </h2>
         <section className="p-2">
           {currentPoem.lines.split("\n").map((line) => (
-            <p key={_.uniqueId()}>{line}</p>
+            <p key={line}>{line}</p>
           ))}
         </section>
       </article>

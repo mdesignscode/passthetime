@@ -1,11 +1,13 @@
 import { PrismaClient } from "@prisma/client";
 import { useMemo } from "react";
-import PickAnObject from "./Components/PickAnObject";
 import { RPSProvider } from "./Components/context";
 import { mainElement } from "@/Components/TailwindClasses";
-import PlayStats from "./Components/PlayStats";
-import Playing from "./Components/Playing";
-import ShowResult from "./Components/ShowResult";
+import dynamic from "next/dynamic";
+
+const PickAnObject = dynamic(() => import("./Components/PickAnObject"));
+const PlayStats = dynamic(() => import("./Components/PlayStats"));
+const Playing = dynamic(() => import("./Components/Playing"));
+const ShowResult = dynamic(() => import("./Components/ShowResult"));
 
 export default async function Page() {
   const prisma = useMemo(() => new PrismaClient(), []),

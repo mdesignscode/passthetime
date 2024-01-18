@@ -4,7 +4,13 @@ import { borderStyle, buttonDisabled } from "@/Components/TailwindClasses";
 import usePaginateList from "@/hooks/paginateList";
 import { Prisma } from "@prisma/client";
 import { MouseEvent, useState } from "react";
-import RecipeButton, { TRecipe } from "./RecipeButton";
+import { TRecipe } from "./RecipeButton";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import ArrowIcon from "@/Components/Icons/Arrow";
+
+const RecipeButton = dynamic(() => import("./RecipeButton"));
+const ScaleIn = dynamic(() => import("@/Components/ScaleIn"), { ssr: false });
 
 export default function DisplayAllRecipes({
   recipes,
@@ -122,7 +128,10 @@ export default function DisplayAllRecipes({
         </section>
       </section>
 
-      <section className="w-5/6 flex flex-col items-center gap-4">
+      <section
+        id="recipesList"
+        className="w-5/6 flex flex-col items-center gap-4"
+      >
         {/* list of recipes */}
         <section className="flex flex-col md:flex-row md:flex-wrap md:items-center md:justify-center gap-4">
           {partialList.map((recipe, index) => (
@@ -131,21 +140,35 @@ export default function DisplayAllRecipes({
         </section>
 
         {/* paginate section */}
-        <section className="flex gap-4 text-lg items-center">
-          <span className="-rotate-90">
-            <PreviousButton />
-          </span>
-          <p>
-            Page {pageIndex} of {totalPages}
-          </p>
-          <span
-            className={`${
-              pageIndex >= totalPages && buttonDisabled
-            } -rotate-90`}
-          >
-            <NextButton />
-          </span>
-        </section>
+        <ScaleIn>
+          <section className="flex gap-4 text-lg items-center">
+            <Link href="/recipes#recipesList" className="-rotate-90">
+              <PreviousButton />
+            </Link>
+            <p>
+              Page {pageIndex} of {totalPages}
+            </p>
+            <Link
+              href="/recipes#recipesList"
+              className={`${
+                pageIndex >= totalPages && buttonDisabled
+              } -rotate-90`}
+            >
+              <NextButton />
+            </Link>
+
+            <button
+              onClick={() =>
+                document
+                  .querySelector("main")
+                  ?.scrollTo({ top: 0, behavior: "smooth" })
+              }
+              className="text-light animate__shakeY animate__animated"
+            >
+              <ArrowIcon />
+            </button>
+          </section>
+        </ScaleIn>
       </section>
     </section>
   );

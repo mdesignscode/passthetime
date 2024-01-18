@@ -1,8 +1,10 @@
 import { PrismaClient } from "@prisma/client";
 import { useMemo } from "react";
 import { AuthorProvider } from "./Components/context";
-import TitleButton from "./Components/TitleButton";
-import DisplayPoem from "./Components/DisplayPoem";
+import dynamic from "next/dynamic";
+
+const TitleButton = dynamic(() => import("./Components/TitleButton"));
+const DisplayPoem = dynamic(() => import("./Components/DisplayPoem"));
 
 export default async function Page({
   params: { authorId },

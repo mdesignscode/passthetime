@@ -1,9 +1,8 @@
 import { useMemo } from "react";
-import FruitButton from "./Components/FruitButton";
 import { PrismaClient } from "@prisma/client";
 import { FruitProvider } from "./Components/context";
-import FruitInfo from "./Components/FruitInfo";
 import { mainElement } from "@/Components/TailwindClasses";
+import RenderFruits from "./Components/RenderFruits";
 
 export default async function Page() {
   const prisma = useMemo(() => new PrismaClient(), []);
@@ -26,13 +25,7 @@ export default async function Page() {
           fruit for every palate.
         </p>
 
-        <section className="flex gap-4 flex-wrap w-10/12 mx-auto items-center justify-center p-4 md:flex-none flex-1">
-          {fruits.map((fruit, index) => (
-            <FruitButton index={index} key={fruit.id} fruit={{ ...fruit }} />
-          ))}
-        </section>
-
-        <FruitInfo />
+        <RenderFruits fruits={fruits} />
       </main>
     </FruitProvider>
   );

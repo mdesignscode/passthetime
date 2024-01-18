@@ -1,7 +1,6 @@
 import { backgroundLight, mainElement } from "@/Components/TailwindClasses";
 import { PrismaClient } from "@prisma/client";
 import { useMemo } from "react";
-import _ from "lodash";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -77,7 +76,7 @@ export default async function Page({
                 .split(".")
                 .filter(Boolean)
                 .map((instruction) => (
-                  <li key={_.uniqueId()}>{instruction}</li>
+                  <li key={instruction}>{instruction}</li>
                 ))}
             </ol>
           </section>
