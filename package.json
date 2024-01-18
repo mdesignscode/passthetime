@@ -12,6 +12,7 @@
     "@next/bundle-analyzer": "^14.0.4",
     "@prisma/client": "^5.8.1",
     "animate.css": "^4.1.1",
+    "classnames": "^2.5.1",
     "framer-motion": "^10.17.12",
     "next": "14.0.4",
     "react": "^18",

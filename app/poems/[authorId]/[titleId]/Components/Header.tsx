@@ -1,5 +1,6 @@
 "use client";
 
+import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -30,13 +31,13 @@ export default function Header({
   return (
     <section className="flex justify-between border-b-2 sticky top-0 rounded-t-lg bg-light border-dark items-center pb-2">
       <Link
-        className={`${poemIndex === 1 && "pointer-events-none"}`}
+        className={classNames({ "pointer-events-none": poemIndex === 1 })}
         href={previousPoemLink}
       >
         <Image
-          className={`transition-all rotate-180 md:w-7 md:h-7 ${
-            poemIndex === 1 && "opacity-50"
-          }`}
+          className={classNames("transition-all rotate-180 md:w-7 md:h-7", {
+            "opacity-50": poemIndex === 1,
+          })}
           src="/icons/next-svgrepo-com.svg"
           alt="Previous poem"
           width={20}
@@ -47,13 +48,15 @@ export default function Header({
       <h1 className="font-bold md:text-xl text-center">{title}</h1>
 
       <Link
-        className={`${poemIndex === totalPoems && "pointer-events-none"}`}
+        className={classNames({
+          "pointer-events-none": poemIndex === totalPoems,
+        })}
         href={nextPoemLink}
       >
         <Image
-          className={`md:w-7 md:h-7 ${
-            poemIndex === totalPoems && "opacity-50"
-          }`}
+          className={classNames("md:w-7 md:h-7", {
+            "opacity-50": poemIndex === totalPoems,
+          })}
           src="/icons/next-svgrepo-com.svg"
           alt="Previous poem"
           width={20}

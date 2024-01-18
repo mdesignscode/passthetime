@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { GlobalContext } from "@/context/globalContext";
 import Image from "next/image";
 import { FruitContext } from "./context";
+import classNames from "classnames";
 
 export default function FruitInfo() {
   const { setShowInfo, showInfo, fruit } = useContext(FruitContext);
@@ -31,9 +32,10 @@ export default function FruitInfo() {
           transition: "opacity ease-in-out 1s 150ms",
           transform: "translate(-50%, -50%)",
         }}
-        className={`flex flex-col absolute border-lg top-1/2 left-1/2 gap-2 ${
+        className={classNames(
+          "flex flex-col absolute border-lg top-1/2 left-1/2 gap-2",
           showInfo ? "z-20" : "-z-10"
-        }`}
+        )}
       >
         <button className="self-start" type="button" onClick={handleHideInfo}>
           <Image

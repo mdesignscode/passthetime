@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import { FruitProvider } from "./Components/context";
 import { mainElement } from "@/Components/TailwindClasses";
 import RenderFruits from "./Components/RenderFruits";
+import classNames from "classnames";
 
 export default async function Page() {
   const prisma = useMemo(() => new PrismaClient(), []);
@@ -13,10 +14,8 @@ export default async function Page() {
   });
   return (
     <FruitProvider>
-      <main className={`${mainElement} overflow-y-auto`}>
-        <h1 className="font-bold text-xl md:text-2xl">
-          🍓🏝 Fruit Island 🏝🍓
-        </h1>
+      <main className={classNames(mainElement, "overflow-y-auto")}>
+        <h1 className="font-bold text-xl md:text-2xl">🍓🏝 Fruit Island 🏝🍓</h1>
 
         <p className="text-lg text-center w-8/12 md:text-xl">
           Dive into a fruity adventure like never before as we unravel the

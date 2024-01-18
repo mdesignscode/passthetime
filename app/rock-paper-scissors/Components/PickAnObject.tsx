@@ -1,12 +1,13 @@
 "use client";
 
-import { buttonPrimary } from "@/Components/TailwindClasses";
+import { buttonDisabled, buttonPrimary } from "@/Components/TailwindClasses";
 import { GlobalContext } from "@/context/globalContext";
 import { useContext, useState } from "react";
 import { RPSContext } from "./context";
 import { motion } from "framer-motion";
 import usePaginateList from "@/hooks/paginateList";
 import dynamic from "next/dynamic";
+import classNames from "classnames";
 
 const ShowObjects = dynamic(() => import("./ShowObjects"));
 
@@ -64,7 +65,7 @@ export default function PickAnObject({
         className="flex flex-col gap-4"
       >
         <button
-          className={`${buttonPrimary} text-xl`}
+          className={classNames(buttonPrimary, "text-xl")}
           type="button"
           onClick={handleShowObjects}
         >
@@ -72,27 +73,31 @@ export default function PickAnObject({
         </button>
 
         <button
-          className={`${buttonPrimary} ${
-            !playerObject && "opacity-50 pointer-events-none"
-          } tracking-widest uppercase text-xl`}
+          className={classNames(
+            buttonPrimary,
+            { [buttonDisabled]: !playerObject },
+            "tracking-widest uppercase text-xl"
+          )}
           type="button"
           onClick={handleStartPlaying}
         >
           Play
         </button>
 
-        {showObjects && <ShowObjects
-          {...{
-            NextButton,
-            PreviousButton,
-            handleHideObjects,
-            handleStartPlaying,
-            playerObject,
-            showObjects,
-            partialList,
-            handleSelectObject,
-          }}
-        />}
+        {showObjects && (
+          <ShowObjects
+            {...{
+              NextButton,
+              PreviousButton,
+              handleHideObjects,
+              handleStartPlaying,
+              playerObject,
+              showObjects,
+              partialList,
+              handleSelectObject,
+            }}
+          />
+        )}
       </motion.section>
     )
   );

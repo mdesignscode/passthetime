@@ -8,6 +8,7 @@ import { TRecipe } from "./RecipeButton";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import ArrowIcon from "@/Components/Icons/Arrow";
+import classNames from "classnames";
 
 const RecipeButton = dynamic(() => import("./RecipeButton"));
 const ScaleIn = dynamic(() => import("@/Components/ScaleIn"), { ssr: false });
@@ -150,9 +151,10 @@ export default function DisplayAllRecipes({
             </p>
             <Link
               href="/recipes#recipesList"
-              className={`${
-                pageIndex >= totalPages && buttonDisabled
-              } -rotate-90`}
+              className={classNames(
+                { [buttonDisabled]: pageIndex >= totalPages },
+                "-rotate-90"
+              )}
             >
               <NextButton />
             </Link>

@@ -3,6 +3,7 @@
 import { absoluteCenter, buttonPrimary } from "@/Components/TailwindClasses";
 import Image from "next/image";
 import { TRPSObject } from "./PickAnObject";
+import classNames from "classnames";
 
 interface IShowObjectsProps {
   showObjects: boolean;
@@ -28,9 +29,12 @@ export default function ShowObjects({
   return (
     showObjects && (
       <div
-        className={`z-20 ${absoluteCenter} h-full overflow-y-auto w-full grid p-4 place-items-center`}
+        className={classNames(
+          "z-20 h-full overflow-y-auto w-full grid p-4 place-items-center",
+          absoluteCenter
+        )}
       >
-        <section className={`w-5/6 md:w-2/3`}>
+        <section className="w-5/6 md:w-2/3">
           <section className="flex gap-4 items-center">
             <button className="grid" type="button" onClick={handleHideObjects}>
               <Image
@@ -42,9 +46,11 @@ export default function ShowObjects({
               />
             </button>
             <button
-              className={`${buttonPrimary} ${
-                !playerObject && "opacity-50 pointer-events-none"
-              } tracking-widest uppercase text-xl`}
+              className={classNames(
+                buttonPrimary,
+                { [buttonPrimary]: !playerObject },
+                "tracking-widest uppercase text-xl"
+              )}
               type="button"
               onClick={() => {
                 handleStartPlaying();
