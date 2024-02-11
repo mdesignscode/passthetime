@@ -27,6 +27,7 @@ export default function FruitInfo() {
   return (
     showInfo && (
       <article
+        id="fruit-info"
         style={{
           opacity: showInfo ? 1 : 0,
           transition: "opacity ease-in-out 1s 150ms",
@@ -37,7 +38,13 @@ export default function FruitInfo() {
           showInfo ? "z-20" : "-z-10"
         )}
       >
-        <button className="self-start" type="button" onClick={handleHideInfo}>
+        <button
+          aria-controls="fruit-info"
+          aria-label={`Hide ${fruit?.name} information`}
+          className="self-start close-button"
+          type="button"
+          onClick={handleHideInfo}
+        >
           <Image
             src="/icons/close-circle-svgrepo-com.svg"
             alt="Hide fruit info"

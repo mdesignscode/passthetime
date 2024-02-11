@@ -29,22 +29,24 @@ export default function RandomPoem({ poems, initialIndex }: IRandomPoemProps) {
 
   return (
     <main className="flex flex-col h-full items-center gap-4 p-4">
-      <section className="flex border-b-2 border-dark items-center gap-4">
+      <section role="secondary navigation" className="flex border-b-2 border-dark items-center gap-4">
         <h1 className="text-lg font-bold md:text-2xl">📜🖋 A Random Poem 🖋📜</h1>
         <button
           className="hover:text-light transition-all hover:scale-110 active:scale-95"
           type="button"
+          aria-label="Shuffle poem"
+          aria-controls="poem"
           onClick={handleRandomPoem}
         >
           <DiceIcon />
         </button>
       </section>
 
-      <article className="h-3/4 shadow-lg px-2 w-8/12 bg-light flex flex-col overflow-auto rounded-lg">
-        <h2 className="font-bold border-b-2 border-dark p-2 sticky top-0 bg-light rounded-t-lg text-center">
+      <article id="poem" className="h-3/4 shadow-lg px-2 w-8/12 bg-light flex flex-col overflow-auto rounded-lg">
+        <h2 aria-label="Poem title" className="font-bold border-b-2 border-dark p-2 sticky top-0 bg-light rounded-t-lg text-center">
           {currentPoem.title} by {currentPoem.Author?.name}
         </h2>
-        <section className="p-2">
+        <section aria-label="Poem content" className="p-2">
           {currentPoem.lines.split("\n").map((line) => (
             <p key={line}>{line}</p>
           ))}

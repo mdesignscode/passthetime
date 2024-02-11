@@ -1,7 +1,8 @@
 "use client";
 
 import ArrowIcon from "@/Components/Icons/Arrow";
-import { buttonHover } from "@/Components/TailwindClasses";
+import { buttonDisabled, buttonHover } from "@/Components/TailwindClasses";
+import classNames from "classnames";
 import { Dispatch, SetStateAction, useState } from "react";
 
 interface IPaginateList<TDataType> {
@@ -54,9 +55,15 @@ export default function usePaginateList<TDataType>(
 
   const PreviousButton = () => (
       <button
-        className={`${buttonHover} ${
-          !currentIndex && "opacity-50 pointer-events-none"
-        } grid text-light transition-all`}
+        aria-label="Show previous items in list"
+        disabled={!currentIndex}
+        className={classNames(
+          buttonHover,
+          {
+            [buttonDisabled]: !currentIndex,
+          },
+          "grid text-light transition-all"
+        )}
         type="button"
         onClick={handlePaginatePrevious}
       >
@@ -65,10 +72,14 @@ export default function usePaginateList<TDataType>(
     ),
     NextButton = () => (
       <button
-        className={`${buttonHover} ${
-          currentIndex + PAGE_COUNT > LAST_PAGE &&
-          "opacity-50 pointer-events-none"
-        } rotate-180 hover:translate-y-2 grid text-light transition-all`}
+        aria-label="Show next items in list"
+        className={classNames(
+          buttonHover,
+          {
+            [buttonDisabled]: currentIndex + PAGE_COUNT > LAST_PAGE,
+          },
+          "rotate-180 hover:translate-y-2 grid text-light transition-all"
+        )}
         type="button"
         onClick={handlePaginateNext}
       >

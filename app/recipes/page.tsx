@@ -22,7 +22,7 @@ export default async function Page() {
     })
 
   return (
-    <main className={`${mainElement} overflow-y-auto`}>
+    <main aria-label="View recipes" className={`${mainElement} overflow-y-auto`}>
       <h1 className="font-bold text-xl md:text-2xl">
         🧆🍢 Delightful Delicacies 🍢🧆
       </h1>

@@ -7,8 +7,11 @@ export default function PlayStats() {
   const { playerObject, score } = useContext(RPSContext);
 
   return (
-    <section className="text-lg min-w-60 border-2 border-dark rounded-lg p-2">
-      <section>
+    <section
+      aria-label="Play details"
+      className="text-lg min-w-60 border-2 border-dark rounded-lg p-2"
+    >
+      <section aria-label="Score section">
         <strong>Score</strong>
         <div className="flex justify-between">
           <p>
@@ -20,7 +23,7 @@ export default function PlayStats() {
           </p>
         </div>
       </section>
-      <p>Your object: {playerObject?.name || "Not selected yet"}</p>
+      <p aria-label="Player selected object">Your object: {playerObject?.name || "Not selected yet"}</p>
     </section>
   );
 }

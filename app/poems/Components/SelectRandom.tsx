@@ -7,7 +7,10 @@ export default function SelectRandom() {
   const { setQueryUrl } = useContext(PoemsContext);
 
   function handleRandomOption() {
-    setQueryUrl(`/poems/random`);
+    setQueryUrl({
+      url: "/poems/random",
+      text: "Explore random poems"
+    });
   }
 
   return (

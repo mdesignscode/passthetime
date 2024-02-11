@@ -16,9 +16,12 @@ export default function SelectAuthor({
     { setQueryUrl } = useContext(PoemsContext);
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const authorId = event.target.value;
-    setSelectedOption(authorId);
-    setQueryUrl(`/poems/${authorId}`);
+    const { authorId, author } = JSON.parse(event.target.value);
+    setSelectedOption(event.target.value);
+    setQueryUrl({
+      url: `/poems/${authorId}`,
+      text: `View poems by ${author}`
+    });
   };
 
   return (
@@ -34,7 +37,14 @@ export default function SelectAuthor({
       >
         <option value="">Select author...</option>
         {authors.map((author) => (
-          <option key={author.id} value={author.id}>
+          <option
+            value={JSON.stringify({
+              author: author.name,
+              authorId: author.id,
+            })}
+            key={author.id}
+            data-author={author.name}
+          >
             {author.name}
           </option>
         ))}

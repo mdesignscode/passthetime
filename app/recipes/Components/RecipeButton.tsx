@@ -40,6 +40,7 @@ export default function RecipeButton({
   return (
     <ScaleIn index={index}>
       <Link
+        aria-label={`View ${recipe.name}`}
         href={`/recipes/${recipe.id}`}
         className={`${backgroundLight} flex gap-2 flex-col ${buttonHover}`}
       >

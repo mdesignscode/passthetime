@@ -30,6 +30,8 @@ export default function FruitButton({
         type="button"
         className={buttonPrimary}
         onClick={handleShowInfo}
+        aria-controls="fruit-info"
+        aria-label={`Show ${fruit.name} information`}
       >
         {fruit.name}
       </motion.button>

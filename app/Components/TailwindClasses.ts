@@ -8,7 +8,7 @@ export const absoluteCenter = "absolute top-1/2 left-1/2 -translate-y-1/2 -trans
 
 export const borderStyle = "border-dark border-2 p-4 rounded-lg" as const
 
-export const buttonDisabled = "pointer-events-none opacity-50" as const
+export const buttonDisabled = "opacity-50 cursor-not-allowed" as const
 
 export const backgroundLight = "bg-light p-4 rounded-lg shadow-lg" as const
 

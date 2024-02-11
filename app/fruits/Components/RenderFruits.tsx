@@ -37,6 +37,7 @@ export default function RenderFruits({ fruits }: { fruits: TFruit[] }) {
           "gap-4 flex-wrap w-10/12 mx-auto p-4 md:flex-none flex-1",
           flexCenter
         )}
+        aria-label="Fruits list"
       >
         {fruits.map((fruit, index) => (
           <FruitButton index={index} key={fruit.id} fruit={{ ...fruit }} />

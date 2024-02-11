@@ -80,16 +80,22 @@ export default function DisplayAllRecipes({
       {/* filter by tags */}
       <section
         className={`${borderStyle} flex flex-col gap-2 items-center w-5/6`}
+        aria-label="Filter recipes"
       >
         <p>Filter recipes by tags</p>
 
-        <section className="flex gap-2 flex-wrap justify-center">
+        <section
+          aria-label="All tags"
+          className="flex gap-2 flex-wrap justify-center"
+        >
           {tags.slice(0, tagCount).map((tag) => (
             <button
               onClick={handleFilterByTags}
               className="hover:text-gray-600"
               key={tag.name}
               value={tag.name}
+              aria-label={`Show recipes by ${tag.name}`}
+              aria-controls="recipesList"
             >
               #{tag.name}
             </button>
@@ -98,20 +104,28 @@ export default function DisplayAllRecipes({
 
         <section className="flex gap-4">
           <button
+            disabled={tagCount === TAG_COUNT}
             type="button"
             onClick={handleShowLessTags}
-            className={`${
-              tagCount === TAG_COUNT && buttonDisabled
-            } font-bold hover:text-gray-600`}
+            className={classNames(
+              {
+                [buttonDisabled]: tagCount === TAG_COUNT,
+              },
+              "font-bold hover:text-gray-600"
+            )}
           >
             Show less tags
           </button>
 
           <button
             type="button"
-            className={`${
-              tagCount >= tags.length && buttonDisabled
-            } font-bold hover:text-gray-600`}
+            disabled={tagCount >= tags.length}
+            className={classNames(
+              {
+                [buttonDisabled]: tagCount >= tags.length,
+              },
+              "font-bold hover:text-gray-600"
+            )}
             onClick={handleShowMoreTags}
           >
             Show more tags
@@ -119,9 +133,10 @@ export default function DisplayAllRecipes({
 
           <button
             type="button"
-            className={`${
-              totalPages > 1 && buttonDisabled
-            } font-bold hover:text-gray-600`}
+            disabled={totalPages > 1}
+            className={classNames({
+              [buttonDisabled]: totalPages > 1
+            }, "font-bold hover:text-gray-600")}
             onClick={clearTag}
           >
             Clear tag
@@ -130,6 +145,7 @@ export default function DisplayAllRecipes({
       </section>
 
       <section
+        aria-label="All recipes"
         id="recipesList"
         className="w-5/6 flex flex-col items-center gap-4"
       >
@@ -142,7 +158,10 @@ export default function DisplayAllRecipes({
 
         {/* paginate section */}
         <ScaleIn>
-          <section className="flex gap-4 text-lg items-center">
+          <section
+            aria-label="Paginate recipes"
+            className="flex gap-4 text-lg items-center"
+          >
             <Link href="/recipes#recipesList" className="-rotate-90">
               <PreviousButton />
             </Link>
@@ -160,6 +179,7 @@ export default function DisplayAllRecipes({
             </Link>
 
             <button
+              aria-label="Scroll to top"
               onClick={() =>
                 document
                   .querySelector("main")

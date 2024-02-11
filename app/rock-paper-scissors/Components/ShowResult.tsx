@@ -62,9 +62,10 @@ export default function ShowResult() {
         initial={{ scale: 0.5, opacity: 0 }}
         transition={{ duration: 0.5 }}
         animate={{ scale: 1, opacity: 100 }}
+        aria-label="Play results"
       >
-        <p>{!outComeAction ? "Draw" : playerWon ? "You Won" : "You Lost"}</p>
-        <p className="underline">
+        <p aria-label="Player result">{!outComeAction ? "Draw" : playerWon ? "You Won" : "You Lost"}</p>
+        <p aria-label="Winning outcome" className="underline">
           {playerWon ? playerObject?.name : computerObject?.name}{" "}
           {outComeAction}{" "}
           {outComeAction && !playerWon

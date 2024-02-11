@@ -30,7 +30,12 @@ export default function TitleButton({
 
   return (
     <ScaleIn index={index}>
-      <button type="button" className={buttonPrimary} onClick={handleShowInfo}>
+      <button
+        aria-label={`Show ${poem?.title} content`}
+        type="button"
+        className={buttonPrimary}
+        onClick={handleShowInfo}
+      >
         {poem.title}
       </button>
     </ScaleIn>

@@ -14,15 +14,20 @@ export default function SelectTitle({ titles }: { titles: ITitle[] }) {
     { setQueryUrl } = useContext(PoemsContext);
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const { authorId, titleId } = JSON.parse(event.target.value);
+    const { authorId, titleId, title } = JSON.parse(event.target.value);
 
     setSelectedOption(event.target.value);
-    setQueryUrl(`/poems/${authorId}/${titleId}`);
+    setQueryUrl({
+      url: `/poems/${authorId}/${titleId}`,
+      text: `View ${title}`,
+    });
   };
 
   return (
     <div className="flex flex-col border-2 border-dark p-2 gap-2 rounded-lg">
-      <label className="text-lg" htmlFor="author">Get poems by Title</label>
+      <label className="text-lg" htmlFor="title">
+        Get poems by Title
+      </label>
       <select
         id="author"
         value={selectedOption}
@@ -36,6 +41,7 @@ export default function SelectTitle({ titles }: { titles: ITitle[] }) {
             value={JSON.stringify({
               titleId: title.titleId,
               authorId: title.authorId,
+              title: title.title,
             })}
           >
             {`${title.title} By ${title.author || "Unknown"}`}

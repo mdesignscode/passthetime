@@ -3,12 +3,23 @@
 import { Dispatch, SetStateAction, createContext, useState } from "react";
 
 export interface IPoemsContext {
-  queryUrl: string;
-  setQueryUrl: Dispatch<SetStateAction<string>>;
+  queryUrl: {
+    url: string;
+    text: string;
+  };
+  setQueryUrl: Dispatch<
+    SetStateAction<{
+      url: string;
+      text: string;
+    }>
+  >;
 }
 
 export const initialPoemsContext: IPoemsContext = {
-  queryUrl: "",
+  queryUrl: {
+    url: "",
+    text: "Pick an option to explore poems",
+  },
   setQueryUrl: () => {},
 };
 
@@ -16,7 +27,10 @@ export const PoemsContext = createContext<IPoemsContext>(initialPoemsContext);
 
 export function PoemsProvider({ children }: { children: React.ReactNode }) {
   // Poems state
-  const [queryUrl, setQueryUrl] = useState("");
+  const [queryUrl, setQueryUrl] = useState({
+    url: "",
+    text: "Pick an option to explore poems"
+  })
 
   // store object
   const store: IPoemsContext = { queryUrl, setQueryUrl };

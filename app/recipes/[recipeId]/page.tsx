@@ -38,10 +38,11 @@ export default async function Page({
         </h1>
 
         <section
-          className={`${backgroundLight} overflow-y-auto flex-1 flex flex-col gap-4`}
+          aria-label="Recipe details"
+          className={`${backgroundLight} overflow-y-auto flex-1 flex flex-col gap-4 focusable`}
         >
           {/* ingredients section */}
-          <section>
+          <section aria-label="Recipe ingredients">
             <strong>Ingredients</strong>
 
             <section className="flex gap-8 mt-2">
@@ -69,7 +70,7 @@ export default async function Page({
           </section>
 
           {/* instructions section */}
-          <section>
+          <section aria-label="Recipe instructions">
             <strong>Instructions</strong>
             <ol className="list-decimal list-inside">
               {recipe.instructions
@@ -81,7 +82,10 @@ export default async function Page({
             </ol>
           </section>
 
-          <section className="flex flex-col gap-2">
+          <section
+            className="flex flex-col gap-2"
+            aria-label="More resources for recipe"
+          >
             {recipe.source && (
               <cite className="text-gray-600">
                 Read more at{" "}

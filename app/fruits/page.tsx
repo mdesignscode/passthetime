@@ -14,7 +14,7 @@ export default async function Page() {
   });
   return (
     <FruitProvider>
-      <main className={classNames(mainElement, "overflow-y-auto")}>
+      <main aria-label="Fruits page" className={classNames(mainElement, "overflow-y-auto")}>
         <h1 className="font-bold text-xl md:text-2xl">🍓🏝 Fruit Island 🏝🍓</h1>
 
         <p className="text-lg text-center w-8/12 md:text-xl">

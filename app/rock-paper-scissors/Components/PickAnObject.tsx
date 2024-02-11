@@ -63,16 +63,26 @@ export default function PickAnObject({
         transition={{ duration: 0.5 }}
         animate={{ scale: 1, opacity: 100 }}
         className="flex flex-col gap-4"
+        aria-label="Play options"
       >
         <button
           className={classNames(buttonPrimary, "text-xl")}
           type="button"
           onClick={handleShowObjects}
+          aria-label="Show all objects"
+          aria-controls="all-objects"
+          aria-disabled={showObjects}
         >
           Pick an object to play with
         </button>
 
         <button
+          aria-label={
+            playerObject
+              ? `Play with ${playerObject?.name}`
+              : "Pick an object to play with"
+          }
+          disabled={!playerObject}
           className={classNames(
             buttonPrimary,
             { [buttonDisabled]: !playerObject },
