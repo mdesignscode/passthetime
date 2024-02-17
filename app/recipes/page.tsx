@@ -1,15 +1,13 @@
 import { mainElement } from "@/Components/TailwindClasses";
-import { PrismaClient } from "@prisma/client";
-import { useMemo } from "react";
+import prisma from "lib/prisma";
 import DisplayAllRecipes from "./Components/DisplayAllRecipes";
 
 export default async function Page() {
-  const prisma = useMemo(() => new PrismaClient(), []),
-    allRecipes = await prisma.recipe.findMany({
+  const allRecipes = await prisma.recipe.findMany({
       include: {
         measurements: true,
         ingredients: true,
-        tags: true
+        tags: true,
       },
       orderBy: [
         {
@@ -18,11 +16,14 @@ export default async function Page() {
       ],
     }),
     allTags = await prisma.tags.groupBy({
-      by: ["name"]
-    })
+      by: ["name"],
+    });
 
   return (
-    <main aria-label="View recipes" className={`${mainElement} overflow-y-auto`}>
+    <main
+      aria-label="View recipes"
+      className={`${mainElement} overflow-y-auto`}
+    >
       <h1 className="font-bold text-xl md:text-2xl">
         🧆🍢 Delightful Delicacies 🍢🧆
       </h1>

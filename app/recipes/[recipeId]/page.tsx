@@ -1,24 +1,22 @@
 import { backgroundLight, mainElement } from "@/Components/TailwindClasses";
-import { PrismaClient } from "@prisma/client";
-import { useMemo } from "react";
-import Link from "next/link";
+import prisma from "lib/prisma";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Page({
   params: { recipeId },
 }: {
   params: { recipeId: string };
 }) {
-  const prisma = useMemo(() => new PrismaClient(), []),
-    recipe = await prisma.recipe.findUnique({
-      where: {
-        id: parseInt(recipeId),
-      },
-      include: {
-        measurements: true,
-        ingredients: true,
-      },
-    });
+  const recipe = await prisma.recipe.findUnique({
+    where: {
+      id: parseInt(recipeId),
+    },
+    include: {
+      measurements: true,
+      ingredients: true,
+    },
+  });
 
   return (
     recipe && (

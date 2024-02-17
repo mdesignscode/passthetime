@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import prisma from "../lib/prisma";
 
 async function main() {
     const req = await fetch("https://www.fruityvice.com/api/fruit/all"),
@@ -10,7 +8,7 @@ async function main() {
         const { nutritions } = fruit
         delete fruit.nutritions
 
-        return await prisma.fruit.create({
+        console.log(await prisma.fruit.create({
 
             data: {
                 ...fruit,
@@ -19,14 +17,14 @@ async function main() {
                 }
             },
 
-        })
+        }))
     })
 
-    console.log("Fruits table seeded")
 }
 
 main()
     .then(async () => {
+        console.log("Fruits table seeded")
         await prisma.$disconnect()
     })
     .catch(async (e) => {

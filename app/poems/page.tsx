@@ -1,11 +1,9 @@
 import { mainElement } from "@/Components/TailwindClasses";
-import { PrismaClient } from "@prisma/client";
-import { useMemo } from "react";
+import prisma from "lib/prisma";
 import PoemOptions from "./Components/PoemOptions";
 
 export default async function Page() {
-  const prisma = useMemo(() => new PrismaClient(), []),
-    authors = await prisma.author.findMany({
+  const authors = await prisma.author.findMany({
       orderBy: [
         {
           name: "asc",

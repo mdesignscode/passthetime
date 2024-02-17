@@ -1,16 +1,14 @@
-import { PrismaClient } from "@prisma/client";
-import { useMemo } from "react";
-import Header from "./Components/Header";
-import classNames from "classnames";
 import { backgroundLight } from "@/Components/TailwindClasses";
+import classNames from "classnames";
+import prisma from "lib/prisma";
+import Header from "./Components/Header";
 
 export default async function Page({
   params: { titleId, authorId },
 }: {
   params: { authorId: string; titleId: string };
 }) {
-  const prisma = useMemo(() => new PrismaClient(), []),
-    poem = await prisma.poem.findUnique({
+  const poem = await prisma.poem.findUnique({
       where: {
         id: parseInt(titleId),
       },

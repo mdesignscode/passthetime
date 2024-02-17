@@ -1,9 +1,7 @@
-import { PrismaClient } from '@prisma/client'
 import * as fs from 'fs';
+import prisma from '../lib/prisma';
 
 const filePath = './data/poems.json';
-
-const prisma = new PrismaClient()
 
 async function getAuthors(): Promise<string[]> {
     const req = await fetch("https://poetrydb.org/author"),

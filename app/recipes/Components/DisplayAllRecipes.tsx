@@ -2,13 +2,13 @@
 
 import { borderStyle, buttonDisabled } from "@/Components/TailwindClasses";
 import usePaginateList from "@/hooks/paginateList";
-import { Prisma } from "@prisma/client";
 import { MouseEvent, useState } from "react";
 import { TRecipe } from "./RecipeButton";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import ArrowIcon from "@/Components/Icons/Arrow";
 import classNames from "classnames";
+import { Prisma } from "prisma/generated/client";
 
 const RecipeButton = dynamic(() => import("./RecipeButton"));
 const ScaleIn = dynamic(() => import("@/Components/ScaleIn"), { ssr: false });

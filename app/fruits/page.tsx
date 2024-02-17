@@ -1,12 +1,10 @@
-import { useMemo } from "react";
-import { PrismaClient } from "@prisma/client";
-import { FruitProvider } from "./Components/context";
 import { mainElement } from "@/Components/TailwindClasses";
-import RenderFruits from "./Components/RenderFruits";
 import classNames from "classnames";
+import prisma from "lib/prisma";
+import RenderFruits from "./Components/RenderFruits";
+import { FruitProvider } from "./Components/context";
 
 export default async function Page() {
-  const prisma = useMemo(() => new PrismaClient(), []);
   const fruits = await prisma.fruit.findMany({
     include: {
       nutritions: true,

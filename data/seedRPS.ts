@@ -1,8 +1,6 @@
 /* Rock, Paper, Scissors 101 */
 
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import prisma from "../lib/prisma";
 
 interface IRPSMatch {
   name: string;

@@ -1,6 +1,5 @@
-import { PrismaClient } from "@prisma/client";
+import prisma from "lib/prisma";
 import dynamic from "next/dynamic";
-import { useMemo } from "react";
 import { AuthorProvider } from "./Components/context";
 
 const TitleButton = dynamic(() => import("./Components/TitleButton"));
@@ -11,13 +10,12 @@ export default async function Page({
 }: {
   params: { authorId: string };
 }) {
-  const prisma = useMemo(() => new PrismaClient(), []),
-    author = await prisma.author.findUnique({
-      where: {
-        id: parseInt(authorId),
-      },
-      include: { poems: true },
-    });
+  const author = await prisma.author.findUnique({
+    where: {
+      id: parseInt(authorId),
+    },
+    include: { poems: true },
+  });
 
   return (
     author && (
