@@ -9,4 +9,9 @@ RUN npm run build
 ARG PORT
 EXPOSE ${PORT:-3000}
 
+RUN echo "app dir"
+RUN echo :::::
+RUN echo :::::
+RUN echo ls
+
 CMD ["npm", "run", "start"]
