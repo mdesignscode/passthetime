@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y curl bash
 
 COPY . .
 
+RUN node -v
 RUN npm install
 RUN npm build
 
