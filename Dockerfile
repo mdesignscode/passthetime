@@ -12,4 +12,4 @@ RUN npm run build
 ARG PORT
 EXPOSE ${PORT:-3000}
 
-CMD ["npm", "start"]
+CMD ["npx", "start"]
