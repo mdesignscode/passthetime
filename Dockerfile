@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y curl bash
 
 COPY . .
 
-RUN npm run install
+RUN npm install
 RUN npm run build
 
 ARG PORT
