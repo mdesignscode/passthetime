@@ -12,6 +12,6 @@ EXPOSE ${PORT:-3000}
 RUN echo "app dir"
 RUN echo :::::
 RUN echo :::::
-RUN echo ls
+RUN ls
 
 CMD ["npm", "run", "start"]
