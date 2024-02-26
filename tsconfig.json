@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -18,23 +17,8 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
-      "@/Components/*": [
-        "app/Components/*"
-      ],
-      "@/styles/*": [
-        "app/styles/*"
-      ],
-      "@/context/*": [
-        "app/context/*"
-      ],
-      "@/hooks/*": [
-        "app/hooks/*"
-      ],
-      "@poemContext": [
-        "app/poems/[authorId]/Components/context"
-      ]
+      "@/*": ["./*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

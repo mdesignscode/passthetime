@@ -34,11 +34,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-*.js
-.vercelignore
-
-# prisma
-prisma/generated
-prisma/migrations/migration_lock.toml
-.env
