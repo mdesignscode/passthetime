@@ -6,9 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
+    "classnames": "^2.5.1",
+    "@prisma/client": "^5.9.1",
+    "framer-motion": "^10.17.12",
     "react": "^18",
     "react-dom": "^18",
     "next": "14.1.0"
@@ -22,6 +27,7 @@
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0"
+    "eslint-config-next": "14.1.0",
+    "prisma": "^5.9.1"
   }
 }
