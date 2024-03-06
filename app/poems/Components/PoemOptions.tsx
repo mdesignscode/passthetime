@@ -1,12 +1,11 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import QueryUrl from "./QueryUrl";
+import SelectAuthor from "./SelectAuthor";
+import SelectRandom from "./SelectRandom";
+import SelectTitle from "./SelectTitle";
 import { PoemsProvider } from "./context";
 
-const SelectAuthor = dynamic(() => import("./SelectAuthor"));
-const SelectRandom = dynamic(() => import("./SelectRandom"));
-const SelectTitle = dynamic(() => import("./SelectTitle"));
-const QueryUrl = dynamic(() => import("./QueryUrl"));
 
 type TAuthor = {
   id: number;

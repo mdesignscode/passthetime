@@ -1,15 +1,13 @@
 import { mainElement } from "@/Components/TailwindClasses";
 import prisma from "lib/prisma";
 import dynamic from "next/dynamic";
-import { RPSProvider } from "./Components/context";
 
-const PickAnObject = dynamic(() => import("./Components/PickAnObject"));
-const PlayStats = dynamic(() => import("./Components/PlayStats"));
-const Playing = dynamic(() => import("./Components/Playing"));
-const ShowResult = dynamic(() => import("./Components/ShowResult"));
+const MainScreen = dynamic(() => import("./Components/MainScreen"), {
+  ssr: false,
+});
 
 export default async function Page() {
-  const playObjects = await prisma.rockPaperScissor.findMany({
+  const playObjects = prisma.rockPaperScissor.findMany({
     include: {
       winningMatches: true,
     },
@@ -24,15 +22,7 @@ export default async function Page() {
         Play Rock, Paper, Scissors with 101 objects!
       </h2>
 
-      <RPSProvider>
-        <PlayStats />
-
-        <div className="m-auto">
-          <PickAnObject playObjects={playObjects} />
-          <Playing objects={playObjects} />
-          <ShowResult />
-        </div>
-      </RPSProvider>
+      <MainScreen playObjects={await playObjects} />
     </main>
   );
 }

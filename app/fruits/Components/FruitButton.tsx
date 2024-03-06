@@ -1,12 +1,11 @@
 "use client";
 
+import ScaleIn from "@/Components/ScaleIn";
 import { buttonPrimary } from "@/Components/TailwindClasses";
 import { GlobalContext } from "@/context/globalContext";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { FruitContext } from "./context";
-import ScaleIn from "@/Components/ScaleIn";
-import { TFruit } from "./RenderFruits";
 
 export default function FruitButton({
   fruit,

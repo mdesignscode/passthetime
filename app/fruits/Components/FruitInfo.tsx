@@ -1,10 +1,10 @@
 "use client";
 
-import { useContext } from "react";
 import { GlobalContext } from "@/context/globalContext";
-import Image from "next/image";
-import { FruitContext } from "./context";
 import classNames from "classnames";
+import Image from "next/image";
+import { useContext } from "react";
+import { FruitContext } from "./context";
 
 export default function FruitInfo() {
   const { setShowInfo, showInfo, fruit } = useContext(FruitContext);

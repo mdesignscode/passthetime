@@ -1,9 +1,7 @@
 import prisma from "lib/prisma";
 import dynamic from "next/dynamic";
-import { AuthorProvider } from "./Components/context";
 
-const TitleButton = dynamic(() => import("./Components/TitleButton"));
-const DisplayPoem = dynamic(() => import("./Components/DisplayPoem"));
+const AuthorPoems = dynamic(() => import("./Components/AuthorPoems"), { ssr: false });
 
 export default async function Page({
   params: { authorId },
@@ -27,25 +25,7 @@ export default async function Page({
           📜🖋 Poems by {author.name} 🖋📜
         </h1>
 
-        <AuthorProvider>
-          <section
-            aria-label="Poems list"
-            className="flex md:text-lg flex-col gap-2 md:flex-row md:w-2/3 items-center md:flex-wrap md:justify-center overflow-y-auto p-2"
-          >
-            {author.poems.map((poem, index) => (
-              <TitleButton
-                index={index}
-                poem={{
-                  title: poem.title,
-                  lines: poem.lines,
-                }}
-                key={poem.id}
-              />
-            ))}
-          </section>
-
-          <DisplayPoem />
-        </AuthorProvider>
+        <AuthorPoems author={author} />
       </main>
     )
   );

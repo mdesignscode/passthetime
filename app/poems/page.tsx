@@ -1,16 +1,20 @@
 import { mainElement } from "@/Components/TailwindClasses";
 import prisma from "lib/prisma";
-import PoemOptions from "./Components/PoemOptions";
+import dynamic from "next/dynamic";
+
+const PoemOptions = dynamic(() => import("./Components/PoemOptions"), {
+  ssr: false,
+});
 
 export default async function Page() {
-  const authors = await prisma.author.findMany({
+  const authors = prisma.author.findMany({
       orderBy: [
         {
           name: "asc",
         },
       ],
     }),
-    poems = await prisma.poem.findMany({
+    poems = prisma.poem.findMany({
       include: {
         Author: true,
       },
@@ -29,7 +33,7 @@ export default async function Page() {
         introspection.
       </p>
 
-      <PoemOptions authors={authors} poems={poems} />
+      <PoemOptions authors={await authors} poems={await poems} />
     </main>
   );
 }

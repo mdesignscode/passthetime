@@ -1,7 +1,6 @@
 "use client";
 
 import { Dispatch, SetStateAction, createContext, useState } from "react";
-import { TFruit } from "./RenderFruits";
 
 export interface IFruitContext {
   showInfo: boolean;

@@ -1,14 +1,15 @@
 "use client";
 
-import { borderStyle, buttonDisabled } from "@/Components/TailwindClasses";
+import ArrowIcon from "@/Components/Icons/Arrow";
+import { buttonDisabled } from "@/Components/TailwindClasses";
 import usePaginateList from "@/hooks/paginateList";
-import { MouseEvent, useState } from "react";
-import { TRecipe } from "./RecipeButton";
+import classNames from "classnames";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import ArrowIcon from "@/Components/Icons/Arrow";
-import classNames from "classnames";
 import { Prisma } from "prisma/generated/client";
+import { useState } from "react";
+import FilterRecipes from "./FilterRecipes";
+import { TRecipe } from "./RecipeButton";
 
 const RecipeButton = dynamic(() => import("./RecipeButton"));
 const ScaleIn = dynamic(() => import("@/Components/ScaleIn"), { ssr: false });
@@ -21,7 +22,6 @@ export default function DisplayAllRecipes({
   tags: (Prisma.PickEnumerable<Prisma.TagsGroupByOutputType, "name"[]> & {})[];
 }) {
   const PAGE_COUNT = 15,
-    TAG_COUNT = 20,
     {
       partialList,
       NextButton,
@@ -32,117 +32,22 @@ export default function DisplayAllRecipes({
       setCurrentIndex,
     } = usePaginateList<TRecipe>(recipes, PAGE_COUNT),
     TOTAL_PAGES_INITIALLY = Math.floor(recipes.length / PAGE_COUNT),
-    [totalPages, setTotalPages] = useState(TOTAL_PAGES_INITIALLY),
-    [tagCount, setTagCount] = useState(TAG_COUNT);
-
-  function handleShowMoreTags() {
-    setTagCount((state) => state + TAG_COUNT);
-  }
-
-  function handleShowLessTags() {
-    setTagCount((state) => state - TAG_COUNT);
-  }
-
-  function handleFilterByTags(event: MouseEvent<HTMLButtonElement>) {
-    const filter = (event?.target as any).value,
-      filteredList: TRecipe[] = [];
-
-    // find recipes that with tags match filter
-    for (const recipe of recipes) {
-      for (const tag of recipe.tags) {
-        if (tag.name === filter) {
-          filteredList.push(recipe);
-          break;
-        }
-      }
-    }
-
-    updatePageState(
-      filteredList,
-      Math.floor(filteredList.length / PAGE_COUNT) + 1
-    );
-  }
-
-  function clearTag() {
-    updatePageState(recipes.slice(0, PAGE_COUNT), TOTAL_PAGES_INITIALLY);
-  }
-
-  function updatePageState(list: TRecipe[], pages: number) {
-    setPartialList(list);
-    setTotalPages(pages);
-    // reset pagination count
-    setPageIndex(1);
-    setCurrentIndex(0);
-  }
+    [totalPages, setTotalPages] = useState(TOTAL_PAGES_INITIALLY);
 
   return (
     <section className="flex flex-col items-center gap-4">
       {/* filter by tags */}
-      <section
-        className={`${borderStyle} flex flex-col gap-2 items-center w-5/6`}
-        aria-label="Filter recipes"
-      >
-        <p>Filter recipes by tags</p>
-
-        <section
-          aria-label="All tags"
-          className="flex gap-2 flex-wrap justify-center"
-        >
-          {tags.slice(0, tagCount).map((tag) => (
-            <button
-              onClick={handleFilterByTags}
-              className="hover:text-gray-600"
-              key={tag.name}
-              value={tag.name}
-              aria-label={`Show recipes by ${tag.name}`}
-              aria-controls="recipesList"
-            >
-              #{tag.name}
-            </button>
-          ))}
-        </section>
-
-        <section className="flex gap-4">
-          <button
-            disabled={tagCount === TAG_COUNT}
-            type="button"
-            onClick={handleShowLessTags}
-            className={classNames(
-              {
-                [buttonDisabled]: tagCount === TAG_COUNT,
-              },
-              "font-bold hover:text-gray-600"
-            )}
-          >
-            Show less tags
-          </button>
-
-          <button
-            type="button"
-            disabled={tagCount >= tags.length}
-            className={classNames(
-              {
-                [buttonDisabled]: tagCount >= tags.length,
-              },
-              "font-bold hover:text-gray-600"
-            )}
-            onClick={handleShowMoreTags}
-          >
-            Show more tags
-          </button>
-
-          <button
-            type="button"
-            disabled={totalPages > 1}
-            className={classNames({
-              [buttonDisabled]: totalPages > 1
-            }, "font-bold hover:text-gray-600")}
-            onClick={clearTag}
-          >
-            Clear tag
-          </button>
-        </section>
-      </section>
+      <FilterRecipes
+        setPartialList={setPartialList}
+        tags={tags}
+        recipes={recipes}
+        setPageIndex={setPageIndex}
+        setCurrentIndex={setCurrentIndex}
+        setTotalPages={setTotalPages}
+        PAGE_COUNT={PAGE_COUNT}
+        TOTAL_PAGES_INITIALLY={TOTAL_PAGES_INITIALLY}
+        totalPages={totalPages}
+      />
 
       <section
         aria-label="All recipes"
@@ -155,7 +60,6 @@ export default function DisplayAllRecipes({
             <RecipeButton key={recipe.id} index={index} recipe={recipe} />
           ))}
         </section>
-
         {/* paginate section */}
         <ScaleIn>
           <section
@@ -191,6 +95,7 @@ export default function DisplayAllRecipes({
             </button>
           </section>
         </ScaleIn>
+        FilterrRcipeecipesFilte
       </section>
     </section>
   );

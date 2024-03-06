@@ -10,7 +10,6 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@next/font": "^14.1.2",
     "@prisma/client": "^5.9.1",
     "animate.css": "^4.1.1",
     "classnames": "^2.5.1",

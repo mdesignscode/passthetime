@@ -5,22 +5,23 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface IHeader {
-  totalPoems: number;
+  poems: TPoem[];
   title: string;
   authorIndex: number;
   poemIndex: number;
-  authorLastPoemIndex?: number;
-  authorFirstPoemIndex?: number;
+  author: TAuthor;
 }
 
 export default function Header({
-  totalPoems,
+  poems,
   title,
   authorIndex,
   poemIndex,
-  authorFirstPoemIndex,
-  authorLastPoemIndex,
+  author,
 }: IHeader) {
+  const authorLastPoemIndex = author?.poems?.at(-1)?.id,
+    authorFirstPoemIndex = author?.poems?.at(0)?.id;
+
   const isLastAuthorPoem = authorLastPoemIndex === poemIndex,
     nextAuthorIndex = isLastAuthorPoem ? authorIndex + 1 : authorIndex,
     nextPoemLink = `/poems/${nextAuthorIndex}/${poemIndex + 1}`,
@@ -49,13 +50,13 @@ export default function Header({
 
       <Link
         className={classNames({
-          "pointer-events-none": poemIndex === totalPoems,
+          "pointer-events-none": poemIndex === poems.length,
         })}
         href={nextPoemLink}
       >
         <Image
           className={classNames("md:w-7 md:h-7", {
-            "opacity-50": poemIndex === totalPoems,
+            "opacity-50": poemIndex === poems.length,
           })}
           src="/icons/next-svgrepo-com.svg"
           alt="Previous poem"

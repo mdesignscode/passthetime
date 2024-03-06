@@ -1,9 +1,14 @@
 import { mainElement } from "@/Components/TailwindClasses";
 import prisma from "lib/prisma";
-import DisplayAllRecipes from "./Components/DisplayAllRecipes";
+import dynamic from "next/dynamic";
+
+const DisplayAllRecipes = dynamic(
+  () => import("./Components/DisplayAllRecipes"),
+  { ssr: false }
+);
 
 export default async function Page() {
-  const allRecipes = await prisma.recipe.findMany({
+  const allRecipes = prisma.recipe.findMany({
       include: {
         measurements: true,
         ingredients: true,
@@ -15,7 +20,7 @@ export default async function Page() {
         },
       ],
     }),
-    allTags = await prisma.tags.groupBy({
+    allTags = prisma.tags.groupBy({
       by: ["name"],
     });
 
@@ -36,7 +41,7 @@ export default async function Page() {
         world of gastronomy.
       </p>
 
-      <DisplayAllRecipes tags={allTags} recipes={allRecipes} />
+      <DisplayAllRecipes tags={await allTags} recipes={await allRecipes} />
     </main>
   );
 }

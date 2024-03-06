@@ -1,7 +1,9 @@
 import { backgroundLight } from "@/Components/TailwindClasses";
 import classNames from "classnames";
 import prisma from "lib/prisma";
-import Header from "./Components/Header";
+import dynamic from "next/dynamic";
+
+const Header = dynamic(() => import("./Components/Header"), { ssr: false });
 
 export default async function Page({
   params: { titleId, authorId },
@@ -16,17 +18,15 @@ export default async function Page({
         Author: true,
       },
     }),
-    poems = await prisma.poem.findMany(),
-    author = await prisma.author.findUnique({
+    poems = prisma.poem.findMany(),
+    author = prisma.author.findUnique({
       where: {
         id: parseInt(authorId),
       },
       include: {
         poems: true,
       },
-    }),
-    authorLastPoemIndex = author?.poems?.at(-1)?.id,
-    authorFirstPoemIndex = author?.poems?.at(0)?.id;
+    });
 
   if (!poem) return "Poem not found";
 
@@ -38,14 +38,11 @@ export default async function Page({
       )}
     >
       <Header
-        {...{
-          totalPoems: poems.length,
-          title: `${poem.title} by ${poem.Author?.name || "Unknown"}`,
-          authorIndex: parseInt(authorId),
-          poemIndex: parseInt(titleId),
-          authorLastPoemIndex,
-          authorFirstPoemIndex,
-        }}
+        title={`${poem.title} by ${poem.Author?.name || "Unknown"}`}
+        authorIndex={parseInt(authorId)}
+        poemIndex={parseInt(titleId)}
+        author={(await author) as NonNullable<TAuthor>}
+        poems={await poems}
       />
       <article className="overflow-auto">
         {poem.lines.split("\n").map((line) => (
