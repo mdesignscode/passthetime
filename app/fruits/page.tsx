@@ -8,7 +8,7 @@ const RenderFruits = dynamic(() => import("./Components/RenderFruits"), {
 });
 
 export default async function Page() {
-  const fruits = await prisma.fruit.findMany({
+  const fruits = prisma.fruit.findMany({
     include: {
       nutritions: true,
     },
@@ -28,7 +28,7 @@ export default async function Page() {
         every palate.
       </p>
 
-      <RenderFruits fruits={fruits} />
+      <RenderFruits fruits={await fruits} />
     </main>
   );
 }

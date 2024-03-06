@@ -32,7 +32,7 @@ export default function FruitButton({
         aria-controls="fruit-info"
         aria-label={`Show ${fruit.name} information`}
         aria-expanded={showInfo}
-        id="fruit-info-button"
+        id={`${fruit.name}-info-button`}
       >
         {fruit.name}
       </motion.button>

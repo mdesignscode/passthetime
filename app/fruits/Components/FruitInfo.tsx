@@ -27,7 +27,7 @@ export default function FruitInfo() {
   return (
     showInfo && (
       <article
-        aria-labelledby="fruit-info-button"
+        aria-labelledby={`${fruit?.name}-info-button`}
         aria-hidden={!showInfo}
         id="fruit-info"
         style={{

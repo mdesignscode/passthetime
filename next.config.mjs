@@ -1,3 +1,8 @@
+import bundleAnalyzer from '@next/bundle-analyzer'
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -9,6 +14,9 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    optimizePackageImports: ['prisma/generated/client', "framer-motion"],
+  },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);
