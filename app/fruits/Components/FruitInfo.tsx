@@ -27,6 +27,8 @@ export default function FruitInfo() {
   return (
     showInfo && (
       <article
+        aria-labelledby="fruit-info-button"
+        aria-hidden={!showInfo}
         id="fruit-info"
         style={{
           opacity: showInfo ? 1 : 0,
@@ -39,7 +41,6 @@ export default function FruitInfo() {
         )}
       >
         <button
-          aria-controls="fruit-info"
           aria-label={`Hide ${fruit?.name} information`}
           className="self-start close-button"
           type="button"

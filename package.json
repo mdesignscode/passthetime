@@ -10,13 +10,15 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@next/font": "^14.1.2",
+    "@prisma/client": "^5.9.1",
     "animate.css": "^4.1.1",
     "classnames": "^2.5.1",
-    "@prisma/client": "^5.9.1",
     "framer-motion": "^10.17.12",
+    "next": "latest",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.0"
+    "sharp": "^0.33.2"
   },
   "devDependencies": {
     "typescript": "^5",

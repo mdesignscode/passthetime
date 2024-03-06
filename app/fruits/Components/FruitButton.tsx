@@ -15,7 +15,7 @@ export default function FruitButton({
   fruit: TFruit;
   index: number;
 }) {
-  const { setShowInfo, setFruit } = useContext(FruitContext);
+  const { setShowInfo, setFruit, showInfo } = useContext(FruitContext);
   const { setShowLightbox } = useContext(GlobalContext);
 
   function handleShowInfo() {
@@ -32,6 +32,8 @@ export default function FruitButton({
         onClick={handleShowInfo}
         aria-controls="fruit-info"
         aria-label={`Show ${fruit.name} information`}
+        aria-expanded={showInfo}
+        id="fruit-info-button"
       >
         {fruit.name}
       </motion.button>

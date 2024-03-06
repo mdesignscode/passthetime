@@ -71,7 +71,8 @@ export default function PickAnObject({
           onClick={handleShowObjects}
           aria-label="Show all objects"
           aria-controls="all-objects"
-          aria-disabled={showObjects}
+          aria-expanded={showObjects}
+          id="all-objects-button"
         >
           Pick an object to play with
         </button>

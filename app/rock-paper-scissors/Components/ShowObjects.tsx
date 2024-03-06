@@ -38,10 +38,11 @@ export default function ShowObjects({
           className="w-5/6 md:w-2/3"
           id="all-objects"
           aria-label="Pick an object"
+          aria-labelledby="all-objects-button"
+          aria-hidden={!showObjects}
         >
           <section role="menu" className="flex gap-4 items-center">
             <button
-              aria-controls="all-objects"
               aria-label="Hide all objects"
               className="grid close-button"
               type="button"
@@ -56,7 +57,11 @@ export default function ShowObjects({
               />
             </button>
             <button
-              aria-label={playerObject ? `Play with ${playerObject?.name}` : "Pick an object to play with"}
+              aria-label={
+                playerObject
+                  ? `Play with ${playerObject?.name}`
+                  : "Pick an object to play with"
+              }
               disabled={!playerObject}
               className={classNames(
                 buttonPrimary,

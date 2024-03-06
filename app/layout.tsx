@@ -3,6 +3,12 @@ import "./globals.css";
 import Navbar from "./Components/Navbar";
 import { GlobalProvider } from "./context/globalContext";
 import Overlay from "./Components/Overlay";
+import { Roboto } from "@next/font/google";
+
+const roboto = Roboto({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Pass The Time",
@@ -16,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html className="h-screen" lang="en">
-      <body className="dark:from-secondary dark:to-secondary text-dark bg-gradient-to-r from-secondary to-accent-secondary dark:bg-gradient-to-b overflow-y-hidden h-full">
+      <body className={`dark:from-secondary dark:to-secondary text-dark bg-gradient-to-r from-secondary to-accent-secondary dark:bg-gradient-to-b overflow-y-hidden h-full ${roboto.className}`}>
         <GlobalProvider>
           <Navbar />
 
