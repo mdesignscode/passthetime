@@ -95,7 +95,6 @@ export default function DisplayAllRecipes({
             </button>
           </section>
         </ScaleIn>
-        FilterrRcipeecipesFilte
       </section>
     </section>
   );

@@ -1,0 +1,9 @@
+User-Agent: *
+Allow: *
+Disallow: /private/
+
+User-Agent: Googlebot
+Allow: *
+Disallow: /private/
+
+Sitemap: https://acme.com/sitemap.xml

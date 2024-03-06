@@ -1,0 +1,26 @@
+{
+  "name": "Random Stuff",
+  "short_name": "Stuffs",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/maskable-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#161415",
+  "background_color": "#b9cc95",
+  "display": "standalone",
+  "start_url": "/"
+}

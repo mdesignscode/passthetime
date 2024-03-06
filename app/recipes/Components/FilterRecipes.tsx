@@ -29,7 +29,8 @@ export default function FilterRecipes({
   TOTAL_PAGES_INITIALLY,
   totalPages,
 }: FilterRecipesProps) {
-  const [tagCount, setTagCount] = useState(20);
+  const TAG_COUNT = 20,
+    [tagCount, setTagCount] = useState(TAG_COUNT);
 
   function updatePageState(list: TRecipe[], pages: number) {
     setPartialList(list);
@@ -40,11 +41,11 @@ export default function FilterRecipes({
   }
 
   function handleShowMoreTags() {
-    setTagCount((state) => state + tagCount);
+    setTagCount((state) => state + TAG_COUNT);
   }
 
   function handleShowLessTags() {
-    setTagCount((state) => state - tagCount);
+    setTagCount((state) => state - TAG_COUNT);
   }
 
   function handleFilterByTags(event: MouseEvent<HTMLButtonElement>) {
@@ -98,12 +99,12 @@ export default function FilterRecipes({
 
       <section className="flex gap-4">
         <button
-          disabled={tagCount === tagCount}
+          disabled={tagCount === TAG_COUNT}
           type="button"
           onClick={handleShowLessTags}
           className={classNames(
             {
-              [buttonDisabled]: tagCount === tagCount,
+              [buttonDisabled]: tagCount === TAG_COUNT,
             },
             "font-bold hover:text-gray-600"
           )}

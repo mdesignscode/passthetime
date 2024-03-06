@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { GlobalProvider } from "./context/globalContext";
 import { Roboto } from "next/font/google";
@@ -13,8 +13,22 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Pass The Time",
-  description: "Play Rock, Paper, Scissors with 101 objects, browse hundreds of luxurios food recipes, read hundreds of poems, and much more!",
+  title: "Random Stuff",
+  description:
+    "Play Rock, Paper, Scissors with 101 objects, browse hundreds of luxurios food recipes, read hundreds of poems, and much more!",
+  manifest: "/site.webmanifest",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#b9cc95",
 };
 
 export default function RootLayout({
