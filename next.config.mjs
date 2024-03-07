@@ -1,11 +1,12 @@
-import bundleAnalyzer from '@next/bundle-analyzer'
+import bundleAnalyzer from '@next/bundle-analyzer';
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
-})
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -17,6 +18,8 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['prisma/generated/client', "framer-motion"],
   },
+  output: 'export',
+  staticPageGenerationTimeout: 0,
 };
 
 export default withBundleAnalyzer(nextConfig);

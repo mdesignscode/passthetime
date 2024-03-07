@@ -1,11 +1,11 @@
 "use client";
 
+import { motion } from "framer-motion";
 import QueryUrl from "./QueryUrl";
 import SelectAuthor from "./SelectAuthor";
 import SelectRandom from "./SelectRandom";
 import SelectTitle from "./SelectTitle";
 import { PoemsProvider } from "./context";
-
 
 type TAuthor = {
   id: number;
@@ -29,11 +29,43 @@ interface IPoemOptionsProps {
   poems: TPoem[];
 }
 
+const containerVariants = {
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      duration: 0.3
+    },
+  },
+  hide: {
+    opacity: 0,
+  },
+};
+
+export const childrenVariants = {
+  show: {
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.6
+    }
+  },
+  hide: {
+    y: 50,
+    scale: 0.5,
+  },
+};
+
 export default function PoemOptions({ poems, authors }: IPoemOptionsProps) {
   return (
     <PoemsProvider>
-      <section className="flex m-auto flex-col w-11/12 md:w-2/3 p-4 gap-4 border-2 border-dark rounded-lg">
-        <p className="font-bold">Select one of 3 options below to view poems</p>
+      <motion.section
+        variants={containerVariants}
+        initial="hide"
+        animate="show"
+        className="flex mx-auto flex-col w-11/12 md:w-2/3 p-4 gap-4 border-2 border-dark rounded-lg"
+      >
+        <p className="font-bold text-sm md:text-base ">Select one of 3 options below to view poems</p>
 
         <SelectAuthor
           authors={authors.map((author) => ({
@@ -53,8 +85,10 @@ export default function PoemOptions({ poems, authors }: IPoemOptionsProps) {
 
         <SelectRandom />
 
-        <QueryUrl />
-      </section>
+        <motion.div variants={childrenVariants}>
+          <QueryUrl />
+        </motion.div>
+      </motion.section>
     </PoemsProvider>
   );
 }

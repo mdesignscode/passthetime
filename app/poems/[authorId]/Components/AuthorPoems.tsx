@@ -9,7 +9,7 @@ export default function AuthorPoems({ author }: { author: TAuthor }) {
     <AuthorProvider>
       <section
         aria-label="Poems list"
-        className="flex md:text-lg flex-col gap-2 md:flex-row md:w-2/3 items-center md:flex-wrap md:justify-center overflow-y-auto p-2"
+        className="flex lg:text-lg flex-col gap-2 lg:flex-row lg:w-2/3 items-stretch lg:items-center lg:flex-wrap lg:justify-center overflow-y-auto p-2 my-auto"
       >
         {author.poems.map((poem, index) => (
           <TitleButton

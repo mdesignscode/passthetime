@@ -1,9 +1,7 @@
-User-Agent: *
-Allow: *
-Disallow: /private/
+User-agent: Googlebot
+Disallow: /nogooglebot/
 
-User-Agent: Googlebot
-Allow: *
-Disallow: /private/
+User-agent: *
+Allow: /
 
-Sitemap: https://acme.com/sitemap.xml
+Sitemap: https://www.example.com/sitemap.xml

@@ -2,9 +2,7 @@ import { mainElement } from "@/Components/TailwindClasses";
 import prisma from "lib/prisma";
 import dynamic from "next/dynamic";
 
-const PoemOptions = dynamic(() => import("./Components/PoemOptions"), {
-  ssr: false,
-});
+const PoemOptions = dynamic(() => import("./Components/PoemOptions"), { ssr: false });
 
 export default async function Page() {
   const authors = prisma.author.findMany({
@@ -21,16 +19,18 @@ export default async function Page() {
     });
 
   return (
-    <main className={`${mainElement} justify-center overflow-y-auto`}>
+    <main className={`${mainElement} overflow-y-auto`}>
       <h1 className="font-bold text-xl md:text-2xl">
         📜🖋 Poetic Sanctuary 🖋📜
       </h1>
-      <p className="w-10/12 text-center md:text-lg">
-        Welcome to a poetic realm where words dance and emotions unfold! Our
-        poetry collection is a sanctuary of enchanting verses that resonate with
-        the rhythm of the human soul. Each poem is a brushstroke on the canvas
-        of emotions, painting vivid landscapes of love, longing, and
-        introspection.
+      <p className="w-10/12 text-center lg:text-lg">
+        Welcome to a poetic realm where words dance and emotions unfold!
+        <span className="hidden lg:inline">
+          {" "}Our poetry collection is a sanctuary of enchanting verses that
+          resonate with the rhythm of the human soul. Each poem is a brushstroke
+          on the canvas of emotions, painting vivid landscapes of love, longing,
+          and introspection.
+        </span>
       </p>
 
       <PoemOptions authors={await authors} poems={await poems} />

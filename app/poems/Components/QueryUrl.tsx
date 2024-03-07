@@ -11,10 +11,10 @@ export default function QueryUrl() {
   return (
     <Link
       href={queryUrl.url}
-      className={`flex border-2 border-dark p-2 gap-4 items-center justify-center rounded-lg hover:-translate-y-2 active:translate-y-0 transition-all ${!queryUrl.url && "pointer-events-none opacity-50"}`}
+      className={`text-sm flex gap-2 md:gap-4 text-center md:text-base items-center justify-center border-2 border-dark p-2 rounded-lg hover:-translate-y-2 active:translate-y-0 transition-all ${!queryUrl.url && "pointer-events-none opacity-50"}`}
     >
-      <BrowseMobileIcon />
-      {queryUrl.text}
+      <BrowseMobileIcon className="w-8 h-8 lg:w-10 lg:h-10" />
+      <span>{queryUrl.text}</span>
     </Link>
   );
 }

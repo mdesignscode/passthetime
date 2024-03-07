@@ -3,8 +3,7 @@ import prisma from "lib/prisma";
 import dynamic from "next/dynamic";
 
 const DisplayAllRecipes = dynamic(
-  () => import("./Components/DisplayAllRecipes"),
-  { ssr: false }
+  () => import("./Components/DisplayAllRecipes")
 );
 
 export default async function Page() {

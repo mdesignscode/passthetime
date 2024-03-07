@@ -12,7 +12,7 @@ import FilterRecipes from "./FilterRecipes";
 import { TRecipe } from "./RecipeButton";
 
 const RecipeButton = dynamic(() => import("./RecipeButton"));
-const ScaleIn = dynamic(() => import("@/Components/ScaleIn"), { ssr: false });
+const ScaleIn = dynamic(() => import("@/Components/ScaleIn"))
 
 export default function DisplayAllRecipes({
   recipes,

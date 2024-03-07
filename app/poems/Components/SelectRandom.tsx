@@ -1,7 +1,10 @@
 "use client";
-import { useContext } from "react";
-import { PoemsContext } from "./context";
+
 import DiceIcon from "@/Components/Icons/Dice";
+import { motion } from "framer-motion";
+import { useContext } from "react";
+import { childrenVariants } from "./PoemOptions";
+import { PoemsContext } from "./context";
 
 export default function SelectRandom() {
   const { setQueryUrl } = useContext(PoemsContext);
@@ -9,18 +12,19 @@ export default function SelectRandom() {
   function handleRandomOption() {
     setQueryUrl({
       url: "/poems/random",
-      text: "Explore random poems"
+      text: "Explore random poems",
     });
   }
 
   return (
-    <button
-      className="flex border-2 border-dark p-2 gap-4 items-center justify-center rounded-lg hover:-translate-y-2 active:translate-y-0 transition-all w-full"
+    <motion.button
+      variants={childrenVariants}
+      className="flex border-2 border-dark p-2 gap-1 md:gap-4 items-center justify-center rounded-lg hover:-translate-y-2 active:translate-y-0 transition-all w-full"
       type="button"
       onClick={handleRandomOption}
     >
       <DiceIcon />
       Random Poem
-    </button>
+    </motion.button>
   );
 }

@@ -3,6 +3,14 @@ import prisma from "lib/prisma";
 import Image from "next/image";
 import Link from "next/link";
 
+export async function generateStaticParams() {
+  const allRecipes = await prisma.recipe.findMany();
+
+  return allRecipes.map(({ id }) => ({
+    recipeId: id.toString(),
+  }));
+}
+
 export default async function Page({
   params: { recipeId },
 }: {

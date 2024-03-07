@@ -1,6 +1,9 @@
 "use client";
+
+import { motion } from "framer-motion";
 import { ChangeEvent, useContext, useState } from "react";
 import { PoemsContext } from "./context";
+import { childrenVariants } from "./PoemOptions";
 
 interface ITitle {
   author?: string;
@@ -24,8 +27,11 @@ export default function SelectTitle({ titles }: { titles: ITitle[] }) {
   };
 
   return (
-    <div className="flex flex-col border-2 border-dark p-2 gap-2 rounded-lg">
-      <label className="text-lg" htmlFor="title">
+    <motion.div
+      variants={childrenVariants}
+      className="flex flex-col border-2 border-dark p-2 gap-2 rounded-lg"
+    >
+      <label className="md:text-lg" htmlFor="title">
         Get poems by Title
       </label>
       <select
@@ -48,6 +54,6 @@ export default function SelectTitle({ titles }: { titles: ITitle[] }) {
           </option>
         ))}
       </select>
-    </div>
+    </motion.div>
   );
 }

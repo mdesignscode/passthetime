@@ -3,7 +3,29 @@ import classNames from "classnames";
 import prisma from "lib/prisma";
 import dynamic from "next/dynamic";
 
-const Header = dynamic(() => import("./Components/Header"), { ssr: false });
+const Header = dynamic(() => import("./Components/Header"));
+
+export async function generateStaticParams({
+  params: { authorId },
+}: {
+  params: { authorId: string };
+}) {
+  const author = await prisma.author.findUnique({
+    where: {
+      id: parseInt(authorId),
+    },
+    include: {
+      poems: true,
+    },
+  });
+
+  if (!author) throw new Error("Author not found");
+
+  return author.poems.map(({ id: titleId }) => ({
+    authorId,
+    titleId: titleId.toString(),
+  }));
+}
 
 export default async function Page({
   params: { titleId, authorId },

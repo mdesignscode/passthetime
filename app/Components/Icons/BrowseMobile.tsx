@@ -1,4 +1,8 @@
-export default function BrowseMobileIcon() {
+export default function BrowseMobileIcon({
+  className,
+}: {
+  className?: string;
+}) {
   return (
     <svg
       fill="currentColor"
@@ -10,6 +14,7 @@ export default function BrowseMobileIcon() {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 210 256"
       xmlSpace="preserve"
+      className={`w-[50px] h-[50px] ${className}`}
     >
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g

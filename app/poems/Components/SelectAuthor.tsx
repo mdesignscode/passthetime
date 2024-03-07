@@ -1,6 +1,9 @@
 "use client";
+
+import { motion } from "framer-motion";
 import { ChangeEvent, useContext, useState } from "react";
 import { PoemsContext } from "./context";
+import { childrenVariants } from "./PoemOptions";
 
 export interface IAuthorOption {
   name: string;
@@ -20,13 +23,16 @@ export default function SelectAuthor({
     setSelectedOption(event.target.value);
     setQueryUrl({
       url: `/poems/${authorId}`,
-      text: `View poems by ${author}`
+      text: `View poems by ${author}`,
     });
   };
 
   return (
-    <div className="flex flex-col border-2 border-dark p-2 gap-2 rounded-lg">
-      <label className="text-lg" htmlFor="author">
+    <motion.div
+      variants={childrenVariants}
+      className="flex flex-col border-2 border-dark p-2 gap-2 rounded-lg"
+    >
+      <label className="lg:text-lg" htmlFor="author">
         Get poems by Author:
       </label>
       <select
@@ -49,6 +55,6 @@ export default function SelectAuthor({
           </option>
         ))}
       </select>
-    </div>
+    </motion.div>
   );
 }

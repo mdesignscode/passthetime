@@ -33,7 +33,7 @@ export default function TitleButton({
       <button
         aria-label={`Show ${poem?.title} content`}
         type="button"
-        className={buttonPrimary}
+        className={`${buttonPrimary} w-full`}
         onClick={handleShowInfo}
       >
         {poem.title}

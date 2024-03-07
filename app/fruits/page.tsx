@@ -3,9 +3,7 @@ import classNames from "classnames";
 import dynamic from "next/dynamic";
 import { mainElement } from "../Components/TailwindClasses";
 
-const RenderFruits = dynamic(() => import("./Components/RenderFruits"), {
-  ssr: false,
-});
+const RenderFruits = dynamic(() => import("./Components/RenderFruits"));
 
 export default async function Page() {
   const fruits = prisma.fruit.findMany({

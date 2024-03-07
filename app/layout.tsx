@@ -4,8 +4,8 @@ import { GlobalProvider } from "./context/globalContext";
 import { Roboto } from "next/font/google";
 import dynamic from "next/dynamic";
 
-const Navbar = dynamic(() => import("./Components/Navbar"), { ssr: false });
-const Overlay = dynamic(() => import("./Components/Overlay"), { ssr: false });
+const Navbar = dynamic(() => import("./Components/Navbar"));
+const Overlay = dynamic(() => import("./Components/Overlay"));
 
 const roboto = Roboto({
   weight: "400",
