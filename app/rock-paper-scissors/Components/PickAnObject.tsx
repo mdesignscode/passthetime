@@ -1,13 +1,13 @@
 "use client";
 
 import { buttonDisabled, buttonPrimary } from "@/Components/TailwindClasses";
+import ScaleIn from "@/app/Components/ScaleIn";
 import { GlobalContext } from "@/context/globalContext";
+import usePaginateList from "@/hooks/paginateList";
+import classNames from "classnames";
+import dynamic from "next/dynamic";
 import { useContext, useState } from "react";
 import { RPSContext } from "./context";
-import { motion } from "framer-motion";
-import usePaginateList from "@/hooks/paginateList";
-import dynamic from "next/dynamic";
-import classNames from "classnames";
 
 const ShowObjects = dynamic(() => import("./ShowObjects"));
 
@@ -58,13 +58,7 @@ export default function PickAnObject({
 
   return (
     playState === "selectObject" && (
-      <motion.section
-        initial={{ scale: 0.5, opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        animate={{ scale: 1, opacity: 100 }}
-        className="flex flex-col gap-4"
-        aria-label="Play options"
-      >
+      <ScaleIn className="flex flex-col gap-4" ariaLabel="Play options">
         <button
           className={classNames(buttonPrimary, "text-xl")}
           type="button"
@@ -109,7 +103,7 @@ export default function PickAnObject({
             }}
           />
         )}
-      </motion.section>
+      </ScaleIn>
     )
   );
 }

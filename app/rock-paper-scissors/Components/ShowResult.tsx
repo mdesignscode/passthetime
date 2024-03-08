@@ -1,16 +1,16 @@
 "use client";
 
+import { buttonPrimary } from "@/Components/TailwindClasses";
+import ScaleIn from "@/app/Components/ScaleIn";
 import { useContext, useEffect, useState } from "react";
 import { RPSContext } from "./context";
-import { buttonPrimary } from "@/Components/TailwindClasses";
-import { motion } from "framer-motion"
 
 export default function ShowResult() {
   const { playState, setPlayState, playerObject, computerObject, setScore } =
       useContext(RPSContext),
     [playerWon, setPlayerWon] = useState(false),
     [outComeAction, setOutcomeAction] = useState(""),
-    [displayResult, setDisplayResult] = useState(false)
+    [displayResult, setDisplayResult] = useState(false);
 
   useEffect(() => {
     if (computerObject && playerObject && playState === "result") {
@@ -19,8 +19,8 @@ export default function ShowResult() {
         if (computerObject.name === match.name) {
           setPlayerWon(true);
           setOutcomeAction(match.action);
-          setDisplayResult(true)
-          matchFound = true
+          setDisplayResult(true);
+          matchFound = true;
           break;
         }
       }
@@ -30,9 +30,9 @@ export default function ShowResult() {
           for (const match of computerObject.winningMatches) {
             if (match.name === playerObject.name) {
               setPlayerWon(false);
-              setDisplayResult(true)
-              return match.action
-            };
+              setDisplayResult(true);
+              return match.action;
+            }
           }
 
           return "";
@@ -57,14 +57,13 @@ export default function ShowResult() {
 
   return (
     playState === "result" && (
-      <motion.section
+      <ScaleIn
         className="text-xl text-center flex flex-col gap-2"
-        initial={{ scale: 0.5, opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        animate={{ scale: 1, opacity: 100 }}
-        aria-label="Play results"
+        ariaLabel="Play results"
       >
-        <p aria-label="Player result">{!outComeAction ? "Draw" : playerWon ? "You Won" : "You Lost"}</p>
+        <p aria-label="Player result">
+          {!outComeAction ? "Draw" : playerWon ? "You Won" : "You Lost"}
+        </p>
         <p aria-label="Winning outcome" className="underline">
           {playerWon ? playerObject?.name : computerObject?.name}{" "}
           {outComeAction}{" "}
@@ -80,7 +79,7 @@ export default function ShowResult() {
         >
           Play Again
         </button>
-      </motion.section>
+      </ScaleIn>
     )
   );
 }

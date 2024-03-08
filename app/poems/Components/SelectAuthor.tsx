@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ChangeEvent, useContext, useState } from "react";
 import { PoemsContext } from "./context";
 import { childrenVariants } from "./PoemOptions";
@@ -28,7 +28,7 @@ export default function SelectAuthor({
   };
 
   return (
-    <motion.div
+    <m.div
       variants={childrenVariants}
       className="flex flex-col border-2 border-dark p-2 gap-2 rounded-lg"
     >
@@ -55,6 +55,6 @@ export default function SelectAuthor({
           </option>
         ))}
       </select>
-    </motion.div>
+    </m.div>
   );
 }

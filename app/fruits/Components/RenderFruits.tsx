@@ -1,13 +1,11 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
-const FruitInfo = dynamic(() => import("./FruitInfo"));
-const FruitButton = dynamic(() => import("./FruitButton"));
-import { useContext } from "react";
-import { FruitContext, FruitProvider } from "./context";
-import classNames from "classnames";
 import { flexCenter } from "@/Components/TailwindClasses";
+import classNames from "classnames";
+import { useContext } from "react";
+import FruitButton from "./FruitButton";
+import FruitInfo from "./FruitInfo";
+import { FruitContext, FruitProvider } from "./context";
 
 export default function RenderFruits({ fruits }: { fruits: TFruit[] }) {
   const { showInfo } = useContext(FruitContext);
@@ -26,7 +24,7 @@ export default function RenderFruits({ fruits }: { fruits: TFruit[] }) {
         ))}
       </section>
 
-      {showInfo && <FruitInfo />}
+      <FruitInfo />
     </FruitProvider>
   );
 }

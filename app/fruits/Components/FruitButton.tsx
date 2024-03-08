@@ -3,7 +3,6 @@
 import ScaleIn from "@/Components/ScaleIn";
 import { buttonPrimary } from "@/Components/TailwindClasses";
 import { GlobalContext } from "@/context/globalContext";
-import { motion } from "framer-motion";
 import { useContext } from "react";
 import { FruitContext } from "./context";
 
@@ -25,7 +24,7 @@ export default function FruitButton({
 
   return (
     <ScaleIn index={index}>
-      <motion.button
+      <button
         type="button"
         className={buttonPrimary}
         onClick={handleShowInfo}
@@ -35,7 +34,7 @@ export default function FruitButton({
         id={`${fruit.name}-info-button`}
       >
         {fruit.name}
-      </motion.button>
+      </button>
     </ScaleIn>
   );
 }

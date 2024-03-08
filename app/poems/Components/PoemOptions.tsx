@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import QueryUrl from "./QueryUrl";
 import SelectAuthor from "./SelectAuthor";
 import SelectRandom from "./SelectRandom";
@@ -34,7 +34,7 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      duration: 0.3
+      duration: 0.3,
     },
   },
   hide: {
@@ -47,8 +47,8 @@ export const childrenVariants = {
     scale: 1,
     y: 0,
     transition: {
-      duration: 0.6
-    }
+      duration: 0.6,
+    },
   },
   hide: {
     y: 50,
@@ -58,37 +58,41 @@ export const childrenVariants = {
 
 export default function PoemOptions({ poems, authors }: IPoemOptionsProps) {
   return (
-    <PoemsProvider>
-      <motion.section
-        variants={containerVariants}
-        initial="hide"
-        animate="show"
-        className="flex mx-auto flex-col w-11/12 md:w-2/3 p-4 gap-4 border-2 border-dark rounded-lg"
-      >
-        <p className="font-bold text-sm md:text-base ">Select one of 3 options below to view poems</p>
+    <LazyMotion features={domAnimation}>
+      <PoemsProvider>
+        <m.section
+          variants={containerVariants}
+          initial="hide"
+          animate="show"
+          className="flex mx-auto flex-col w-11/12 md:w-2/3 p-4 gap-4 border-2 border-dark rounded-lg"
+        >
+          <p className="font-bold text-sm md:text-base">
+            Select one of 3 options below to view poems
+          </p>
 
-        <SelectAuthor
-          authors={authors.map((author) => ({
-            name: author.name,
-            id: author.id,
-          }))}
-        />
+          <SelectAuthor
+            authors={authors.map((author) => ({
+              name: author.name,
+              id: author.id,
+            }))}
+          />
 
-        <SelectTitle
-          titles={Object.values(poems).map((poem) => ({
-            author: poem.Author?.name,
-            authorId: poem.Author?.id,
-            title: poem.title,
-            titleId: poem.id,
-          }))}
-        />
+          <SelectTitle
+            titles={Object.values(poems).map((poem) => ({
+              author: poem.Author?.name,
+              authorId: poem.Author?.id,
+              title: poem.title,
+              titleId: poem.id,
+            }))}
+          />
 
-        <SelectRandom />
+          <SelectRandom />
 
-        <motion.div variants={childrenVariants}>
-          <QueryUrl />
-        </motion.div>
-      </motion.section>
-    </PoemsProvider>
+          <m.div variants={childrenVariants}>
+            <QueryUrl />
+          </m.div>
+        </m.section>
+      </PoemsProvider>
+    </LazyMotion>
   );
 }

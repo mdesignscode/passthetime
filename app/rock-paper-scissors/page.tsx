@@ -2,7 +2,7 @@ import { mainElement } from "@/Components/TailwindClasses";
 import prisma from "lib/prisma";
 import dynamic from "next/dynamic";
 
-const MainScreen = dynamic(() => import("./Components/MainScreen"));
+const MainScreen = dynamic(() => import("./Components/MainScreen"), { ssr: false });
 
 export default async function Page() {
   const playObjects = prisma.rockPaperScissor.findMany({
