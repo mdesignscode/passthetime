@@ -29,17 +29,18 @@ export default async function Page({
   return (
     recipe && (
       <main className={`${mainElement}`}>
-        <h1 className="text-lg font-bold md:text-4xl flex gap-4 justify-center items-center">
-          Recipe for: {recipe.name}
+        <h1 className="text-lg font-bold md:text-2xl flex gap-4 justify-center items-center">
+          {recipe.name}
           {""}
-          <Link href="/recipes">
-            <Image
-              src="/icons/next-svgrepo-com.svg"
-              alt="Back to recipes"
-              width={30}
-              height={30}
-              className="rotate-180 hover:opacity-75 active:opacity-100"
-            />
+          <Link aria-label="Back to recipes" href="/recipes">
+            <div className="relative  w-6 h-6 md:w-7 md:h-7">
+              <Image
+                src="/icons/next-svgrepo-com.svg"
+                alt="Back to recipes"
+                fill
+                className="rotate-180 hover:opacity-75 active:opacity-100"
+              />
+            </div>
           </Link>
         </h1>
 
@@ -51,9 +52,9 @@ export default async function Page({
           <section aria-label="Recipe ingredients">
             <strong>Ingredients</strong>
 
-            <section className="flex gap-8 mt-2 items-start">
+            <section className="flex flex-col md:flex-row gap-2 md:gap-8 mt-2 items-start">
               <Image
-                className="hidden md:block rounded-lg"
+                className="rounded-lg"
                 src={recipe.thumbnail}
                 alt={`Preview for ${recipe.name} dish`}
                 width={150}
