@@ -32,7 +32,7 @@ export default async function Page() {
         🧆🍢 Delightful Delicacies 🍢🧆
       </h1>
 
-      <p className="w-10/12 text-center md:text-lg">
+      <p className="w-10/12 text-center text-lg hidden md:block">
         Welcome to our culinary haven, where the aroma of creativity meets the
         joy of flavors! Discover a treasure trove of mouthwatering recipes that
         cater to every palate. Our curated collection showcases a blend of

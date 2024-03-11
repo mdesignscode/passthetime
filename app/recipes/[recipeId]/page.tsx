@@ -38,20 +38,20 @@ export default async function Page({
               alt="Back to recipes"
               width={30}
               height={30}
-              className="rotate-180 md:w-9 md:h-9 hover:opacity-75 active:opacity-100"
+              className="rotate-180 hover:opacity-75 active:opacity-100"
             />
           </Link>
         </h1>
 
         <section
           aria-label="Recipe details"
-          className={`${backgroundLight} overflow-y-auto flex-1 flex flex-col gap-4 focusable`}
+          className={`${backgroundLight} overflow-y-auto flex-1 flex flex-col gap-4 w-full focusable`}
         >
           {/* ingredients section */}
           <section aria-label="Recipe ingredients">
             <strong>Ingredients</strong>
 
-            <section className="flex gap-8 mt-2">
+            <section className="flex gap-8 mt-2 items-start">
               <Image
                 className="hidden md:block rounded-lg"
                 src={recipe.thumbnail}

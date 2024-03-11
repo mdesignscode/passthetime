@@ -32,6 +32,9 @@ export default function TitleButton({
     <ScaleIn index={index}>
       <button
         aria-label={`Show ${poem?.title} content`}
+        aria-expanded={!poem}
+        aria-controls="poem"
+        id={`${poem.title}-button`}
         type="button"
         className={`${buttonPrimary} w-full`}
         onClick={handleShowInfo}

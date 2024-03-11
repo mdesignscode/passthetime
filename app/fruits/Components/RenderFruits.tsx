@@ -14,7 +14,7 @@ export default function RenderFruits({ fruits }: { fruits: TFruit[] }) {
     <FruitProvider>
       <section
         className={classNames(
-          "gap-4 flex-wrap w-10/12 mx-auto p-4 md:flex-none flex-1",
+          "gap-4 flex-wrap w-10/12 mx-auto md:my-auto md:flex-none flex-1",
           flexCenter
         )}
         aria-label="Fruits list"

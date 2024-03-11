@@ -19,11 +19,8 @@ export default async function Page() {
     >
       <h1 className="font-bold text-xl md:text-2xl">🍓🏝 Fruit Island 🏝🍓</h1>
 
-      <p className="text-lg text-center w-8/12 md:text-xl">
-        Dive into a fruity adventure like never before as we unravel the secrets
-        of nature&#39;s sweet treasures. From the juicy sweetness of tropical
-        pineapples to the crisp crunch of apples, we&#39;ve got a fruit for
-        every palate.
+      <p className="text-lg text-center w-10/12 md:w-8/10 md:text-xl">
+       Find out how much nutritional value the fruits you consume daily contains, and the families they belong to.
       </p>
 
       <RenderFruits fruits={await fruits} />

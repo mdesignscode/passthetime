@@ -39,7 +39,7 @@ export default function RootLayout({
   return (
     <html className="h-screen" lang="en">
       <body
-        className={`dark:from-secondary dark:to-secondary text-dark bg-gradient-to-r from-secondary to-accent-secondary dark:bg-gradient-to-b overflow-y-hidden h-full ${roboto.className}`}
+        className={`dark:from-secondary dark:to-secondary text-dark bg-gradient-to-r from-secondary to-accent-secondary dark:bg-gradient-to-b overflow-y-hidden h-[100dvh] ${roboto.className}`}
       >
         <GlobalProvider>
           <Navbar />

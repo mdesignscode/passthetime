@@ -1,12 +1,12 @@
-export default function ArrowIcon() {
+export default function ArrowIcon({ size }: { size?: number}) {
   return (
     <svg
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       id="up-circle"
       fill="currentColor"
-      width={50}
-      height={50}
+      width={size || 50}
+      height={size || 50}
     >
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g

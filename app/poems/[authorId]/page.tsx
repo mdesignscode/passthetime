@@ -19,7 +19,7 @@ export default async function Page({
     author && (
       <main
         aria-label={`All poems by ${author.name}`}
-        className={`flex flex-col h-full items-center gap-4 px-4 py-8 justify-center md:gap-6`}
+        className={`flex flex-col h-full items-center gap-4 px-4 py-8 md:gap-6`}
       >
         <h1 className="text-xl font-bold md:text-3xl">
           📜🖋 Poems by {author.name} 🖋📜

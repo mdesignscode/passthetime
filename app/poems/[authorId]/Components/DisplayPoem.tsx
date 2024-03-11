@@ -16,7 +16,12 @@ export default function DisplayPoem() {
 
   return (
     poem && (
-      <article className="z-20 flex flex-col gap-2 h-full absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 p-4 justify-center">
+      <article
+        id="poem"
+        aria-hidden={!poem}
+        aria-labelledby={`${poem.title}-button`}
+        className="z-20 flex flex-col w-full md:w-max gap-2 h-full absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 p-4 justify-center"
+      >
         <button
           aria-label={`Hide ${poem?.title} content`}
           className="self-start grid close-button"
@@ -31,7 +36,10 @@ export default function DisplayPoem() {
           />
         </button>
 
-        <section aria-label={`${poem.title} content`} className="bg-light md:text-lg overflow-y-auto rounded-lg p-4">
+        <section
+          aria-label={`${poem.title} content`}
+          className="bg-light md:text-lg overflow-y-auto rounded-lg p-4"
+        >
           {poem.lines.split("\n").map((line) => (
             <p key={line}>{line}</p>
           ))}

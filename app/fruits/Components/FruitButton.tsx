@@ -23,7 +23,7 @@ export default function FruitButton({
   }
 
   return (
-    <ScaleIn index={index}>
+    <ScaleIn index={index} className="flex-1 md:flex-auto">
       <button
         type="button"
         className={buttonPrimary}

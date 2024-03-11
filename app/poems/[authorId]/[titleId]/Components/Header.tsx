@@ -30,7 +30,7 @@ export default function Header({
     previousPoemLink = `/poems/${previousAuthorIndex}/${poemIndex - 1}`;
 
   return (
-    <section className="flex justify-between border-b-2 sticky top-0 rounded-t-lg bg-light border-dark items-center pb-2">
+    <section className="flex justify-between border-b-2 sticky top-0 rounded-t-lg bg-light border-dark items-center pb-2 gap-3">
       <Link
         className={classNames({ "pointer-events-none": poemIndex === 1 })}
         href={previousPoemLink}
@@ -41,12 +41,12 @@ export default function Header({
           })}
           src="/icons/next-svgrepo-com.svg"
           alt="Previous poem"
-          width={20}
-          height={20}
+          width={50}
+          height={50}
         />
       </Link>
 
-      <h1 className="font-bold md:text-xl text-center">{title}</h1>
+      <h1 className="font-bold md:text-xl text-center truncate">{title}</h1>
 
       <Link
         className={classNames({
@@ -60,8 +60,8 @@ export default function Header({
           })}
           src="/icons/next-svgrepo-com.svg"
           alt="Previous poem"
-          width={20}
-          height={20}
+          width={50}
+          height={50}
         />
       </Link>
     </section>
