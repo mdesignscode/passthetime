@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 id="title" align="center">Random Stuff</h1>
 
-## Getting Started
+<p align="center"><img src="./public/screenshots/Pass The Time.png" alt="project-image"></p>
 
-First, run the development server:
+<p id="description">Discover the unexpected with Random Stuff a dynamic Next.js creation that brings together a medley of functionalities from diverse external APIs. Dive into interactive experiences from classic games like rock-paper-scissors to browsing delicious recipes sourced from TheMealDB. With a focus on accessibility and SEO Random Stuff serves up an array of engaging activities seamlessly persisting user interactions in a robust database. Embrace the randomness and explore a world of endless possibilities all in one captivating website. Plus enjoy the convenience of its progressive web app (PWA) capabilities for enhanced accessibility on the go.</p>
 
+<h2>🚀 Demo</h2>
+
+[https://random-stuff-one.vercel.app/](https://random-stuff-one.vercel.app/)
+
+<h2>Project Screenshots:</h2>
+
+<img src="./public/screenshots/Pass The Time-1.png" alt="project-screenshot" width="1366" height="655/">
+
+<img src="./public/screenshots/Pass The Time-10.png" alt="project-screenshot" width="1366" height="655/">
+
+<img src="./public/screenshots/Pass The Time-8.png" alt="project-screenshot" width="1366" height="655/">
+
+<img src="./public/screenshots/Pass The Time-3.png" alt="project-screenshot" width="1366" height="655/">
+
+
+
+<h2>🧐 Features</h2>
+
+Here're some of the project's best features:
+
+*   Responsive and interactive web application
+*   Explore different kinds of fruit and information on them
+*   Play Rock Paper Scissors with 101 objects aginst the computer
+*   Explore hunderds of poems and recipes
+*   Consume external APIs to provide different functionaity
+
+<h2>📦 Requirements</h2>
+
+* [Bun (Interoparable with Node.js)](https://bun.sh/)
+* [Code Editor](https://code.visualstudio.com/)
+* [PostgreSQL database](https://www.postgresql.org/)
+* [Typescript](https://www.typescriptlang.org/download)
+
+<h2>🔒 Environment variables</h2>
+
+<p>Add the following variable to `.env` at the root of the project
+
+    DATABASE_URL="Connection to database via connection pooling"
+    DIRECT_URL="Direct connection to the database"
+
+<h2>🗃 Fill database with data</h2>
+
+<p>The app consumes external APIs to generate different user interfaces. Run the following to generate data:</p>
+
+* Fill fruits
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bunx tsc data/seedFruits.ts && node data/seedFruits.js
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* Fill Rock, Paper, Scissors
+```bash
+bunx tsc data/seedRPS.ts && node data/seedRPS.js
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* Fill recipes
+```bash
+bunx tsc data/seedRecipes.ts && node data/seedRecipes.js
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+* Fill poems
+```bash
+bunx tsc data/seedPoems.ts && node data/seedPoems.js
+```
 
-## Learn More
+<h2>🛠️ Installation Steps:</h2>
 
-To learn more about Next.js, take a look at the following resources:
+<p>1. Clone this repo</p>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+git clone https://github.com/mdesignscode/passthetime/
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<p>2. Change directory</p>
 
-## Deploy on Vercel
+```
+cd passthetime
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<p>3. Start development server</p>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+bun run dev
+```
+
+
+
+<h2>💻 Built with</h2>
+
+Technologies used in the project:
+
+*   Next.js
+*   Typescript
+*   React
+*   Framer Motion
+*   Prismajs
+*   PostgreSQL
+
+<h2>🛡️ License:</h2>
+
+This project is licensed under the MIT
