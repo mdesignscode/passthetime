@@ -27,6 +27,7 @@ export default function DisplayPoem() {
           className="self-start grid close-button"
           type="button"
           onClick={handleHidePoem}
+          id="close-button"
         >
           <Image
             src="/icons/close-circle-svgrepo-com.svg"

@@ -34,6 +34,7 @@ export default function Header({
       <Link
         className={classNames({ "pointer-events-none": poemIndex === 1 })}
         href={previousPoemLink}
+        id="previous-poem"
       >
         <Image
           className={classNames("transition-all rotate-180 md:w-7 md:h-7", {
@@ -53,6 +54,7 @@ export default function Header({
           "pointer-events-none": poemIndex === poems.length,
         })}
         href={nextPoemLink}
+        id="next-poem"
       >
         <Image
           className={classNames("md:w-7 md:h-7", {

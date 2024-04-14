@@ -1,7 +1,7 @@
 "use client";
 
 import { m } from "framer-motion";
-import { ChangeEvent, useContext, useState } from "react";
+import { ChangeEvent, useContext, useState, useEffect } from "react";
 import { PoemsContext } from "./context";
 import { childrenVariants } from "./PoemOptions";
 
@@ -16,7 +16,14 @@ export default function SelectAuthor({
   authors: IAuthorOption[];
 }) {
   const [selectedOption, setSelectedOption] = useState(""),
-    { setQueryUrl } = useContext(PoemsContext);
+    { setQueryUrl, queryUrl } = useContext(PoemsContext);
+
+  useEffect(() => {
+    if (!selectedOption) return;
+    const { author } = JSON.parse(selectedOption);
+
+    if (!queryUrl.text.includes(author)) setSelectedOption("");
+  }, [queryUrl.text, selectedOption]);
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { authorId, author } = JSON.parse(event.target.value);

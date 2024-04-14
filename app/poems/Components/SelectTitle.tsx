@@ -1,7 +1,7 @@
 "use client";
 
 import { m } from "framer-motion";
-import { ChangeEvent, useContext, useState } from "react";
+import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { childrenVariants } from "./PoemOptions";
 import { PoemsContext } from "./context";
 
@@ -14,16 +14,25 @@ interface ITitle {
 
 export default function SelectTitle({ titles }: { titles: ITitle[] }) {
   const [selectedOption, setSelectedOption] = useState(""),
-    { setQueryUrl } = useContext(PoemsContext);
+    { setQueryUrl, queryUrl } = useContext(PoemsContext);
+
+  useEffect(() => {
+    if (!selectedOption) return;
+    const { title } = JSON.parse(selectedOption);
+
+    if (!queryUrl.text.includes(title)) setSelectedOption("");
+  }, [queryUrl.text, selectedOption]);
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const { authorId, titleId, title } = JSON.parse(event.target.value);
+    try {
+      const { authorId, titleId, title } = JSON.parse(event.target.value);
 
-    setSelectedOption(event.target.value);
-    setQueryUrl({
-      url: `/poems/${authorId}/${titleId}`,
-      text: `View ${title}`,
-    });
+      setSelectedOption(event.target.value);
+      setQueryUrl({
+        url: `/poems/${authorId}/${titleId}`,
+        text: `View ${title}`,
+      });
+    } catch (error) {}
   };
 
   return (

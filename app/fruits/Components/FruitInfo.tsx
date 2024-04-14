@@ -44,6 +44,7 @@ export default function FruitInfo() {
         className="self-start close-button"
         type="button"
         onClick={handleHideInfo}
+        id="close-button"
       >
         <Image
           src="/icons/close-circle-svgrepo-com.svg"

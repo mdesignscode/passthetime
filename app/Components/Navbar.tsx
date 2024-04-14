@@ -43,7 +43,7 @@ export default function Navbar() {
       icon: <FoodIcon />,
       name: "Recipes",
     },
-  ];
+  ] as const;
 
   const { prefersDarkMode, setPrefersDarkMode, setShowLightbox, showLightbox } =
     useContext(GlobalContext);
@@ -100,7 +100,12 @@ export default function Navbar() {
       >
         {navLinks.map((link, index) => {
           return (
-            <button tabIndex={-1} aria-hidden="true" onClick={handleMenu} key={link.name}>
+            <button
+              tabIndex={-1}
+              aria-hidden="true"
+              onClick={handleMenu}
+              key={link.name}
+            >
               <Link
                 role="navitem"
                 href={link.path}
