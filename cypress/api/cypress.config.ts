@@ -6,8 +6,4 @@ export default defineConfig({
       // implement node event listeners here
     },
   },
-  env: {
-    hostname: "https://random-stuff-one.vercel.app/"
-  },
-  pageLoadTimeout: 1440000
 });

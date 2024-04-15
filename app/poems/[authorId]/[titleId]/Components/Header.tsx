@@ -35,6 +35,7 @@ export default function Header({
         className={classNames({ "pointer-events-none": poemIndex === 1 })}
         href={previousPoemLink}
         id="previous-poem"
+        prefetch={!isFirstAuthorPoem}
       >
         <Image
           className={classNames("transition-all rotate-180 md:w-7 md:h-7", {
@@ -55,6 +56,7 @@ export default function Header({
         })}
         href={nextPoemLink}
         id="next-poem"
+        prefetch={!isLastAuthorPoem}
       >
         <Image
           className={classNames("md:w-7 md:h-7", {
