@@ -1,4 +1,3 @@
-import { serve } from "bun";
 import { Hono } from "hono";
 import prisma from "../../../lib/prisma";
 
@@ -36,7 +35,4 @@ app.get("/recipes", async (c) => {
   );
 });
 
-serve({
-  fetch: app.fetch,
-  port: 3001,
-});
+export default app
