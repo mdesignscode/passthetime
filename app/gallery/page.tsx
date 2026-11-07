@@ -16,8 +16,10 @@ export default function Page() {
 
       <p className="marquee-note md:text-lg">
         Public-domain works from the{" "}
+        {/* artic.edu answers 403 to this site's referrer, so send none */}
         <a
           href="https://www.artic.edu/"
+          rel="noreferrer"
           className="underline underline-offset-2"
         >
           Art Institute of Chicago

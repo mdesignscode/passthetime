@@ -91,11 +91,15 @@ export default function Gallery({ artworks }: { artworks: TArtwork[] }) {
               {selected.credit && (
                 <p className="mt-2 text-xs leading-snug">{selected.credit}</p>
               )}
+              {/* artic.edu answers 403 to some referrers, including this site, so send none */}
               <a
                 href={`https://www.artic.edu/artworks/${selected.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-2 inline-block underline underline-offset-2"
               >
                 View at the museum
+                <span className="sr-only"> (opens in a new tab)</span>
               </a>
             </article>
           </>
