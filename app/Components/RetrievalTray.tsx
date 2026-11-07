@@ -1,5 +1,6 @@
 "use client";
 
+import classNames from "classnames";
 import { ReactNode, useEffect, useRef } from "react";
 
 /**
@@ -13,6 +14,7 @@ export default function RetrievalTray({
   closeLabel,
   onClose,
   emptyText,
+  fitToScreen = false,
   children,
 }: {
   id: string;
@@ -21,6 +23,11 @@ export default function RetrievalTray({
   closeLabel: string;
   onClose(): void;
   emptyText: string;
+  /**
+   * Keep the open tray within the screen, so its last line is always visible.
+   * The tray's content must have one part that can shrink (marked min-h-0).
+   */
+  fitToScreen?: boolean;
   children?: ReactNode;
 }) {
   const closeButton = useRef<HTMLButtonElement>(null),
@@ -51,10 +58,14 @@ export default function RetrievalTray({
     <aside
       id={id}
       aria-label={title || "Retrieval tray"}
-      className={`tray-sheet ${isOpen ? "" : "hidden md:block"}`}
+      className={classNames(
+        "tray-sheet",
+        !isOpen && "hidden md:block",
+        isOpen && fitToScreen && "tray-fit"
+      )}
     >
       {isOpen ? (
-        <div className="flex flex-col gap-2">
+        <div className="flex min-h-0 flex-1 flex-col gap-2">
           <button
             ref={closeButton}
             id="close-button"

@@ -61,6 +61,7 @@ export default function Gallery({ artworks }: { artworks: TArtwork[] }) {
         closeLabel={`Hide ${selected?.title} details`}
         onClose={close}
         emptyText="Pick a work to print its label"
+        fitToScreen
       >
         {selected && (
           <>
@@ -71,12 +72,22 @@ export default function Gallery({ artworks }: { artworks: TArtwork[] }) {
               width={843}
               height={843}
               sizes="352px"
-              className="h-auto max-h-[40dvh] w-full object-contain md:max-h-[60dvh]"
+              className="h-auto min-h-32 w-full flex-shrink object-contain"
             />
-            <article key={selected.id} className="receipt receipt-print">
+            <article key={selected.id} className="receipt receipt-print shrink-0">
               <h2 className="mb-2 border-b border-dashed border-current pb-2 font-bold">
                 {selected.title}
               </h2>
+              {/* artic.edu answers 403 to some referrers, including this site, so send none */}
+              <a
+                href={`https://www.artic.edu/artworks/${selected.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mb-2 inline-block underline underline-offset-2"
+              >
+                View at the museum
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
               <dl>
                 {details.map(([label, value]) => (
                   <div
@@ -89,18 +100,10 @@ export default function Gallery({ artworks }: { artworks: TArtwork[] }) {
                 ))}
               </dl>
               {selected.credit && (
-                <p className="mt-2 text-xs leading-snug">{selected.credit}</p>
+                <p className="mt-2 line-clamp-3 text-xs leading-snug" title={selected.credit}>
+                  {selected.credit}
+                </p>
               )}
-              {/* artic.edu answers 403 to some referrers, including this site, so send none */}
-              <a
-                href={`https://www.artic.edu/artworks/${selected.id}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-block underline underline-offset-2"
-              >
-                View at the museum
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
             </article>
           </>
         )}

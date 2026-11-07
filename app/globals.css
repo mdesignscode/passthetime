@@ -463,7 +463,18 @@
     box-shadow: 0 -8px 30px rgb(0 0 0 / 0.5);
   }
 
+  /* the open tray stays within the screen; its picture gives up the height */
+  .tray-fit {
+    display: flex;
+    flex-direction: column;
+  }
+
   @media (min-width: 768px) {
+    .tray-fit.tray-fit {
+      max-height: calc(100dvh - 8rem);
+      overflow-y: auto;
+    }
+
     .tray-sheet {
       position: sticky;
       inset: auto;
