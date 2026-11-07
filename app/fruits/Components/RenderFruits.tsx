@@ -1,30 +1,24 @@
 "use client";
 
-import { flexCenter } from "@/Components/TailwindClasses";
-import classNames from "classnames";
-import { useContext } from "react";
 import FruitButton from "./FruitButton";
 import FruitInfo from "./FruitInfo";
-import { FruitContext, FruitProvider } from "./context";
+import { FruitProvider } from "./context";
 
 export default function RenderFruits({ fruits }: { fruits: TFruit[] }) {
-  const { showInfo } = useContext(FruitContext);
-
   return (
     <FruitProvider>
-      <section
-        className={classNames(
-          "gap-4 flex-wrap w-10/12 mx-auto md:my-auto md:flex-none flex-1",
-          flexCenter
-        )}
-        aria-label="Fruits list"
-      >
-        {fruits.map((fruit, index) => (
-          <FruitButton index={index} key={fruit.id} fruit={{ ...fruit }} />
-        ))}
-      </section>
+      <div className="grid items-start gap-3 md:grid-cols-[1fr_19rem] md:gap-4">
+        <section
+          aria-label="Fruits list"
+          className="wall grid-cols-[repeat(auto-fill,minmax(8.5rem,1fr))]"
+        >
+          {fruits.map((fruit) => (
+            <FruitButton key={fruit.id} fruit={fruit} />
+          ))}
+        </section>
 
-      <FruitInfo />
+        <FruitInfo />
+      </div>
     </FruitProvider>
   );
 }

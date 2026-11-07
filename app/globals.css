@@ -2,12 +2,460 @@
 @tailwind components;
 @tailwind utilities;
 
-button,
-a,
-.focusable {
-  @apply outline-dark outline-2 focus:outline-dotted;
+:root {
+  --enamel: #12389e;
+  --enamel-deep: #0b2670;
+  --enamel-lift: #2a52c4;
+  --on-enamel: #f4f6ff;
+  --on-enamel-dim: #d0daf9;
+  --glass: #edf1f7;
+  --glass-shade: #aebacf;
+  --rail: #ffffff;
+  --ink: #0a0d1c;
+  --ink-dim: #454d68;
+  --display: #0a0d1c;
+  --led: #ff5a36;
+  --led-off: #2a1412;
+  --signal: #ffcf24;
+  --paper: #fbfbf6;
+  --paper-ink: #15151c;
+  --compartment-glow: 0 2px 3px rgb(4 12 40 / 0.35);
+  color-scheme: light;
 }
 
-.close-button {
-  @apply focus:outline-light;
+.dark {
+  --enamel: #0a1234;
+  --enamel-deep: #050921;
+  --enamel-lift: #1a2a6b;
+  --on-enamel: #eef1ff;
+  --on-enamel-dim: #b5c0ea;
+  --glass: #f3f6ff;
+  --glass-shade: #a9b9e6;
+  --compartment-glow: 0 10px 44px rgb(170 195 255 / 0.3);
+  color-scheme: dark;
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    overflow: hidden;
+    background: var(--enamel);
+    color: var(--on-enamel);
+    font-family: var(--font-body), sans-serif;
+    font-variant-numeric: tabular-nums;
+  }
+
+  ::selection {
+    background: var(--signal);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--signal);
+    outline-offset: 2px;
+  }
+
+  * {
+    scrollbar-color: var(--enamel-lift) transparent;
+    scrollbar-width: thin;
+  }
+}
+
+@layer components {
+  /* page scaffold */
+  .machine-main {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .machine-main {
+      gap: 1rem;
+      padding: 1rem;
+    }
+  }
+
+  /* LED marquee */
+  .marquee {
+    background: var(--display);
+    border-radius: 0.5rem;
+    box-shadow: inset 0 0 0 2px #000, inset 0 3px 14px rgb(0 0 0 / 0.9);
+    color: var(--led);
+    padding: 0.75rem 1rem;
+    font-family: var(--font-led), monospace;
+    font-weight: 900;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+
+  .dark .marquee {
+    box-shadow: inset 0 0 0 2px #000, 0 6px 36px rgb(255 90 54 / 0.22);
+  }
+
+  .marquee-note {
+    color: var(--on-enamel-dim);
+    max-width: 75ch;
+    line-height: 1.5;
+  }
+
+  /* panel-stamped labels */
+  .stamp {
+    font-family: var(--font-panel), sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* the wall of lit compartments */
+  .wall {
+    display: grid;
+    gap: 0.5rem;
+    background: var(--enamel-deep);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    box-shadow: inset 0 2px 10px rgb(0 0 0 / 0.45);
+  }
+
+  .slot {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    width: 100%;
+    overflow: hidden;
+    text-align: left;
+    color: var(--ink);
+    background: var(--glass);
+    border-radius: 0.1875rem;
+    box-shadow: var(--compartment-glow);
+  }
+
+  .slot:hover [data-packet] {
+    transform: translateY(-5px) rotate(-1.5deg);
+  }
+
+  .slot-goods {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    padding: 0.875rem 0.625rem 0.625rem;
+  }
+
+  /* compartments holding goods: a light tube along the top, shade falling toward the shelf */
+  .slot-recess {
+    background: linear-gradient(180deg, #fff 0, var(--glass) 22%, var(--glass-shade) 100%);
+    box-shadow:
+      inset 0 16px 16px -14px rgb(10 13 28 / 0.4),
+      inset 12px 0 14px -12px rgb(10 13 28 / 0.45),
+      inset -12px 0 14px -12px rgb(10 13 28 / 0.45);
+  }
+
+  .slot-recess::before {
+    content: "";
+    position: absolute;
+    inset: 0 0.5rem auto;
+    height: 4px;
+    border-radius: 0 0 2px 2px;
+    background: #fff;
+    box-shadow: 0 2px 12px 2px rgb(255 255 255 / 0.95);
+  }
+
+  /* price rail: one fact, plus a code on slots the keypad can reach */
+  .rail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background: var(--rail);
+    border-top: 1px solid var(--glass-shade);
+    font-size: 0.8125rem;
+    color: var(--ink-dim);
+  }
+
+  .code {
+    flex: none;
+    border-radius: 0.1875rem;
+    background: var(--ink);
+    color: #fff;
+    padding: 0 0.3125rem;
+    font-family: var(--font-receipt), monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+  }
+
+  /* drawn above the compartment's contents so the recess cannot cover it */
+  .slot[aria-pressed="true"]::after,
+  .slot.is-selected::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 3px var(--signal);
+    pointer-events: none;
+  }
+
+  /* yellow disappears against the lit glass, so controls inside it focus in ink */
+  .slot :focus-visible {
+    outline-color: var(--ink);
+  }
+
+  .dark header .code {
+    background: var(--enamel-lift);
+  }
+
+  .slot[aria-pressed="true"] .rail,
+  .slot.is-selected .rail {
+    background: var(--signal);
+    color: var(--ink);
+  }
+
+  /* goods */
+  .packet {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    min-height: 6.5rem;
+    overflow: hidden;
+    padding: 0.875rem 0.5rem;
+    font-family: var(--font-panel), sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.02;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    color: #fff;
+    /* crimped seals along the top and bottom */
+    -webkit-mask:
+      conic-gradient(from 135deg at top, transparent, #000 1deg 89deg, transparent 90deg) top / 10px 51% repeat-x,
+      conic-gradient(from -45deg at bottom, transparent, #000 1deg 89deg, transparent 90deg) bottom / 10px 51% repeat-x;
+    mask:
+      conic-gradient(from 135deg at top, transparent, #000 1deg 89deg, transparent 90deg) top / 10px 51% repeat-x,
+      conic-gradient(from -45deg at bottom, transparent, #000 1deg 89deg, transparent 90deg) bottom / 10px 51% repeat-x;
+    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* the print takes the space above the label and never runs behind it */
+  .packet-print {
+    flex: 1 1 0;
+    width: 100%;
+    height: 0;
+    min-height: 0;
+    fill: #fff;
+    opacity: 0.24;
+  }
+
+  /* retrieval flap, hinged along its top edge */
+  .flap {
+    overflow: hidden;
+    border-radius: 0.25rem;
+    background: #000;
+    perspective: 400px;
+    box-shadow: inset 0 3px 10px #000;
+  }
+
+  .flap-door {
+    display: block;
+    padding: 1.25rem;
+    background: var(--display);
+    color: var(--on-enamel-dim);
+    font-size: 1.25rem;
+    text-align: center;
+    transform-origin: top;
+    transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .flap.is-open .flap-door {
+    transform: rotateX(68deg);
+  }
+
+  /* lights switch */
+  .rocker {
+    display: inline-flex;
+    align-items: stretch;
+    height: 2.25rem;
+    border-radius: 0.3125rem;
+    padding: 2px;
+    background: #000;
+    font-size: 0.875rem;
+    color: var(--on-enamel-dim);
+  }
+
+  .rocker > span {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-radius: 0.1875rem;
+    padding: 0 0.625rem;
+    transition: background-color 140ms, color 140ms;
+  }
+
+  .rocker .rocker-on {
+    background: #f4f6fb;
+    color: var(--ink);
+    box-shadow: 0 1px 4px rgb(255 255 255 / 0.35);
+  }
+
+  /* buttons on the machine */
+  .key {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    border-radius: 0.3125rem;
+    padding: 0.375rem 0.875rem;
+    color: var(--ink);
+    background: #f4f6fb;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 0.4);
+    font-family: var(--font-panel), sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: transform 90ms, box-shadow 90ms, background-color 90ms;
+  }
+
+  .key:hover:not(:disabled) {
+    background: #fff;
+  }
+
+  .key:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: inset 0 2px 4px rgb(0 0 0 / 0.35);
+  }
+
+  .key:disabled,
+  .key[aria-disabled="true"] {
+    color: #454d68;
+    background: #aab3c7;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  .key-go {
+    color: #fff;
+    background: #cf2a1f;
+  }
+
+  .key-go:hover:not(:disabled) {
+    background: #e03226;
+  }
+
+  .panel {
+    border-radius: 0.5rem;
+    background: var(--enamel-lift);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.2), 0 2px 6px rgb(0 0 0 / 0.3);
+    padding: 0.75rem;
+  }
+
+  .field {
+    min-height: 2.75rem;
+    width: 100%;
+    border-radius: 0.3125rem;
+    appearance: none;
+    color: var(--ink);
+    padding: 0.5rem 2.25rem 0.5rem 0.75rem;
+    background: var(--glass) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a0d1c' stroke-width='2.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 8.5l7 7 7-7'/%3E%3C/svg%3E") no-repeat right 0.625rem center / 1.125rem;
+    font-weight: 500;
+  }
+
+  /* thermal receipt */
+  .receipt {
+    background: var(--paper);
+    color: var(--paper-ink);
+    font-family: var(--font-receipt), monospace;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    padding: 1rem;
+    /* torn zigzag edge along the bottom */
+    -webkit-mask: conic-gradient(from -45deg at bottom, transparent, #000 1deg 89deg, transparent 90deg) 50% / 12px 100%;
+    mask: conic-gradient(from -45deg at bottom, transparent, #000 1deg 89deg, transparent 90deg) 50% / 12px 100%;
+    padding-bottom: 1.5rem;
+  }
+
+  .receipt-print {
+    animation: receipt-print 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .poem-line {
+    min-height: 1.6em;
+  }
+
+  /* bottom sheet below md, sticky column above */
+  .tray-sheet {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 20;
+    max-height: 72dvh;
+    overflow-y: auto;
+    padding: 0.75rem;
+    background: var(--enamel-deep);
+    border-radius: 0.75rem 0.75rem 0 0;
+    box-shadow: 0 -8px 30px rgb(0 0 0 / 0.5);
+  }
+
+  @media (min-width: 768px) {
+    .tray-sheet {
+      position: sticky;
+      inset: auto;
+      top: 0;
+      z-index: 0;
+      max-height: none;
+      overflow: visible;
+      border-radius: 0.5rem;
+      box-shadow: inset 0 2px 10px rgb(0 0 0 / 0.45);
+    }
+  }
+}
+
+@keyframes receipt-print {
+  from {
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(-14px);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+  }
+}
+
+/* goods are picked by index at runtime, so they sit outside the purged layers */
+.goods-0 { background-color: #c8281f; }
+.goods-1 { background-color: #12389e; }
+.goods-2 { background-color: #0a7a4f; }
+.goods-3 { background-color: #17181f; }
+.goods-4 { background-color: #a8318c; }
+.goods-5 { background-color: #b34700; }
+
+/* night: the pointer carries a little light across the enamel */
+#spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  background: radial-gradient(circle 320px at var(--x, 50%) var(--y, 30%), rgb(255 255 255 / 0.6), transparent 70%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
 }

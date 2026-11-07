@@ -1,48 +1,53 @@
-type TPlayObjects = ({
-  winningMatches: {
-    id: number;
-    name: string;
-    action: string;
-    rockPaperScissorId: number | null;
-  }[];
-} & {
+type TPlayObject = {
   id: number;
   name: string;
-})[]
+  winningMatches: { name: string; action: string }[];
+};
 
-type TFruit = ({
+type TPlayObjects = TPlayObject[];
+
+type TFruit = {
+  id: number;
+  name: string;
+  family: string;
+  order: string;
+  genus: string;
   nutritions: {
-    id: number;
     calories: number;
     fat: number;
     sugar: number;
     carbohydrates: number;
     protein: number;
   };
-} & {
-  id: number;
-  name: string;
-  family: string;
-  order: string;
-  genus: string;
-  nutritionsId: number;
-})
-
-type TAuthor = ({
-  poems: {
-    id: number;
-    title: string;
-    lines: string;
-    authorId: number | null;
-  }[];
-} & {
-  id: number;
-  name: string;
-})
+};
 
 type TPoem = {
   id: number;
+  authorId: number;
   title: string;
   lines: string;
-  authorId: number | null;
-}
+};
+
+type TAuthor = {
+  id: number;
+  name: string;
+  poems: TPoem[];
+};
+
+type TPoemWithAuthor = TPoem & {
+  Author: { id: number; name: string } | null;
+};
+
+type TRecipe = {
+  id: number;
+  name: string;
+  category: string;
+  area: string;
+  thumbnail: string;
+  youtubeUrl: string | null;
+  source: string | null;
+  instructions: string;
+  ingredients: string[];
+  measurements: string[];
+  tags: string[];
+};

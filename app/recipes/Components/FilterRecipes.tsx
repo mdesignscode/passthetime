@@ -1,14 +1,9 @@
 "use client";
 
-import { borderStyle, buttonDisabled } from "@/app/Components/TailwindClasses";
-import { Prisma } from "prisma/generated/client";
-import { Dispatch, MouseEvent, SetStateAction, useState } from "react";
-import { TRecipe } from "./RecipeButton";
-import classNames from "classnames";
-import ArrowIcon from "@/app/Components/Icons/Arrow";
+import { Dispatch, SetStateAction, useState } from "react";
 
 interface FilterRecipesProps {
-  tags: (Prisma.PickEnumerable<Prisma.TagsGroupByOutputType, "name"[]> & {})[];
+  tags: string[];
   recipes: TRecipe[];
   setPartialList: Dispatch<SetStateAction<TRecipe[]>>;
   setPageIndex: Dispatch<SetStateAction<number>>;
@@ -16,7 +11,6 @@ interface FilterRecipesProps {
   setTotalPages: Dispatch<SetStateAction<number>>;
   TOTAL_PAGES_INITIALLY: number;
   PAGE_COUNT: number;
-  totalPages: number;
 }
 
 export default function FilterRecipes({
@@ -28,10 +22,10 @@ export default function FilterRecipes({
   setTotalPages,
   PAGE_COUNT,
   TOTAL_PAGES_INITIALLY,
-  totalPages,
 }: FilterRecipesProps) {
   const TAG_COUNT = 20,
-    [tagCount, setTagCount] = useState(0);
+    [tagCount, setTagCount] = useState(0),
+    [activeTag, setActiveTag] = useState<string | null>(null);
 
   function updatePageState(list: TRecipe[], pages: number) {
     setPartialList(list);
@@ -41,118 +35,79 @@ export default function FilterRecipes({
     setCurrentIndex(0);
   }
 
-  function handleShowMoreTags() {
-    setTagCount((state) => state + TAG_COUNT);
-  }
-
-  function handleShowLessTags() {
-    setTagCount((state) => state - TAG_COUNT);
-  }
-
-  function handleFilterByTags(event: MouseEvent<HTMLButtonElement>) {
-    const filter = (event?.target as any).value,
-      filteredList: TRecipe[] = [];
-
-    // find recipes that with tags match filter
-    for (const recipe of recipes) {
-      for (const tag of recipe.tags) {
-        if (tag.name === filter) {
-          filteredList.push(recipe);
-          break;
-        }
-      }
-    }
-
-    updatePageState(
-      filteredList,
-      Math.floor(filteredList.length / PAGE_COUNT) + 1
+  function handleFilterByTags(filter: string) {
+    const filteredList = recipes.filter((recipe) =>
+      recipe.tags.includes(filter)
     );
+
+    setActiveTag(filter);
+    // a filtered list is shown whole on one page
+    updatePageState(filteredList, 1);
   }
 
   function clearTag() {
+    setActiveTag(null);
     updatePageState(recipes.slice(0, PAGE_COUNT), TOTAL_PAGES_INITIALLY);
   }
 
   return (
-    <section
-      className={`${borderStyle} flex flex-col gap-2 items-center w-5/6`}
-      aria-label="Filter recipes"
-    >
-      <p>Filter recipes by tags</p>
+    <section className="panel flex flex-col gap-3" aria-label="Filter recipes">
+      <div className="flex flex-wrap items-center gap-2">
+        <p className="stamp mr-auto text-lg">Filter recipes by tags</p>
+
+        <button
+          type="button"
+          className="key !min-h-9 text-sm"
+          onClick={() => setTagCount(tagCount ? 0 : TAG_COUNT)}
+        >
+          {tagCount ? "hide tags" : "show tags"}
+        </button>
+        <button
+          disabled={tagCount <= TAG_COUNT}
+          type="button"
+          className="key !min-h-9 text-sm"
+          onClick={() => setTagCount((state) => state - TAG_COUNT)}
+        >
+          show less tags
+        </button>
+        <button
+          type="button"
+          disabled={tagCount >= tags.length}
+          className="key !min-h-9 text-sm"
+          onClick={() => setTagCount((state) => state + TAG_COUNT)}
+        >
+          show more tags
+        </button>
+        <button
+          type="button"
+          disabled={!activeTag}
+          className="key !min-h-9 text-sm"
+          onClick={clearTag}
+        >
+          clear tag
+        </button>
+      </div>
 
       {!!tagCount && (
-        <section
-          aria-label="All tags"
-          className="flex gap-2 flex-wrap justify-center text-xs md:text-sm"
-        >
+        <section aria-label="All tags" className="flex flex-wrap gap-1.5">
           {tags.slice(0, tagCount).map((tag) => (
             <button
-              onClick={handleFilterByTags}
-              className="hover:text-gray-600"
-              key={tag.name}
-              value={tag.name}
-              aria-label={`Show recipes by ${tag.name}`}
+              type="button"
+              onClick={() => handleFilterByTags(tag)}
+              className={`min-h-8 rounded px-2 text-sm font-medium text-ink transition-colors ${
+                activeTag === tag ? "bg-signal" : "bg-glass hover:bg-white"
+              }`}
+              key={tag}
+              value={tag}
+              aria-pressed={activeTag === tag}
+              aria-label={`Show recipes by ${tag}`}
               aria-controls="recipesList"
             >
-              #{tag.name}
+              #{tag}
             </button>
           ))}
         </section>
       )}
-
-      <section className="flex gap-4">
-        <button
-          disabled={tagCount <= TAG_COUNT}
-          type="button"
-          onClick={handleShowLessTags}
-          className={classNames(
-            {
-              [buttonDisabled]: tagCount <= TAG_COUNT,
-            },
-            "md:font-bold hover:text-gray-600 text-sm md:text-base"
-          )}
-        >
-          <span className="hidden md:inline">show </span>less tags
-        </button>
-
-        <button
-          type="button"
-          disabled={tagCount >= tags.length}
-          className={classNames(
-            {
-              [buttonDisabled]: tagCount >= tags.length,
-            },
-            "md:font-bold hover:text-gray-600 text-sm md:text-base"
-          )}
-          onClick={handleShowMoreTags}
-        >
-          <span className="hidden md:inline">show </span>more tags
-        </button>
-
-        <button
-          type="button"
-          disabled={totalPages > 1}
-          className={classNames(
-            {
-              [buttonDisabled]: totalPages > 1,
-            },
-            "md:font-bold hover:text-gray-600 text-sm md:text-base"
-          )}
-          onClick={clearTag}
-        >
-          clear<span className="hidden md:inline"> tag</span>
-        </button>
-      </section>
-
-      <button
-        type="button"
-        onClick={() => setTagCount(tagCount ? 0 : 20)}
-        className={classNames(
-          "md:font-bold hover:text-gray-600 text-sm md:text-base"
-        )}
-      >
-        {tagCount ? "hide tags" : "show tags"}
-      </button>
     </section>
   );
 }

@@ -1,55 +1,31 @@
 "use client";
 
-import { buttonPrimary } from "@/Components/TailwindClasses";
-import ScaleIn from "@/app/Components/ScaleIn";
-import { useContext, useEffect, useState } from "react";
+import Packet from "@/Components/Packet";
+import { useContext, useEffect } from "react";
 import { RPSContext } from "./context";
 
 export default function ShowResult() {
   const { playState, setPlayState, playerObject, computerObject, setScore } =
       useContext(RPSContext),
-    [playerWon, setPlayerWon] = useState(false),
-    [outComeAction, setOutcomeAction] = useState(""),
-    [displayResult, setDisplayResult] = useState(false);
+    winningMatch = playerObject?.winningMatches.find(
+      (match) => match.name === computerObject?.name
+    ),
+    losingMatch = computerObject?.winningMatches.find(
+      (match) => match.name === playerObject?.name
+    ),
+    playerWon = !!winningMatch,
+    outComeAction = (winningMatch || losingMatch)?.action ?? "",
+    isDecided = playState === "result" && !!outComeAction;
 
+  // a draw leaves the score alone
   useEffect(() => {
-    if (computerObject && playerObject && playState === "result") {
-      let matchFound = false;
-      for (const match of playerObject.winningMatches) {
-        if (computerObject.name === match.name) {
-          setPlayerWon(true);
-          setOutcomeAction(match.action);
-          setDisplayResult(true);
-          matchFound = true;
-          break;
-        }
-      }
-
-      if (!matchFound) {
-        setOutcomeAction(() => {
-          for (const match of computerObject.winningMatches) {
-            if (match.name === playerObject.name) {
-              setPlayerWon(false);
-              setDisplayResult(true);
-              return match.action;
-            }
-          }
-
-          return "";
-        });
-      }
-    }
-  }, [playState, computerObject, playerObject, setScore]);
-
-  useEffect(() => {
-    if (playState === "result" && displayResult) {
+    if (isDecided) {
       setScore((state) => ({
         player: playerWon ? state.player + 1 : state.player,
         computer: playerWon ? state.computer : state.computer + 1,
       }));
-      setDisplayResult(false);
     }
-  }, [playState, playerWon, setScore, displayResult]);
+  }, [isDecided, playerWon, setScore]);
 
   function handlePlayAgain() {
     setPlayState("selectObject");
@@ -57,29 +33,38 @@ export default function ShowResult() {
 
   return (
     playState === "result" && (
-      <ScaleIn
-        className="text-xl text-center flex flex-col gap-2"
-        ariaLabel="Play results"
-      >
-        <p aria-label="Player result">
+      <div className="flex flex-col gap-4" role="group" aria-label="Play results">
+        <p aria-label="Player result" className="marquee text-center text-4xl md:text-5xl">
           {!outComeAction ? "Draw" : playerWon ? "You Won" : "You Lost"}
         </p>
-        <p aria-label="Winning outcome" className="underline">
-          {playerWon ? playerObject?.name : computerObject?.name}{" "}
-          {outComeAction}{" "}
-          {outComeAction && !playerWon
-            ? playerObject?.name
-            : computerObject?.name}
-        </p>
+
+        <div className="flex items-end justify-center gap-4 md:gap-8">
+          <div className="flex w-36 flex-col gap-1">
+            <span className="stamp text-lg">You</span>
+            <Packet name={playerObject?.name ?? ""} className="min-h-44 !text-3xl" />
+          </div>
+          <div className="flex w-36 flex-col gap-1">
+            <span className="stamp text-lg">Computer</span>
+            <Packet name={computerObject?.name ?? ""} className="min-h-44 !text-3xl" />
+          </div>
+        </div>
+
+        {outComeAction && (
+          <p aria-label="Winning outcome" className="text-center text-xl">
+            {playerWon ? playerObject?.name : computerObject?.name}{" "}
+            {outComeAction}{" "}
+            {playerWon ? computerObject?.name : playerObject?.name}
+          </p>
+        )}
 
         <button
-          className={`${buttonPrimary} tracking-widest`}
+          className="key key-go mx-auto w-full max-w-md text-xl"
           type="button"
           onClick={handlePlayAgain}
         >
           Play Again
         </button>
-      </ScaleIn>
+      </div>
     )
   );
 }

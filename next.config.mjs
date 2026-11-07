@@ -7,16 +7,9 @@ const withBundleAnalyzer = bundleAnalyzer({
 const nextConfig = {
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'www.themealdb.com',
-        port: '',
-      },
-    ],
   },
   experimental: {
-    optimizePackageImports: ['prisma/generated/client', "framer-motion"],
+    optimizePackageImports: ["framer-motion"],
   },
   output: 'export',
   staticPageGenerationTimeout: 0,

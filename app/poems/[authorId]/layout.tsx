@@ -1,12 +1,9 @@
-import prisma from "@/lib/prisma";
+import { authors } from "lib/data";
 import type { Metadata } from "next";
-import AuthorPoems from "./Components/AuthorPoems";
 import { ReactNode } from "react";
 
-export async function generateStaticParams() {
-  const allAuthors = await prisma.author.findMany();
-
-  return allAuthors.map(({ id }) => ({
+export function generateStaticParams() {
+  return authors.map(({ id }) => ({
     authorId: id.toString(),
   }));
 }

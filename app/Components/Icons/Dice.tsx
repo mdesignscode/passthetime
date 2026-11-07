@@ -1,11 +1,12 @@
 export default function DiceIcon() {
   return (
     <svg
+      aria-hidden="true"
       fill="currentColor"
       viewBox="0 0 256 256"
       xmlns="http://www.w3.org/2000/svg"
-      width={50}
-      height={50}
+      width={32}
+      height={32}
     >
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g

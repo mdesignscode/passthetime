@@ -1,7 +1,6 @@
 "use client";
 
 import { Dispatch, SetStateAction, createContext, useState } from "react";
-import { TRPSObject } from "./PickAnObject";
 
 interface IScore {
   player: number;
@@ -11,10 +10,10 @@ interface IScore {
 type TPlayState = "selectObject" | "playing" | "result";
 
 export interface IRPSContext {
-  playerObject: TRPSObject | null;
-  setPlayerObject: Dispatch<SetStateAction<TRPSObject | null>>;
-  computerObject: TRPSObject | null;
-  setComputerObject: Dispatch<SetStateAction<TRPSObject | null>>;
+  playerObject: TPlayObject | null;
+  setPlayerObject: Dispatch<SetStateAction<TPlayObject | null>>;
+  computerObject: TPlayObject | null;
+  setComputerObject: Dispatch<SetStateAction<TPlayObject | null>>;
   score: IScore;
   setScore: Dispatch<SetStateAction<IScore>>;
   playState: TPlayState;
@@ -36,8 +35,8 @@ export const RPSContext = createContext<IRPSContext>(initialRPSContext);
 
 export function RPSProvider({ children }: { children: React.ReactNode }) {
   // RPS state
-  const [playerObject, setPlayerObject] = useState<TRPSObject | null>(null),
-    [computerObject, setComputerObject] = useState<TRPSObject | null>(null),
+  const [playerObject, setPlayerObject] = useState<TPlayObject | null>(null),
+    [computerObject, setComputerObject] = useState<TPlayObject | null>(null),
     [score, setScore] = useState<IScore>({
       player: 0,
       computer: 0,

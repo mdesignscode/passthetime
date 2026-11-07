@@ -1,23 +1,19 @@
 "use client";
 
-import { absoluteCenter, buttonDisabled, buttonPrimary } from "@/Components/TailwindClasses";
-import Image from "next/image";
-import { TRPSObject } from "./PickAnObject";
-import classNames from "classnames";
+import Packet from "@/Components/Packet";
+import { useEffect, useRef } from "react";
 
 interface IShowObjectsProps {
-  showObjects: boolean;
   handleHideObjects(): void;
-  partialList: TRPSObject[];
-  handleSelectObject(object: TRPSObject): void;
+  partialList: TPlayObject[];
+  handleSelectObject(object: TPlayObject): void;
   handleStartPlaying(): void;
-  playerObject: TRPSObject | null;
-  NextButton: () => JSX.Element;
-  PreviousButton: () => JSX.Element;
+  playerObject: TPlayObject | null;
+  NextButton: (props: object) => JSX.Element;
+  PreviousButton: (props: object) => JSX.Element;
 }
 
 export default function ShowObjects({
-  showObjects,
   handleHideObjects,
   partialList,
   handleSelectObject,
@@ -26,86 +22,71 @@ export default function ShowObjects({
   NextButton,
   PreviousButton,
 }: IShowObjectsProps) {
+  const dialog = useRef<HTMLDialogElement>(null);
+
+  // a native dialog gives the picker focus trapping and Escape handling
+  useEffect(() => {
+    const element = dialog.current;
+    element?.showModal();
+    return () => element?.close();
+  }, []);
+
   return (
-    showObjects && (
-      <div
-        className={classNames(
-          "z-20 h-full overflow-y-auto w-full grid p-4 place-items-center",
-          absoluteCenter
-        )}
-      >
-        <section
-          className="w-5/6 md:w-2/3"
-          id="all-objects"
-          aria-label="Pick an object"
-          aria-labelledby="all-objects-button"
-          aria-hidden={!showObjects}
+    <dialog
+      ref={dialog}
+      id="all-objects"
+      aria-label="Pick an object"
+      onCancel={handleHideObjects}
+      className="m-auto max-h-[92dvh] w-[min(56rem,94vw)] overflow-y-auto rounded-lg bg-enamel p-3 text-on-enamel backdrop:bg-black/70"
+    >
+      <div className="mb-3 flex flex-wrap items-center gap-2">
+        <button
+          aria-label="Hide all objects"
+          className="key close-button"
+          type="button"
+          onClick={handleHideObjects}
         >
-          <section role="menu" className="flex gap-4 items-center">
-            <button
-              aria-label="Hide all objects"
-              className="grid close-button"
-              type="button"
-              onClick={handleHideObjects}
-            >
-              <Image
-                src="/icons/close-circle-svgrepo-com.svg"
-                className="hover:opacity-50 transition-all"
-                alt="Hide objects"
-                width={50}
-                height={50}
-              />
-            </button>
-            <button
-              aria-label={
-                playerObject
-                  ? `Play with ${playerObject?.name}`
-                  : "Pick an object to play with"
-              }
-              disabled={!playerObject}
-              className={classNames(
-                buttonPrimary,
-                {
-                  [buttonPrimary]: !playerObject,
-                  [buttonDisabled]: !playerObject,
-                },
-                "tracking-widest uppercase text-xl focus:outline-accent-primary"
-              )}
-              type="button"
-              onClick={() => {
-                handleStartPlaying();
-                handleHideObjects();
-              }}
-            >
-              Play
-            </button>
-          </section>
-          <section className="border-2 border-light p-4 rounded-lg flex flex-col gap-4 mt-2 items-center">
-            <PreviousButton />
-            <section
-              aria-label="All objects"
-              className="flex flex-wrap gap-2 items-center justify-center"
-            >
-              {partialList.map((object) => (
-                <button
-                  tabIndex={0}
-                  aria-label={`Select ${object.name}`}
-                  className={classNames(
-                    buttonPrimary,
-                    "focus:outline-accent-primary focus:scale-105"
-                  )}
-                  type="button"
-                  key={object.id}
-                  onClick={() => handleSelectObject(object)}
-                >
-                  {object.name}
-                </button>
-              ))}
-            </section>
-            <NextButton />
-          </section>
-        </section>
+          Close
+        </button>
+        <PreviousButton />
+        <NextButton />
+        <button
+          aria-label={
+            playerObject
+              ? `Play with ${playerObject?.name}`
+              : "Pick an object to play with"
+          }
+          disabled={!playerObject}
+          className="key key-go ml-auto"
+          type="button"
+          onClick={() => {
+            handleStartPlaying();
+            handleHideObjects();
+          }}
+        >
+          Play
+        </button>
       </div>
-    )
+
+      <section
+        aria-label="All objects"
+        className="wall grid-cols-[repeat(auto-fill,minmax(8rem,1fr))]"
+      >
+        {partialList.map((object) => (
+          <button
+            aria-label={`Select ${object.name}`}
+            aria-pressed={playerObject?.id === object.id}
+            className="slot"
+            type="button"
+            key={object.id}
+            onClick={() => handleSelectObject(object)}
+          >
+            <span className="slot-goods slot-recess w-full">
+              <Packet name={object.name} className="w-full !min-h-20" />
+            </span>
+          </button>
+        ))}
+      </section>
+    </dialog>
   );
 }

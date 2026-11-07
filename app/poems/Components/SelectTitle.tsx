@@ -1,8 +1,6 @@
 "use client";
 
-import { m } from "framer-motion";
 import { ChangeEvent, useContext, useEffect, useState } from "react";
-import { childrenVariants } from "./PoemOptions";
 import { PoemsContext } from "./context";
 
 interface ITitle {
@@ -24,30 +22,24 @@ export default function SelectTitle({ titles }: { titles: ITitle[] }) {
   }, [queryUrl.text, selectedOption]);
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    try {
-      const { authorId, titleId, title } = JSON.parse(event.target.value);
+    if (!event.target.value) return;
+    const { authorId, titleId, title } = JSON.parse(event.target.value);
 
-      setSelectedOption(event.target.value);
-      setQueryUrl({
-        url: `/poems/${authorId}/${titleId}`,
-        text: `View ${title}`,
-      });
-    } catch (error) {}
+    setSelectedOption(event.target.value);
+    setQueryUrl({
+      url: `/poems/${authorId}/${titleId}`,
+      text: `View ${title}`,
+    });
   };
 
   return (
-    <m.div
-      variants={childrenVariants}
-      className="flex flex-col border-2 border-dark p-2 gap-2 rounded-lg"
-    >
-      <label className="md:text-lg" htmlFor="title">
-        Get poems by Title
-      </label>
+    <div className="flex flex-col gap-1">
+      <label htmlFor="title">Get poems by Title</label>
       <select
-        id="author"
+        id="title"
         value={selectedOption}
         onChange={handleSelectChange}
-        className="p-2 rounded-lg"
+        className="field"
       >
         <option value="">Select title...</option>
         {titles.map((title) => (
@@ -63,6 +55,6 @@ export default function SelectTitle({ titles }: { titles: ITitle[] }) {
           </option>
         ))}
       </select>
-    </m.div>
+    </div>
   );
 }

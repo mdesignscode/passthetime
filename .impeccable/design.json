@@ -1,0 +1,880 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-06T22:43:03.151Z",
+  "title": "Design System: Random Stuff",
+  "extensions": {
+    "colorMeta": {
+      "enamel": {
+        "role": "primary",
+        "displayName": "Baked Cobalt Enamel",
+        "canonical": "#12389e",
+        "tonalRamp": [
+          "#000233",
+          "#021765",
+          "#0d3298",
+          "#2a54bc",
+          "#4876e1",
+          "#6c9aff",
+          "#a7c4ff",
+          "#e6efff"
+        ]
+      },
+      "enamel-deep": {
+        "role": "primary",
+        "displayName": "Recessed Enamel",
+        "canonical": "#0b2670",
+        "tonalRamp": [
+          "#01062a",
+          "#081e56",
+          "#1b3984",
+          "#3759a7",
+          "#557acb",
+          "#759cf0",
+          "#a7c4ff",
+          "#e7efff"
+        ]
+      },
+      "enamel-lift": {
+        "role": "primary",
+        "displayName": "Raised Enamel",
+        "canonical": "#2a52c4",
+        "tonalRamp": [
+          "#010036",
+          "#03126a",
+          "#0f2e9e",
+          "#2951c3",
+          "#4774e9",
+          "#6f9aff",
+          "#a8c4ff",
+          "#e7efff"
+        ]
+      },
+      "on-enamel": {
+        "role": "primary",
+        "displayName": "Enamel White",
+        "canonical": "#f4f6ff",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#232429",
+          "#3e3f46",
+          "#5b5d65",
+          "#7b7d85",
+          "#9c9ea6",
+          "#c2c4ca",
+          "#edeef2"
+        ]
+      },
+      "on-enamel-dim": {
+        "role": "primary",
+        "displayName": "Dim Enamel White",
+        "canonical": "#d0daf9",
+        "tonalRamp": [
+          "#070a16",
+          "#1e2335",
+          "#373f57",
+          "#545d77",
+          "#737c98",
+          "#949dbb",
+          "#bcc3da",
+          "#e9eefd"
+        ]
+      },
+      "display": {
+        "role": "secondary",
+        "displayName": "Display Black",
+        "canonical": "#0a0d1c",
+        "tonalRamp": [
+          "#090b13",
+          "#202331",
+          "#3a3f51",
+          "#585d70",
+          "#777c91",
+          "#989db3",
+          "#bfc3d4",
+          "#ebeef9"
+        ]
+      },
+      "led": {
+        "role": "secondary",
+        "displayName": "LED Red-Orange",
+        "canonical": "#ff5a36",
+        "tonalRamp": [
+          "#1d0100",
+          "#470900",
+          "#761600",
+          "#a92400",
+          "#dd380d",
+          "#ff6645",
+          "#ffac98",
+          "#ffe9e4"
+        ]
+      },
+      "signal": {
+        "role": "tertiary",
+        "displayName": "Selection Yellow",
+        "canonical": "#ffcf24",
+        "tonalRamp": [
+          "#100a00",
+          "#2e2300",
+          "#4f3e00",
+          "#725b00",
+          "#987900",
+          "#c09a00",
+          "#e3c15a",
+          "#ffeebc"
+        ]
+      },
+      "key-go": {
+        "role": "tertiary",
+        "displayName": "Go Red",
+        "canonical": "#cf2a1f",
+        "tonalRamp": [
+          "#1f0000",
+          "#4b0000",
+          "#7d0000",
+          "#b20000",
+          "#db382b",
+          "#ff6553",
+          "#ffab9e",
+          "#ffe9e5"
+        ]
+      },
+      "key-go-hover": {
+        "role": "tertiary",
+        "displayName": "Go Red Hover",
+        "canonical": "#e03226",
+        "tonalRamp": [
+          "#1f0000",
+          "#4b0000",
+          "#7d0000",
+          "#b20001",
+          "#df3125",
+          "#ff6554",
+          "#ffab9e",
+          "#ffe9e5"
+        ]
+      },
+      "glass": {
+        "role": "neutral",
+        "displayName": "Lit Glass",
+        "canonical": "#edf1f7",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#222428",
+          "#3d4045",
+          "#5a5e63",
+          "#7a7d83",
+          "#9b9fa4",
+          "#c1c4c8",
+          "#edeef1"
+        ]
+      },
+      "glass-shade": {
+        "role": "neutral",
+        "displayName": "Glass Shade",
+        "canonical": "#aebacf",
+        "tonalRamp": [
+          "#070b13",
+          "#1d2431",
+          "#364051",
+          "#535e71",
+          "#737e91",
+          "#939fb3",
+          "#bcc5d4",
+          "#e9eff9"
+        ]
+      },
+      "rail": {
+        "role": "neutral",
+        "displayName": "Rail White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "tube-white": {
+        "role": "neutral",
+        "displayName": "Tube White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Machine Ink",
+        "canonical": "#0a0d1c",
+        "tonalRamp": [
+          "#090b13",
+          "#202331",
+          "#3a3f51",
+          "#585d70",
+          "#777c91",
+          "#989db3",
+          "#bfc3d4",
+          "#ebeef9"
+        ]
+      },
+      "ink-dim": {
+        "role": "neutral",
+        "displayName": "Worn Ink",
+        "canonical": "#454d68",
+        "tonalRamp": [
+          "#070a16",
+          "#1d2336",
+          "#373e58",
+          "#545c78",
+          "#737c99",
+          "#949dbc",
+          "#bcc3db",
+          "#e9eefd"
+        ]
+      },
+      "key-face": {
+        "role": "neutral",
+        "displayName": "Key Face",
+        "canonical": "#f4f6fb",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232427",
+          "#3e4044",
+          "#5c5d62",
+          "#7b7d82",
+          "#9c9ea3",
+          "#c3c4c7",
+          "#edeef1"
+        ]
+      },
+      "key-disabled": {
+        "role": "neutral",
+        "displayName": "Dead Key",
+        "canonical": "#aab3c7",
+        "tonalRamp": [
+          "#080b13",
+          "#1e2430",
+          "#384050",
+          "#565e6f",
+          "#757d90",
+          "#969eb2",
+          "#bdc4d3",
+          "#eaeef8"
+        ]
+      },
+      "housing-black": {
+        "role": "neutral",
+        "displayName": "Housing Black",
+        "canonical": "#000000",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Thermal Paper",
+        "canonical": "#fbfbf6",
+        "tonalRamp": [
+          "#0b0b09",
+          "#242421",
+          "#40403c",
+          "#5e5e5a",
+          "#7d7d79",
+          "#9f9f9a",
+          "#c4c4c1",
+          "#efefec"
+        ]
+      },
+      "paper-ink": {
+        "role": "neutral",
+        "displayName": "Thermal Ink",
+        "canonical": "#15151c",
+        "tonalRamp": [
+          "#0b0b0e",
+          "#232329",
+          "#3f3f47",
+          "#5c5d65",
+          "#7c7c85",
+          "#9d9da7",
+          "#c3c3cb",
+          "#eeeef3"
+        ]
+      },
+      "goods-red": {
+        "role": "goods",
+        "displayName": "Tomato",
+        "canonical": "#c8281f",
+        "tonalRamp": [
+          "#1f0000",
+          "#4b0000",
+          "#7d0001",
+          "#b20003",
+          "#d93c2f",
+          "#ff6554",
+          "#ffab9e",
+          "#ffe9e5"
+        ]
+      },
+      "goods-cobalt": {
+        "role": "goods",
+        "displayName": "Cobalt",
+        "canonical": "#12389e",
+        "tonalRamp": [
+          "#000233",
+          "#021765",
+          "#0d3298",
+          "#2a54bc",
+          "#4876e1",
+          "#6c9aff",
+          "#a7c4ff",
+          "#e6efff"
+        ]
+      },
+      "goods-green": {
+        "role": "goods",
+        "displayName": "Bottle Green",
+        "canonical": "#0a7a4f",
+        "tonalRamp": [
+          "#000f06",
+          "#002c19",
+          "#004d2f",
+          "#007047",
+          "#309265",
+          "#56b485",
+          "#94d5b1",
+          "#d2fae2"
+        ]
+      },
+      "goods-carbon": {
+        "role": "goods",
+        "displayName": "Carbon",
+        "canonical": "#17181f",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#232429",
+          "#3e3f47",
+          "#5c5d66",
+          "#7b7d86",
+          "#9c9ea7",
+          "#c2c3cb",
+          "#edeef3"
+        ]
+      },
+      "goods-magenta": {
+        "role": "goods",
+        "displayName": "Magenta",
+        "canonical": "#a8318c",
+        "tonalRamp": [
+          "#1b0014",
+          "#430036",
+          "#70005b",
+          "#9a217f",
+          "#bf47a1",
+          "#e46ac4",
+          "#fda1e1",
+          "#ffe6f6"
+        ]
+      },
+      "goods-rust": {
+        "role": "goods",
+        "displayName": "Rust",
+        "canonical": "#b34700",
+        "tonalRamp": [
+          "#1a0400",
+          "#401400",
+          "#6c2700",
+          "#9a3c00",
+          "#c5581e",
+          "#eb7a45",
+          "#ffae8a",
+          "#ffe9e0"
+        ]
+      },
+      "night-enamel": {
+        "role": "night",
+        "displayName": "Night Enamel",
+        "canonical": "#0a1234",
+        "tonalRamp": [
+          "#050a1b",
+          "#19223e",
+          "#313e64",
+          "#4e5c84",
+          "#6d7ca6",
+          "#8d9dc9",
+          "#b7c3e6",
+          "#e8eeff"
+        ]
+      },
+      "night-enamel-deep": {
+        "role": "night",
+        "displayName": "Night Recess",
+        "canonical": "#050921",
+        "tonalRamp": [
+          "#070a17",
+          "#1c2338",
+          "#353e5b",
+          "#525c7b",
+          "#717c9c",
+          "#929dbf",
+          "#bbc3dd",
+          "#e8eeff"
+        ]
+      },
+      "night-enamel-lift": {
+        "role": "night",
+        "displayName": "Night Raised",
+        "canonical": "#1a2a6b",
+        "tonalRamp": [
+          "#030726",
+          "#121e50",
+          "#27397c",
+          "#42599e",
+          "#6079c2",
+          "#809be6",
+          "#adc3fc",
+          "#e8eeff"
+        ]
+      },
+      "night-on-enamel": {
+        "role": "night",
+        "displayName": "Night White",
+        "canonical": "#eef1ff",
+        "tonalRamp": [
+          "#0a0b10",
+          "#22232c",
+          "#3d3f4a",
+          "#5a5d69",
+          "#7a7d89",
+          "#9b9eab",
+          "#c1c3cd",
+          "#edeef4"
+        ]
+      },
+      "night-on-enamel-dim": {
+        "role": "night",
+        "displayName": "Night Dim White",
+        "canonical": "#b5c0ea",
+        "tonalRamp": [
+          "#070a19",
+          "#1c223c",
+          "#353d60",
+          "#525b80",
+          "#717ba2",
+          "#929cc5",
+          "#bac3e2",
+          "#e9eeff"
+        ]
+      },
+      "night-glass": {
+        "role": "night",
+        "displayName": "Night Glass",
+        "canonical": "#f3f6ff",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#222429",
+          "#3d3f47",
+          "#5b5d65",
+          "#7a7d85",
+          "#9b9ea6",
+          "#c2c4ca",
+          "#edeef2"
+        ]
+      },
+      "night-glass-shade": {
+        "role": "night",
+        "displayName": "Night Glass Shade",
+        "canonical": "#a9b9e6",
+        "tonalRamp": [
+          "#060a1b",
+          "#1a223e",
+          "#323e63",
+          "#4e5c84",
+          "#6d7ca6",
+          "#8e9dc9",
+          "#b7c3e5",
+          "#e8eeff"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "led-display": {
+        "displayName": "LED Display",
+        "purpose": "The home marquee; 2.25rem rising to 6rem by width, recorded at its 1280px step."
+      },
+      "led-title": {
+        "displayName": "LED Title",
+        "purpose": "The h1 of every other page; 1.5rem rising to 3rem."
+      },
+      "led-readout": {
+        "displayName": "LED Readout",
+        "purpose": "The keypad display, echoing each key and code."
+      },
+      "stamp-logo": {
+        "displayName": "Stamp Logo",
+        "purpose": "The header logo."
+      },
+      "stamp-title": {
+        "displayName": "Stamp Title",
+        "purpose": "Recipe, poem and poet names on glass."
+      },
+      "stamp-label": {
+        "displayName": "Stamp Label",
+        "purpose": "Rail titles and panel labels."
+      },
+      "stamp-compact": {
+        "displayName": "Stamp Compact",
+        "purpose": "The lights rocker."
+      },
+      "key-label": {
+        "displayName": "Key Label",
+        "purpose": "Every key; keypad keys 1.25rem, compact header keys 0.875rem."
+      },
+      "packet-label": {
+        "displayName": "Packet Label",
+        "purpose": "The name on a wrapper, up to 2.25rem on game surfaces."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Instructions and introductions on enamel."
+      },
+      "body-note": {
+        "displayName": "Body Note",
+        "purpose": "Page notes from 768px, capped at 75ch."
+      },
+      "field-value": {
+        "displayName": "Field Value",
+        "purpose": "Native select values."
+      },
+      "nav-link": {
+        "displayName": "Navigation Link",
+        "purpose": "Header navigation; semibold when current."
+      },
+      "rail-fact": {
+        "displayName": "Rail Fact",
+        "purpose": "The one fact on a rail."
+      },
+      "receipt": {
+        "displayName": "Receipt",
+        "purpose": "Poems and fruit labels on paper; 1rem for poems from 768px."
+      },
+      "code-chip": {
+        "displayName": "Code",
+        "purpose": "The slot code chip."
+      }
+    },
+    "shadows": [
+      {
+        "name": "compartment-day",
+        "value": "0 2px 3px rgb(4 12 40 / 0.35)",
+        "purpose": "a slot seated in the wall."
+      },
+      {
+        "name": "compartment-night",
+        "value": "0 10px 44px rgb(170 195 255 / 0.3)",
+        "purpose": "the slot as the machine's light source."
+      },
+      {
+        "name": "glass-recess",
+        "value": "inset 0 16px 16px -14px rgb(10 13 28 / 0.4), inset 12px 0 14px -12px rgb(10 13 28 / 0.45), inset -12px 0 14px -12px rgb(10 13 28 / 0.45)",
+        "purpose": "a compartment holding goods, with a vertical gradient from white through glass to glass shade."
+      },
+      {
+        "name": "light-tube",
+        "value": "0 2px 12px 2px rgb(255 255 255 / 0.95)",
+        "purpose": "the 4px white bar along the top of a recess."
+      },
+      {
+        "name": "well",
+        "value": "inset 0 2px 10px rgb(0 0 0 / 0.45)",
+        "purpose": "the wall and the desktop tray."
+      },
+      {
+        "name": "display-bezel",
+        "value": "inset 0 0 0 2px #000, inset 0 3px 14px rgb(0 0 0 / 0.9)",
+        "purpose": "a black display, day."
+      },
+      {
+        "name": "display-spill",
+        "value": "inset 0 0 0 2px #000, 0 6px 36px rgb(255 90 54 / 0.22)",
+        "purpose": "a black display, night."
+      },
+      {
+        "name": "raised-panel",
+        "value": "inset 0 1px 0 rgb(255 255 255 / 0.2), 0 2px 6px rgb(0 0 0 / 0.3)",
+        "purpose": "panels, with a lit top edge."
+      },
+      {
+        "name": "seated-photo",
+        "value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+        "purpose": "a photograph set into a compartment."
+      },
+      {
+        "name": "rocker-cap",
+        "value": "0 1px 4px rgb(255 255 255 / 0.35)",
+        "purpose": "the active side of the lights switch."
+      },
+      {
+        "name": "key-at-rest",
+        "value": "0 2px 5px rgb(0 0 0 / 0.4)",
+        "purpose": "Key state; pressed keys also move down 2px."
+      },
+      {
+        "name": "key-pressed",
+        "value": "inset 0 2px 4px rgb(0 0 0 / 0.35)",
+        "purpose": "Key state; pressed keys also move down 2px."
+      },
+      {
+        "name": "bottom-sheet",
+        "value": "0 -8px 30px rgb(0 0 0 / 0.5)",
+        "purpose": "the phone tray, casting upward."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-settle",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Packet hover, the flap door and the receipt print."
+      },
+      {
+        "name": "packet-hover",
+        "value": "220ms ease-settle",
+        "purpose": "Goods lift 5px and tilt 1.5 degrees on slot hover."
+      },
+      {
+        "name": "flap-swing",
+        "value": "180ms ease-settle",
+        "purpose": "The retrieval flap opens to 68 degrees on its top hinge."
+      },
+      {
+        "name": "receipt-print",
+        "value": "520ms ease-settle",
+        "purpose": "Receipts unclip downward from 14px above."
+      },
+      {
+        "name": "key-press",
+        "value": "90ms",
+        "purpose": "Key face, shadow and 2px travel."
+      },
+      {
+        "name": "rocker-swap",
+        "value": "140ms",
+        "purpose": "The lights switch cap changes side."
+      },
+      {
+        "name": "packet-drop",
+        "value": "600ms power2.in, then 140ms fade",
+        "purpose": "GSAP dispense: the packet falls to the flap or past the bottom edge, with a random tilt up to 12 degrees."
+      },
+      {
+        "name": "led-flip",
+        "value": "550ms per character, 22ms stagger",
+        "purpose": "SplitText flips LED titles in on load."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "1ms",
+        "purpose": "All animations and transitions collapse; dispense navigates at once."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      },
+      {
+        "name": "2xl",
+        "value": "1536px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Standard Key",
+      "kind": "button",
+      "refersTo": "key",
+      "description": "Every ordinary action on the machine; presses in physically.",
+      "html": "<button class=\"ds-key\">Random poem</button>",
+      "css": ".ds-key{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:2.75rem;border:0;border-radius:.3125rem;padding:.375rem .875rem;font-family:var(--font-panel),sans-serif;font-weight:800;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 2px 5px rgb(0 0 0 / .4);transition:transform 90ms,box-shadow 90ms,background-color 90ms;color:var(--ink);background:#f4f6fb;}.ds-key:hover{background:#fff;}.ds-key:active{transform:translateY(2px);box-shadow:inset 0 2px 4px rgb(0 0 0 / .35);}.ds-key:focus-visible{outline:3px solid var(--signal);outline-offset:2px;}.ds-key:disabled{color:#454d68;background:#aab3c7;box-shadow:none;cursor:not-allowed;}"
+    },
+    {
+      "name": "Go Key",
+      "kind": "button",
+      "refersTo": "key-go",
+      "description": "The single action that moves the current view forward.",
+      "html": "<button class=\"ds-key-go\">Surprise me</button>",
+      "css": ".ds-key-go{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:2.75rem;border:0;border-radius:.3125rem;padding:.375rem .875rem;font-family:var(--font-panel),sans-serif;font-weight:800;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 2px 5px rgb(0 0 0 / .4);transition:transform 90ms,box-shadow 90ms,background-color 90ms;color:#fff;background:#cf2a1f;}.ds-key-go:hover{background:#e03226;}.ds-key-go:active{transform:translateY(2px);box-shadow:inset 0 2px 4px rgb(0 0 0 / .35);}.ds-key-go:focus-visible{outline:3px solid var(--signal);outline-offset:2px;}"
+    },
+    {
+      "name": "Coded Navigation Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header navigation; each link carries the code the keypad can punch.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#\"><span class=\"ds-code\">A1</span>Fruits</a><a class=\"ds-nav-link ds-nav-current\" href=\"#\" aria-current=\"page\"><span class=\"ds-code\">B2</span>Poems</a></nav>",
+      "css": ".ds-nav{display:flex;gap:.25rem;padding:.5rem .75rem;background:var(--enamel-deep);}.ds-nav-link{display:flex;align-items:center;gap:.5rem;min-height:2.25rem;border-radius:.25rem;padding:0 .5rem;color:var(--on-enamel);font-size:.875rem;line-height:1.25rem;text-decoration:none;transition:background-color 150ms;}.ds-nav-link:hover{background:var(--enamel);}.ds-nav-link:focus-visible{outline:3px solid var(--signal);outline-offset:2px;}.ds-nav-current{background:var(--enamel);font-weight:600;}.ds-code{flex:none;border-radius:.1875rem;background:var(--ink);color:#fff;padding:0 .3125rem;font-family:var(--font-receipt),monospace;font-size:.75rem;font-weight:600;line-height:1.25rem;}"
+    },
+    {
+      "name": "Select Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Native select on a glass face with a heavy inline chevron.",
+      "html": "<select class=\"ds-field\" aria-label=\"Select author\"><option>Select author...</option></select>",
+      "css": ".ds-field{min-height:2.75rem;width:100%;border:0;border-radius:.3125rem;appearance:none;color:var(--ink);padding:.5rem 2.25rem .5rem .75rem;background:var(--glass) url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a0d1c' stroke-width='2.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 8.5l7 7 7-7'/%3E%3C/svg%3E\") no-repeat right .625rem center / 1.125rem;font-weight:500;}.ds-field:focus-visible{outline:3px solid var(--signal);outline-offset:2px;}"
+    },
+    {
+      "name": "Home Slot",
+      "kind": "card",
+      "refersTo": "slot",
+      "description": "A home compartment: goods in a recess over a rail with a punchable code, stamped title and one fact.",
+      "html": "<a class=\"ds-slot\" href=\"#\"><span class=\"ds-goods\"><span class=\"ds-packet\"><svg class=\"ds-print\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"xMidYMid meet\" aria-hidden=\"true\"><path d=\"M6 10l44 24 44-24v18L50 52 6 28zM6 48l44 24 44-24v18L50 90 6 66z\"/></svg><span>Lemon</span></span></span><span class=\"ds-rail\"><span class=\"ds-rail-name\"><span class=\"ds-code\">A1</span><span class=\"ds-title\">Fruits</span></span><span>49 fruits</span></span></a>",
+      "css": ".ds-slot{display:flex;flex-direction:column;width:14rem;overflow:hidden;text-align:left;color:var(--ink);background:var(--glass);border:0;border-radius:.1875rem;box-shadow:var(--compartment-glow);padding:0;text-decoration:none;}.ds-slot:hover .ds-packet{transform:translateY(-5px) rotate(-1.5deg);}.ds-slot:focus-visible{outline:3px solid var(--signal);outline-offset:2px;}.ds-goods{position:relative;flex:1;padding:.875rem .625rem .625rem;background:linear-gradient(180deg,#fff 0,var(--glass) 22%,var(--glass-shade) 100%);box-shadow:inset 0 16px 16px -14px rgb(10 13 28 / .4),inset 12px 0 14px -12px rgb(10 13 28 / .45),inset -12px 0 14px -12px rgb(10 13 28 / .45);}.ds-goods::before{content:'';position:absolute;inset:0 .5rem auto;height:4px;border-radius:0 0 2px 2px;background:#fff;box-shadow:0 2px 12px 2px rgb(255 255 255 / .95);}.ds-rail{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.25rem .5rem;background:var(--rail);border-top:1px solid var(--glass-shade);font-size:.8125rem;color:var(--ink-dim);}.ds-packet{position:relative;display:flex;flex-direction:column;gap:.375rem;min-height:6.5rem;overflow:hidden;padding:.875rem .5rem;font-family:var(--font-panel),sans-serif;font-size:1.25rem;font-weight:800;line-height:1.02;color:#fff;background:#c8281f;-webkit-mask:conic-gradient(from 135deg at top, transparent, #000 1deg 89deg, transparent 90deg) top / 10px 51% repeat-x, conic-gradient(from -45deg at bottom, transparent, #000 1deg 89deg, transparent 90deg) bottom / 10px 51% repeat-x;mask:conic-gradient(from 135deg at top, transparent, #000 1deg 89deg, transparent 90deg) top / 10px 51% repeat-x, conic-gradient(from -45deg at bottom, transparent, #000 1deg 89deg, transparent 90deg) bottom / 10px 51% repeat-x;transition:transform 220ms cubic-bezier(.16,1,.3,1);}.ds-print{flex:1 1 0;width:100%;height:0;min-height:0;fill:#fff;opacity:.24;}.ds-code{flex:none;border-radius:.1875rem;background:var(--ink);color:#fff;padding:0 .3125rem;font-family:var(--font-receipt),monospace;font-size:.75rem;font-weight:600;line-height:1.25rem;}.ds-rail-name{display:flex;align-items:center;gap:.5rem;}.ds-title{font-family:var(--font-panel),sans-serif;font-size:1.125rem;font-weight:800;letter-spacing:.04em;line-height:1;text-transform:uppercase;color:var(--ink);}"
+    },
+    {
+      "name": "Item Slot",
+      "kind": "card",
+      "refersTo": "rail-selected",
+      "description": "A wall item shown selected: its rail carries one fact and no code, and turns yellow when chosen.",
+      "html": "<button class=\"ds-slot\" aria-pressed=\"true\"><span class=\"ds-goods\"><span class=\"ds-packet\"><svg class=\"ds-print\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"xMidYMid meet\" aria-hidden=\"true\"><path d=\"M6 10l44 24 44-24v18L50 52 6 28zM6 48l44 24 44-24v18L50 90 6 66z\"/></svg><span>Lemon</span></span></span><span class=\"ds-rail\">29 kcal</span></button>",
+      "css": ".ds-slot{display:flex;flex-direction:column;width:14rem;overflow:hidden;text-align:left;color:var(--ink);background:var(--glass);border:0;border-radius:.1875rem;box-shadow:var(--compartment-glow);padding:0;text-decoration:none;}.ds-slot:hover .ds-packet{transform:translateY(-5px) rotate(-1.5deg);}.ds-slot:focus-visible{outline:3px solid var(--signal);outline-offset:2px;}.ds-goods{position:relative;flex:1;padding:.875rem .625rem .625rem;background:linear-gradient(180deg,#fff 0,var(--glass) 22%,var(--glass-shade) 100%);box-shadow:inset 0 16px 16px -14px rgb(10 13 28 / .4),inset 12px 0 14px -12px rgb(10 13 28 / .45),inset -12px 0 14px -12px rgb(10 13 28 / .45);}.ds-goods::before{content:'';position:absolute;inset:0 .5rem auto;height:4px;border-radius:0 0 2px 2px;background:#fff;box-shadow:0 2px 12px 2px rgb(255 255 255 / .95);}.ds-rail{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.25rem .5rem;background:var(--rail);border-top:1px solid var(--glass-shade);font-size:.8125rem;color:var(--ink-dim);}.ds-packet{position:relative;display:flex;flex-direction:column;gap:.375rem;min-height:6.5rem;overflow:hidden;padding:.875rem .5rem;font-family:var(--font-panel),sans-serif;font-size:1.25rem;font-weight:800;line-height:1.02;color:#fff;background:#c8281f;-webkit-mask:conic-gradient(from 135deg at top, transparent, #000 1deg 89deg, transparent 90deg) top / 10px 51% repeat-x, conic-gradient(from -45deg at bottom, transparent, #000 1deg 89deg, transparent 90deg) bottom / 10px 51% repeat-x;mask:conic-gradient(from 135deg at top, transparent, #000 1deg 89deg, transparent 90deg) top / 10px 51% repeat-x, conic-gradient(from -45deg at bottom, transparent, #000 1deg 89deg, transparent 90deg) bottom / 10px 51% repeat-x;transition:transform 220ms cubic-bezier(.16,1,.3,1);}.ds-print{flex:1 1 0;width:100%;height:0;min-height:0;fill:#fff;opacity:.24;}.ds-slot[aria-pressed='true'] .ds-rail{background:var(--signal);color:var(--ink);}"
+    },
+    {
+      "name": "Black Display",
+      "kind": "custom",
+      "refersTo": "marquee",
+      "description": "The LED band titling every page; the keypad display is its small form.",
+      "html": "<div class=\"ds-marquee\">Bored? Pass The Time</div>",
+      "css": ".ds-marquee{background:var(--display);border-radius:.5rem;box-shadow:inset 0 0 0 2px #000,inset 0 3px 14px rgb(0 0 0 / .9);color:var(--led);padding:.75rem 1rem;font-family:var(--font-led),monospace;font-size:3rem;font-weight:900;line-height:1.05;text-wrap:balance;}"
+    },
+    {
+      "name": "Packet",
+      "kind": "custom",
+      "refersTo": "packet",
+      "description": "A wrapped good with crimped seals; color and print hash from its name.",
+      "html": "<div class=\"ds-wrap\"><span class=\"ds-packet\"><svg class=\"ds-print\" viewBox=\"0 0 100 100\" preserveAspectRatio=\"xMidYMid meet\" aria-hidden=\"true\"><path d=\"M6 10l44 24 44-24v18L50 52 6 28zM6 48l44 24 44-24v18L50 90 6 66z\"/></svg><span>Persimmon</span></span></div>",
+      "css": ".ds-wrap{width:10rem;}.ds-packet{position:relative;display:flex;flex-direction:column;gap:.375rem;min-height:12rem;overflow:hidden;padding:.875rem .5rem;font-family:var(--font-panel),sans-serif;font-size:1.25rem;font-weight:800;line-height:1.02;color:#fff;background:#17181f;-webkit-mask:conic-gradient(from 135deg at top, transparent, #000 1deg 89deg, transparent 90deg) top / 10px 51% repeat-x, conic-gradient(from -45deg at bottom, transparent, #000 1deg 89deg, transparent 90deg) bottom / 10px 51% repeat-x;mask:conic-gradient(from 135deg at top, transparent, #000 1deg 89deg, transparent 90deg) top / 10px 51% repeat-x, conic-gradient(from -45deg at bottom, transparent, #000 1deg 89deg, transparent 90deg) bottom / 10px 51% repeat-x;transition:transform 220ms cubic-bezier(.16,1,.3,1);}.ds-packet:hover{transform:translateY(-5px) rotate(-1.5deg);}.ds-print{flex:1 1 0;width:100%;height:0;min-height:0;fill:#fff;opacity:.24;}"
+    },
+    {
+      "name": "Receipt",
+      "kind": "custom",
+      "refersTo": "receipt",
+      "description": "Thermal paper for all long reading, with a torn bottom edge.",
+      "html": "<article class=\"ds-receipt\"><h2 class=\"ds-receipt-title\">I Have A Rendezvous With Death</h2><p>I have a rendezvous with Death</p><p>At some disputed barricade,</p></article>",
+      "css": ".ds-receipt{max-width:42rem;background:var(--paper);color:var(--paper-ink);font-family:var(--font-receipt),monospace;font-size:.9375rem;line-height:1.6;padding:1rem 1rem 1.5rem;-webkit-mask:conic-gradient(from -45deg at bottom, transparent, #000 1deg 89deg, transparent 90deg) 50% / 12px 100%;mask:conic-gradient(from -45deg at bottom, transparent, #000 1deg 89deg, transparent 90deg) 50% / 12px 100%;}.ds-receipt p{margin:0;min-height:1.6em;}.ds-receipt-title{margin:0 0 .75rem;padding-bottom:.5rem;border-bottom:1px dashed currentColor;font-size:inherit;font-weight:700;}"
+    },
+    {
+      "name": "Lights Rocker",
+      "kind": "custom",
+      "refersTo": "rocker",
+      "description": "Two-position day and night switch in a black well.",
+      "html": "<button class=\"ds-rocker\" role=\"switch\" aria-checked=\"false\" aria-label=\"Night mode\"><span class=\"ds-rocker-on\">Day</span><span>Night</span></button>",
+      "css": ".ds-rocker{display:inline-flex;align-items:stretch;height:2.25rem;border:0;border-radius:.3125rem;padding:2px;background:#000;color:var(--on-enamel-dim);font-family:var(--font-panel),sans-serif;font-size:.875rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;}.ds-rocker>span{display:flex;align-items:center;height:100%;border-radius:.1875rem;padding:0 .625rem;transition:background-color 140ms,color 140ms;}.ds-rocker .ds-rocker-on{background:#f4f6fb;color:var(--ink);box-shadow:0 1px 4px rgb(255 255 255 / .35);}.ds-rocker:focus-visible{outline:3px solid var(--signal);outline-offset:2px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Automat",
+    "overview": "Random Stuff is one street vending machine. The body is cobalt baked enamel; activities and items sit behind lit cool-white glass; black displays speak in red-orange dot lettering; anything meant for reading comes out as thermal paper. Every activity page is a different front on the same machine, so a recipe browser and a game of Rock, Paper, Scissors share housing, keys, slots and light.\n\nThe system is dense and physical. The screen is a fixed machine front that fills the viewport, with the page scrolling inside it, and compartments sit a thin enamel seam apart. Depth, shadow, gradient and pointed edges are all used literally: a light tube at the top of a compartment, shade falling toward the shelf, crimped seals on a packet, a torn edge on a receipt. Each one describes a thing the machine would have, which is the test for adding another.\n\nNight mode is the same machine in the dark, lit by its own compartments. The enamel falls away and the glass brightens and throws a glow; the goods, displays, keys and paper do not change.",
+    "keyCharacteristics": [
+      "Cobalt enamel housing with lit glass compartments set into a dark recessed wall.",
+      "Black LED displays title every page in red-orange dot lettering.",
+      "Saturated packets whose color and print derive from the item's name.",
+      "Thermal paper for all long reading, printed downward with a torn bottom edge.",
+      "Physical keys that press in; a working keypad and a dispense animation as the signature."
+    ],
+    "rules": [
+      {
+        "name": "The Selection Yellow Rule",
+        "body": "Yellow means this one is chosen or this one has focus. It marks a selected slot, an active tag, the focus outline and selected text, and is never decoration, a heading color or a hover.",
+        "section": "colors"
+      },
+      {
+        "name": "The Same Machine Rule",
+        "body": "Night changes the light, not the machine. Glass stays bright, paper stays paper, keys stay pale, and displays and goods keep their exact colors.",
+        "section": "colors"
+      },
+      {
+        "name": "The Name Decides Rule",
+        "body": "A packet's wrapper color and print are hashed from the item's name, so an apple is the same packet on every page. Never assign a named packet's color by hand or by position.",
+        "section": "colors"
+      },
+      {
+        "name": "The Display Only Rule",
+        "body": "Doto appears only inside a black display. The score readout keeps the display's black and orange but swaps to Big Shoulders, because a live count has to read at a glance.",
+        "section": "typography"
+      },
+      {
+        "name": "The Printed Reading Rule",
+        "body": "Long text that is the content itself prints in Red Hat Mono on paper. Archivo on enamel introduces it and never replaces it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Lit From Within Rule",
+        "body": "Light comes from the machine. Day or night, the brightest thing in a compartment is its top edge, and shade falls toward the shelf.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Punchable Code Rule",
+        "body": "A slot code appears only where the keypad can punch it: on the home page's slots and in the navigation. Item rails in the fruit, recipe and poem walls carry one fact and no code.",
+        "section": "components"
+      },
+      {
+        "name": "The One Fact Rule",
+        "body": "An item rail states a single real fact from the data, such as calories, category and area, or a poem count. It never carries invented labels or a second fact.",
+        "section": "components"
+      },
+      {
+        "name": "The One Go Key Rule",
+        "body": "Red marks the single action that moves the current view forward. All other actions in that view are standard keys.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do seat every activity's items in a wall of slots, with the enamel seam (8px) showing between them.",
+      "Do title every page with a black display, and put live machine messages on one.",
+      "Do wrap countable goods such as fruits and game objects in a Packet; give recipes their photograph and poets and poems a stamped name on plain glass.",
+      "Do print long reading content on a receipt, capped at 42rem when it stands alone.",
+      "Do keep keys physical: 44px minimum, inset and 2px down when pressed.",
+      "Do honor reduced motion: titles appear without the flip, dispense navigates at once, and all transitions collapse to 1ms.",
+      "Do keep the motion grammar small: LED titles flip in on load, receipts print downward, and a pointer light drifts across the enamel at night."
+    ],
+    "donts": [
+      "Don't put a slot code on an item rail; a code that cannot be punched is a false promise.",
+      "Don't use yellow for hover, emphasis or decoration; it marks selection and focus only.",
+      "Don't use Doto outside a black display, or LED orange on anything but display black.",
+      "Don't use more than one go key in a working view.",
+      "Don't invert the machine at night: glass, paper, keys, displays and goods stay as they are.",
+      "Don't add entrance animations beyond the LED flip and the receipt print.",
+      "Don't set a stamped label above a headline as an eyebrow; a stamp names the control or compartment it sits on.",
+      "Don't round a packet or a receipt; their cut edges are the silhouette."
+    ]
+  }
+}

@@ -1,9 +1,7 @@
 "use client";
 
-import { m } from "framer-motion";
-import { ChangeEvent, useContext, useState, useEffect } from "react";
+import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { PoemsContext } from "./context";
-import { childrenVariants } from "./PoemOptions";
 
 export interface IAuthorOption {
   name: string;
@@ -26,6 +24,7 @@ export default function SelectAuthor({
   }, [queryUrl.text, selectedOption]);
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    if (!event.target.value) return;
     const { authorId, author } = JSON.parse(event.target.value);
     setSelectedOption(event.target.value);
     setQueryUrl({
@@ -35,15 +34,10 @@ export default function SelectAuthor({
   };
 
   return (
-    <m.div
-      variants={childrenVariants}
-      className="flex flex-col border-2 border-dark p-2 gap-2 rounded-lg"
-    >
-      <label className="lg:text-lg" htmlFor="author">
-        Get poems by Author:
-      </label>
+    <div className="flex flex-col gap-1">
+      <label htmlFor="author">Get poems by Author:</label>
       <select
-        className="p-2 rounded-lg"
+        className="field"
         id="author"
         value={selectedOption}
         onChange={handleSelectChange}
@@ -62,6 +56,6 @@ export default function SelectAuthor({
           </option>
         ))}
       </select>
-    </m.div>
+    </div>
   );
 }

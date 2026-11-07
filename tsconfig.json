@@ -24,8 +24,7 @@
       "@/context/*": ["./app/context/*"],
       "@/styles/*": ["./app/styles/*"],
       "@/hooks/*": ["./app/hooks/*"],
-      "lib/*": ["./lib/*"],
-      "prisma/*": ["./prisma/*"]
+      "lib/*": ["./lib/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

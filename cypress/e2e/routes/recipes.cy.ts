@@ -1,5 +1,3 @@
-import { TRecipe } from "@/app/recipes/Components/RecipeButton";
-
 describe("Visit Recipes page page", () => {
   it("filters recipes by tags", () => {
     cy.visit(Cypress.env("hostname") + "recipes");

@@ -1,29 +1,23 @@
-import prisma from "lib/prisma";
+import { findAuthor } from "lib/data";
 import dynamic from "next/dynamic";
+import Marquee from "@/Components/Marquee";
 
 const AuthorPoems = dynamic(() => import("./Components/AuthorPoems"));
 
-export default async function Page({
+export default function Page({
   params: { authorId },
 }: {
   params: { authorId: string };
 }) {
-  const author = await prisma.author.findUnique({
-    where: {
-      id: parseInt(authorId),
-    },
-    include: { poems: true },
-  });
+  const author = findAuthor(parseInt(authorId));
 
   return (
     author && (
       <main
         aria-label={`All poems by ${author.name}`}
-        className={`flex flex-col h-full items-center gap-4 px-4 py-8 md:gap-6`}
+        className="machine-main"
       >
-        <h1 className="text-xl font-bold md:text-3xl">
-          📜🖋 Poems by {author.name} 🖋📜
-        </h1>
+        <Marquee title={`Poems by ${author.name}`} />
 
         <AuthorPoems author={author} />
       </main>

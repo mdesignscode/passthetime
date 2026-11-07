@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "name": "Alan Seeger"
+  },
+  {
+    "id": 2,
+    "name": "Alexander Pope"
+  },
+  {
+    "id": 3,
+    "name": "Ambrose Bierce"
+  },
+  {
+    "id": 4,
+    "name": "John Donne"
+  },
+  {
+    "id": 5,
+    "name": "John Dryden"
+  },
+  {
+    "id": 6,
+    "name": "John Keats"
+  },
+  {
+    "id": 7,
+    "name": "Jupiter Hammon"
+  },
+  {
+    "id": 8,
+    "name": "Matthew Prior"
+  },
+  {
+    "id": 9,
+    "name": "Oliver Goldsmith"
+  },
+  {
+    "id": 10,
+    "name": "Andrew Marvell"
+  },
+  {
+    "id": 11,
+    "name": "Oliver Wendell Holmes"
+  },
+  {
+    "id": 12,
+    "name": "Anne Kingsmill Finch"
+  },
+  {
+    "id": 13,
+    "name": "Annie Louisa Walker"
+  },
+  {
+    "id": 14,
+    "name": "Ben Jonson"
+  },
+  {
+    "id": 15,
+    "name": "Charlotte Bronte"
+  },
+  {
+    "id": 16,
+    "name": "Oscar Wilde"
+  },
+  {
+    "id": 17,
+    "name": "Paul Laurence Dunbar"
+  },
+  {
+    "id": 18,
+    "name": "Philip Freneau"
+  },
+  {
+    "id": 19,
+    "name": "Ralph Waldo Emerson"
+  },
+  {
+    "id": 20,
+    "name": "Richard Lovelace"
+  },
+  {
+    "id": 21,
+    "name": "Charlotte Smith"
+  },
+  {
+    "id": 22,
+    "name": "Christopher Marlowe"
+  },
+  {
+    "id": 23,
+    "name": "Robert Browning"
+  },
+  {
+    "id": 24,
+    "name": "Robert Burns"
+  },
+  {
+    "id": 25,
+    "name": "Edmund Spenser"
+  },
+  {
+    "id": 26,
+    "name": "Edward Fitzgerald"
+  },
+  {
+    "id": 27,
+    "name": "Robinson"
+  },
+  {
+    "id": 28,
+    "name": "Rupert Brooke"
+  },
+  {
+    "id": 29,
+    "name": "Sarah Flower Adams"
+  },
+  {
+    "id": 30,
+    "name": "Elizabeth Barrett Browning"
+  },
+  {
+    "id": 31,
+    "name": "Sidney Lanier"
+  },
+  {
+    "id": 32,
+    "name": "Emily Bronte"
+  },
+  {
+    "id": 33,
+    "name": "Sir John Suckling"
+  },
+  {
+    "id": 34,
+    "name": "Emily Dickinson"
+  },
+  {
+    "id": 35,
+    "name": "Emma Lazarus"
+  },
+  {
+    "id": 36,
+    "name": "Ernest Dowson"
+  },
+  {
+    "id": 37,
+    "name": "Francis Thompson"
+  },
+  {
+    "id": 38,
+    "name": "George Eliot"
+  },
+  {
+    "id": 39,
+    "name": "George Herbert"
+  },
+  {
+    "id": 40,
+    "name": "Helen Hunt Jackson"
+  },
+  {
+    "id": 41,
+    "name": "Henry David Thoreau"
+  },
+  {
+    "id": 42,
+    "name": "Henry Vaughan"
+  },
+  {
+    "id": 43,
+    "name": "Thomas Campbell"
+  },
+  {
+    "id": 44,
+    "name": "Henry Wadsworth Longfellow"
+  },
+  {
+    "id": 45,
+    "name": "Walt Whitman"
+  },
+  {
+    "id": 46,
+    "name": "William Blake"
+  },
+  {
+    "id": 47,
+    "name": "William Browne"
+  },
+  {
+    "id": 48,
+    "name": "James Henry Leigh Hunt"
+  },
+  {
+    "id": 49,
+    "name": "Jane Taylor"
+  },
+  {
+    "id": 50,
+    "name": "Hugh Henry Brackenridge"
+  }
+]

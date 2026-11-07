@@ -10,14 +10,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'dark': '#161415',
-        'light': "#fefefe",
-        'primary': '#f8e6cb',
-        'secondary': '#dccaa8',
-        'accent-primary': '#e984a2',
-        'accent-secondary': '#b9cc95',
-      }
-    }
-  }
+        enamel: 'var(--enamel)',
+        'enamel-deep': 'var(--enamel-deep)',
+        'on-enamel': 'var(--on-enamel)',
+        'on-enamel-dim': 'var(--on-enamel-dim)',
+        glass: 'var(--glass)',
+        ink: 'var(--ink)',
+        'ink-dim': 'var(--ink-dim)',
+        display: 'var(--display)',
+        led: 'var(--led)',
+        signal: 'var(--signal)',
+        paper: 'var(--paper)',
+      },
+      fontFamily: {
+        led: ['var(--font-led)', 'monospace'],
+        panel: ['var(--font-panel)', 'sans-serif'],
+        body: ['var(--font-body)', 'sans-serif'],
+        receipt: ['var(--font-receipt)', 'monospace'],
+      },
+    },
+  },
 }
 export default config

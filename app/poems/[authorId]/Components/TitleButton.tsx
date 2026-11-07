@@ -1,12 +1,7 @@
 "use client";
 
 import { useContext } from "react";
-import { GlobalContext } from "@/context/globalContext";
 import { AuthorContext } from "./context";
-import dynamic from "next/dynamic";
-import { buttonPrimary } from "@/Components/TailwindClasses";
-
-const ScaleIn = dynamic(() => import("@/Components/ScaleIn"));
 
 interface IPoem {
   title: string;
@@ -15,32 +10,32 @@ interface IPoem {
 
 export default function TitleButton({
   poem,
-  index,
 }: {
   poem: IPoem;
-  index: number;
 }) {
-  const { setShowLightbox } = useContext(GlobalContext),
-    { setPoem } = useContext(AuthorContext);
-
-  function handleShowInfo() {
-    setShowLightbox(true);
-    setPoem(poem);
-  }
+  const { poem: selected, setPoem } = useContext(AuthorContext),
+    lineCount = poem.lines.split("\n").filter(Boolean).length;
 
   return (
-    <ScaleIn index={index}>
+    <div className="flex">
       <button
-        aria-label={`Show ${poem?.title} content`}
-        aria-expanded={!poem}
+        aria-label={`Show ${poem.title} content`}
+        aria-pressed={selected?.title === poem.title}
         aria-controls="poem"
         id={`${poem.title}-button`}
         type="button"
-        className={`${buttonPrimary} w-full`}
-        onClick={handleShowInfo}
+        className="slot"
+        onClick={() => setPoem(poem)}
       >
-        {poem.title}
+        <span className="slot-goods w-full">
+          <span className="stamp block text-xl leading-tight">{poem.title}</span>
+        </span>
+        <span className="rail w-full">
+          <span>
+          {lineCount} {lineCount === 1 ? "line" : "lines"}
+        </span>
+        </span>
       </button>
-    </ScaleIn>
+    </div>
   );
 }

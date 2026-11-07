@@ -1,11 +1,12 @@
 "use client";
 
+import ArrowIcon from "@/Components/Icons/Arrow";
+import Marquee from "@/Components/Marquee";
 import classNames from "classnames";
-import Image from "next/image";
 import Link from "next/link";
 
 interface IHeader {
-  poems: TPoem[];
+  poemCount: number;
   title: string;
   authorIndex: number;
   poemIndex: number;
@@ -13,7 +14,7 @@ interface IHeader {
 }
 
 export default function Header({
-  poems,
+  poemCount,
   title,
   authorIndex,
   poemIndex,
@@ -27,47 +28,38 @@ export default function Header({
     nextPoemLink = `/poems/${nextAuthorIndex}/${poemIndex + 1}`,
     isFirstAuthorPoem = authorFirstPoemIndex === poemIndex,
     previousAuthorIndex = isFirstAuthorPoem ? authorIndex - 1 : authorIndex,
-    previousPoemLink = `/poems/${previousAuthorIndex}/${poemIndex - 1}`;
+    previousPoemLink = `/poems/${previousAuthorIndex}/${poemIndex - 1}`,
+    isFirstPoem = poemIndex === 1,
+    isLastPoem = poemIndex === poemCount;
 
   return (
-    <section className="flex justify-between border-b-2 sticky top-0 rounded-t-lg bg-light border-dark items-center pb-2 gap-3">
-      <Link
-        className={classNames({ "pointer-events-none": poemIndex === 1 })}
-        href={previousPoemLink}
-        id="previous-poem"
-        prefetch={!isFirstAuthorPoem}
-      >
-        <Image
-          className={classNames("transition-all rotate-180 md:w-7 md:h-7", {
-            "opacity-50": poemIndex === 1,
-          })}
-          src="/icons/next-svgrepo-com.svg"
-          alt="Previous poem"
-          width={50}
-          height={50}
-        />
-      </Link>
+    <>
+      <Marquee title={title} />
+      <nav aria-label="Poem navigation" className="flex justify-between gap-3">
+        <Link
+          className={classNames("key", { "pointer-events-none": isFirstPoem })}
+          aria-disabled={isFirstPoem}
+          tabIndex={isFirstPoem ? -1 : undefined}
+          href={previousPoemLink}
+          id="previous-poem"
+          prefetch={!isFirstAuthorPoem}
+        >
+          <ArrowIcon className="-rotate-90" />
+          Previous poem
+        </Link>
 
-      <h1 className="font-bold md:text-xl text-center truncate">{title}</h1>
-
-      <Link
-        className={classNames({
-          "pointer-events-none": poemIndex === poems.length,
-        })}
-        href={nextPoemLink}
-        id="next-poem"
-        prefetch={!isLastAuthorPoem}
-      >
-        <Image
-          className={classNames("md:w-7 md:h-7", {
-            "opacity-50": poemIndex === poems.length,
-          })}
-          src="/icons/next-svgrepo-com.svg"
-          alt="Previous poem"
-          width={50}
-          height={50}
-        />
-      </Link>
-    </section>
+        <Link
+          className={classNames("key", { "pointer-events-none": isLastPoem })}
+          aria-disabled={isLastPoem}
+          tabIndex={isLastPoem ? -1 : undefined}
+          href={nextPoemLink}
+          id="next-poem"
+          prefetch={!isLastAuthorPoem}
+        >
+          Next poem
+          <ArrowIcon className="rotate-90" />
+        </Link>
+      </nav>
+    </>
   );
 }

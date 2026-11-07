@@ -1,51 +1,31 @@
 "use client";
 
-import { useContext } from "react";
+import PoemLines from "@/Components/PoemLines";
+import RetrievalTray from "@/Components/RetrievalTray";
+import { useCallback, useContext } from "react";
 import { AuthorContext } from "./context";
-import Image from "next/image";
-import { GlobalContext } from "@/context/globalContext";
 
 export default function DisplayPoem() {
-  const { setPoem, poem } = useContext(AuthorContext);
-  const { setShowLightbox } = useContext(GlobalContext);
-
-  function handleHidePoem() {
-    setShowLightbox(false);
-    setPoem(null);
-  }
+  const { setPoem, poem } = useContext(AuthorContext),
+    close = useCallback(() => setPoem(null), [setPoem]);
 
   return (
-    poem && (
-      <article
-        id="poem"
-        aria-hidden={!poem}
-        aria-labelledby={`${poem.title}-button`}
-        className="z-20 flex flex-col w-full md:w-max gap-2 h-full absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 p-4 justify-center"
-      >
-        <button
-          aria-label={`Hide ${poem?.title} content`}
-          className="self-start grid close-button"
-          type="button"
-          onClick={handleHidePoem}
-          id="close-button"
-        >
-          <Image
-            src="/icons/close-circle-svgrepo-com.svg"
-            alt="Hide poem"
-            width={50}
-            height={50}
-          />
-        </button>
-
-        <section
-          aria-label={`${poem.title} content`}
-          className="bg-light md:text-lg overflow-y-auto rounded-lg p-4"
-        >
-          {poem.lines.split("\n").map((line) => (
-            <p key={line}>{line}</p>
-          ))}
-        </section>
-      </article>
-    )
+    <RetrievalTray
+      id="poem"
+      title={poem ? `${poem.title} content` : undefined}
+      isOpen={!!poem}
+      closeLabel={`Hide ${poem?.title} content`}
+      onClose={close}
+      emptyText="Pick a title to print the poem"
+    >
+      {poem && (
+        <article key={poem.title} className="receipt receipt-print">
+          <h2 className="mb-3 border-b border-dashed border-current pb-2 font-bold">
+            {poem.title}
+          </h2>
+          <PoemLines lines={poem.lines} />
+        </article>
+      )}
+    </RetrievalTray>
   );
 }

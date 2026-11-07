@@ -1,23 +1,15 @@
-import { backgroundLight } from "@/Components/TailwindClasses";
-import classNames from "classnames";
-import prisma from "lib/prisma";
+import PoemLines from "@/Components/PoemLines";
+import { findAuthor, findPoem, poems } from "lib/data";
 import dynamic from "next/dynamic";
 
 const Header = dynamic(() => import("./Components/Header"));
 
-export async function generateStaticParams({
+export function generateStaticParams({
   params: { authorId },
 }: {
   params: { authorId: string };
 }) {
-  const author = await prisma.author.findUnique({
-    where: {
-      id: parseInt(authorId),
-    },
-    include: {
-      poems: true,
-    },
-  });
+  const author = findAuthor(parseInt(authorId));
 
   if (!author) throw new Error("Author not found");
 
@@ -27,49 +19,27 @@ export async function generateStaticParams({
   }));
 }
 
-export default async function Page({
+export default function Page({
   params: { titleId, authorId },
 }: {
   params: { authorId: string; titleId: string };
 }) {
-  const poem = await prisma.poem.findUnique({
-      where: {
-        id: parseInt(titleId),
-      },
-      include: {
-        Author: true,
-      },
-    }),
-    poems = prisma.poem.findMany(),
-    author = prisma.author.findUnique({
-      where: {
-        id: parseInt(authorId),
-      },
-      include: {
-        poems: true,
-      },
-    });
+  const poem = findPoem(parseInt(titleId)),
+    author = findAuthor(parseInt(authorId));
 
-  if (!poem) return "Poem not found";
+  if (!poem || !author) return "Poem not found";
 
   return (
-    <main
-      className={classNames(
-        backgroundLight,
-        "gap-2 flex flex-col w-2/3 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 h-5/6"
-      )}
-    >
+    <main className="machine-main">
       <Header
         title={`${poem.title} by ${poem.Author?.name || "Unknown"}`}
         authorIndex={parseInt(authorId)}
         poemIndex={parseInt(titleId)}
-        author={(await author) as NonNullable<TAuthor>}
-        poems={await poems}
+        author={author}
+        poemCount={poems.length}
       />
-      <article className="overflow-auto">
-        {poem.lines.split("\n").map((line) => (
-          <p key={line}>{line}</p>
-        ))}
+      <article className="receipt receipt-print mx-auto w-full max-w-2xl md:text-base">
+        <PoemLines lines={poem.lines} />
       </article>
     </main>
   );
