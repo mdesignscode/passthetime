@@ -1,155 +1,132 @@
 "use client";
 
 import { GlobalContext } from "../context/globalContext";
-import "@/styles/app.css";
-import "@/styles/hamburgers.css";
-import "animate.css";
 import classNames from "classnames";
-import Image from "next/image";
 import Link from "next/link";
-import { useContext, useState } from "react";
-import AuthorIcon from "./Icons/Author";
-import FoodIcon from "./Icons/Food";
-import FruitsIcon from "./Icons/Fruits";
-import GameIcon from "./Icons/Game";
-import HomeIcon from "./Icons/Home";
-import { flexCenter } from "./TailwindClasses";
+import { usePathname } from "next/navigation";
+import { useContext, useEffect, useRef, useState } from "react";
+import Keypad from "./Keypad";
+import ThemeRocker from "./ThemeRocker";
+import { SLOTS } from "./slots";
 
 export default function Navbar() {
-  const [isCollapsed, setIsCollapsed] = useState(true);
-  const navLinks = [
-    {
-      path: "/",
-      icon: <HomeIcon />,
-      name: "Home",
-    },
-    {
-      path: "/fruits",
-      icon: <FruitsIcon />,
-      name: "Fruits",
-    },
-    {
-      path: "/poems",
-      icon: <AuthorIcon />,
-      name: "Poems",
-    },
-    {
-      path: "/rock-paper-scissors",
-      icon: <GameIcon />,
-      name: "Rock, Paper, Scissors",
-    },
-    {
-      path: "/recipes",
-      icon: <FoodIcon />,
-      name: "Recipes",
-    },
-  ] as const;
+  const [isOpen, setIsOpen] = useState(false),
+    menuButton = useRef<HTMLButtonElement>(null),
+    pathname = usePathname(),
+    { setShowLightbox, setMachineMessage } = useContext(GlobalContext);
 
-  const { prefersDarkMode, setPrefersDarkMode, setShowLightbox, showLightbox } =
-    useContext(GlobalContext);
-
-  function handleMenu() {
-    requestAnimationFrame(() => {
-      setShowLightbox((state) => !state);
-      setIsCollapsed((state) => !state);
-    });
+  function setMenu(open: boolean) {
+    setIsOpen(open);
+    setShowLightbox(open);
   }
 
-  function toggleColorMode() {
-    const currentMode = localStorage.getItem("colorMode"),
-      newMode = currentMode === "dark" ? "light" : "dark";
+  function handleMenuButton() {
+    // on large screens the home page already shows a keypad, so use that one
+    const homeKey = document.querySelector<HTMLButtonElement>(
+      '[data-keypad="home-keypad"] button'
+    );
 
-    localStorage.setItem("colorMode", newMode);
-    setPrefersDarkMode((state) => !state);
-    document.documentElement.classList.toggle("dark");
+    if (homeKey && window.matchMedia("(min-width: 1024px)").matches) {
+      homeKey.focus();
+      return;
+    }
+
+    setMenu(!isOpen);
   }
+
+  // close the panel when a slot has been dispensed
+  useEffect(() => {
+    setIsOpen(false);
+    setShowLightbox(false);
+    setMachineMessage("Enter a code");
+  }, [pathname, setShowLightbox, setMachineMessage]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        setShowLightbox(false);
+        menuButton.current?.focus();
+      }
+    }
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [isOpen, setShowLightbox]);
 
   return (
     <header
-      className={classNames(
-        "absolute flex-col gap-0 md:gap-2 md:flex-row left-2 top-2 transition-all duration-1000 border-accent-primary border px-4 py-2 rounded-lg will-change-content",
-        showLightbox && !isCollapsed ? "z-20" : "z-0",
-        flexCenter
-      )}
       aria-label="Menu"
+      className={classNames(
+        "relative flex flex-wrap items-center gap-x-4 gap-y-2 bg-enamel-deep px-3 py-2 text-on-enamel md:px-4",
+        isOpen && "z-20"
+      )}
     >
-      <button
-        onClick={handleMenu}
-        id="menu"
-        tabIndex={0}
-        className={`focus:outline-light grid hamburger hamburger--vortex ${
-          !isCollapsed && "is-active mt-2 md:mt-0"
-        }`}
-        aria-label={isCollapsed ? "Expand navigation" : "Collapse navigation"}
-        type="button"
-        aria-controls="navigation"
-        aria-expanded={isCollapsed}
+      <Link
+        href="/"
+        aria-label="Random Stuff, home"
+        className="stamp mr-auto text-2xl leading-none md:mr-0"
       >
-        <span className="hamburger-box">
-          <span className="hamburger-inner"></span>
-        </span>
-      </button>
+        Random Stuff
+      </Link>
 
       <nav
-        className={classNames(
-          { "m-2": !isCollapsed, hidden: isCollapsed },
-          "flex flex-col gap-2 justify-center text-2xl text-light"
-        )}
         id="navigation"
-        role="navigation"
+        aria-label="Activities"
+        className={classNames(
+          "order-last w-full md:order-none md:mr-auto md:block md:w-auto",
+          !isOpen && "hidden"
+        )}
       >
-        {navLinks.map((link, index) => {
-          return (
-            <button
-              tabIndex={-1}
-              aria-hidden="true"
-              onClick={handleMenu}
-              key={link.name}
-            >
+        <ul className="flex flex-col gap-1 md:flex-row md:flex-wrap md:gap-0.5">
+          {SLOTS.filter((slot) => slot.inNav).map((slot) => (
+            <li key={slot.path}>
               <Link
-                role="navitem"
-                href={link.path}
-                style={{
-                  opacity: isCollapsed ? 0 : 1,
-                  animationDelay: `${index * 200}ms`,
-                }}
+                href={slot.path}
+                aria-current={pathname === slot.path ? "page" : undefined}
                 className={classNames(
-                  "animate__animated animate__faster",
-                  { animate__flipInX: !isCollapsed },
-                  "hover:scale-110 active:scale-95 flex gap-3 hover:text-accent-primary"
+                  "flex min-h-11 items-center gap-1.5 whitespace-nowrap rounded px-1.5 text-sm transition-colors hover:bg-enamel md:min-h-9",
+                  pathname === slot.path && "bg-enamel font-semibold"
                 )}
               >
-                {link.icon}
-                {link.name}
+                {slot.code && (
+                  <span className="code md:hidden 2xl:inline" aria-hidden="true">
+                    {slot.code}
+                  </span>
+                )}
+                {slot.name}
               </Link>
-            </button>
-          );
-        })}
+            </li>
+          ))}
+        </ul>
       </nav>
 
       <button
-        className={`focus:outline-light animate__animated hidden md:grid hover:scale-110 active:scale-95 transition-all`}
+        ref={menuButton}
+        id="menu"
         type="button"
-        onClick={toggleColorMode}
+        className="key !min-h-9 text-sm"
+        aria-label={isOpen ? "Close keypad and navigation" : "Open keypad and navigation"}
+        aria-controls="keypad-panel"
+        aria-expanded={isOpen}
+        onClick={handleMenuButton}
       >
-        {!prefersDarkMode ? (
-          <Image
-            src="/icons/icons8-moon-78.png"
-            alt="Switch to Dark mode"
-            id="toggleColorMode"
-            width="40"
-            height="40"
-          />
-        ) : (
-          <Image
-            src="/icons/icons8-light-mode-78.png"
-            alt="Switch to Light mode"
-            id="toggleColorMode"
-            width="40"
-            height="40"
-          />
-        )}
+        <span className="md:hidden">Menu</span>
+        <span className="hidden md:inline">Keypad</span>
       </button>
+
+      <ThemeRocker />
+
+      {isOpen && (
+        <div
+          id="keypad-panel"
+          className="panel order-last w-full md:absolute md:right-4 md:top-full md:mt-2 md:w-72"
+        >
+          <Keypad id="header-keypad" />
+        </div>
+      )}
     </header>
   );
 }

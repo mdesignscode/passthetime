@@ -1,75 +1,26 @@
 "use client";
 
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import Link from "next/link";
 import QueryUrl from "./QueryUrl";
 import SelectAuthor from "./SelectAuthor";
 import SelectRandom from "./SelectRandom";
 import SelectTitle from "./SelectTitle";
 import { PoemsProvider } from "./context";
 
-type TAuthor = {
-  id: number;
-  name: string;
-};
-
-type TPoem = {
-  Author: {
-    id: number;
-    name: string;
-  } | null;
-} & {
-  id: number;
-  title: string;
-  lines: string;
-  authorId: number | null;
-};
-
 interface IPoemOptionsProps {
-  authors: TAuthor[];
-  poems: TPoem[];
+  authors: { id: number; name: string }[];
+  poems: TPoemWithAuthor[];
 }
-
-const containerVariants = {
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      duration: 0.3,
-    },
-  },
-  hide: {
-    opacity: 0,
-  },
-};
-
-export const childrenVariants = {
-  show: {
-    scale: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-    },
-  },
-  hide: {
-    y: 50,
-    scale: 0.5,
-  },
-};
 
 export default function PoemOptions({ poems, authors }: IPoemOptionsProps) {
   return (
-    <LazyMotion features={domAnimation}>
-      <PoemsProvider>
-        <m.section
-          variants={containerVariants}
-          initial="hide"
-          animate="show"
-          className="flex mx-auto flex-col w-11/12 md:w-2/3 p-4 gap-4 border-2 border-dark rounded-lg"
-        >
-          <p className="font-bold text-sm md:text-base">
-            Select one of 3 options below to view poems
-          </p>
+    <PoemsProvider>
+      <section className="panel flex max-w-3xl flex-col gap-4 p-4">
+        <p className="stamp text-lg">
+          Select one of 3 options below to view poems
+        </p>
 
+        <div className="grid gap-4 md:grid-cols-2">
           <SelectAuthor
             authors={authors.map((author) => ({
               name: author.name,
@@ -85,14 +36,34 @@ export default function PoemOptions({ poems, authors }: IPoemOptionsProps) {
               titleId: poem.id,
             }))}
           />
+        </div>
 
-          <SelectRandom />
+        <SelectRandom />
 
-          <m.div variants={childrenVariants}>
-            <QueryUrl />
-          </m.div>
-        </m.section>
-      </PoemsProvider>
-    </LazyMotion>
+        <QueryUrl />
+      </section>
+
+      <section
+        aria-label="Browse poets"
+        className="wall grid-cols-[repeat(auto-fill,minmax(11rem,1fr))]"
+      >
+        {authors.map((author) => {
+          const poemCount = poems.filter((poem) => poem.authorId === author.id).length;
+
+          return (
+          <Link key={author.id} href={`/poems/${author.id}`} className="slot">
+            <span className="slot-goods stamp block text-xl leading-tight">
+              {author.name}
+            </span>
+            <span className="rail">
+              <span>
+                {poemCount} {poemCount === 1 ? "poem" : "poems"}
+              </span>
+            </span>
+          </Link>
+          );
+        })}
+      </section>
+    </PoemsProvider>
   );
 }

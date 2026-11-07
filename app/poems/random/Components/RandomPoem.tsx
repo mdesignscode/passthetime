@@ -1,22 +1,13 @@
 "use client";
 
 import DiceIcon from "@/Components/Icons/Dice";
+import Marquee from "@/Components/Marquee";
+import PoemLines from "@/Components/PoemLines";
 import { useState } from "react";
 
 interface IRandomPoemProps {
-  poems: IPoem[];
+  poems: TPoemWithAuthor[];
   initialIndex: number;
-}
-
-interface IPoem {
-  id: number;
-  title: string;
-  lines: string;
-  authorId: number | null;
-  Author: {
-    id: number;
-    name: string;
-  } | null;
 }
 
 export default function RandomPoem({ poems, initialIndex }: IRandomPoemProps) {
@@ -28,29 +19,29 @@ export default function RandomPoem({ poems, initialIndex }: IRandomPoemProps) {
   }
 
   return (
-    <main className="flex flex-col h-full items-center gap-4 p-4">
-      <section role="secondary navigation" className="flex border-b-2 border-dark items-center gap-4">
-        <h1 className="text-lg font-bold md:text-2xl">📜🖋 A Random Poem 🖋📜</h1>
-        <button
-          className="hover:text-light transition-all hover:scale-110 active:scale-95"
-          type="button"
-          aria-label="Shuffle poem"
-          aria-controls="poem"
-          onClick={handleRandomPoem}
-        >
-          <DiceIcon />
-        </button>
-      </section>
+    <main className="machine-main">
+      <Marquee title="A Random Poem" />
 
-      <article id="poem" className="h-3/4 shadow-lg px-2 w-8/12 bg-light flex flex-col overflow-auto rounded-lg">
-        <h2 aria-label="Poem title" className="font-bold border-b-2 border-dark p-2 sticky top-0 bg-light rounded-t-lg text-center">
+      <button
+        className="key key-go self-start"
+        type="button"
+        aria-controls="poem"
+        onClick={handleRandomPoem}
+      >
+        <DiceIcon />
+        Shuffle poem
+      </button>
+
+      <article
+        key={currentPoem.id}
+        id="poem"
+        aria-live="polite"
+        className="receipt receipt-print mx-auto w-full max-w-2xl md:text-base"
+      >
+        <h2 className="mb-3 border-b border-dashed border-current pb-2 font-bold">
           {currentPoem.title} by {currentPoem.Author?.name}
         </h2>
-        <section aria-label="Poem content" className="p-2">
-          {currentPoem.lines.split("\n").map((line) => (
-            <p key={line}>{line}</p>
-          ))}
-        </section>
+        <PoemLines lines={currentPoem.lines} />
       </article>
     </main>
   );

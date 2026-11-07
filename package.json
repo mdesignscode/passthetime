@@ -2,20 +2,24 @@
   "name": "random-stuff",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "26.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "serve out",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "refresh-content": "bun run scripts/refreshContent.ts"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@next/bundle-analyzer": "^14.1.2",
-    "@prisma/client": "^5.9.1",
     "animate.css": "^4.1.1",
     "classnames": "^2.5.1",
     "cypress": "^13.7.2",
     "framer-motion": "^10.17.12",
+    "gsap": "^3.13.0",
     "next": "14.2.1",
     "react": "^18",
     "react-dom": "^18",
@@ -31,7 +35,6 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
-    "prisma": "^5.9.1",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }

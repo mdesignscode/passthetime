@@ -2,7 +2,7 @@
 
 <p align="center"><img src="./public/screenshots/Pass The Time.png" alt="project-image"></p>
 
-<p id="description">Discover the unexpected with Random Stuff a dynamic Next.js creation that brings together a medley of functionalities from diverse external APIs. Dive into interactive experiences from classic games like rock-paper-scissors to browsing delicious recipes sourced from TheMealDB. With a focus on accessibility and SEO Random Stuff serves up an array of engaging activities seamlessly persisting user interactions in a robust database. Embrace the randomness and explore a world of endless possibilities all in one captivating website. Plus enjoy the convenience of its progressive web app (PWA) capabilities for enhanced accessibility on the go.</p>
+<p id="description">Discover the unexpected with Random Stuff a dynamic Next.js creation that brings together a medley of functionalities from diverse external APIs. Dive into interactive experiences from classic games like rock-paper-scissors to browsing delicious recipes sourced from TheMealDB. With a focus on accessibility and SEO Random Stuff serves up an array of engaging activities Embrace the randomness and explore a world of endless possibilities all in one captivating website. Plus enjoy the convenience of its progressive web app (PWA) capabilities for enhanced accessibility on the go.</p>
 
 <h2>🚀 Demo</h2>
 
@@ -27,6 +27,9 @@ Here're some of the project's best features:
 *   Responsive and interactive web application
 *   Explore different kinds of fruit and information on them
 *   Play Rock Paper Scissors with 101 objects aginst the computer
+*   Test yourself with trivia, and build a streak at Higher or Lower
+*   Browse public-domain art from the Art Institute of Chicago
+*   Print jokes from the joke dispenser
 *   Explore hunderds of poems and recipes
 *   Consume external APIs to provide different functionaity
 
@@ -34,39 +37,11 @@ Here're some of the project's best features:
 
 * [Bun (Interoparable with Node.js)](https://bun.sh/)
 * [Code Editor](https://code.visualstudio.com/)
-* [PostgreSQL database](https://www.postgresql.org/)
 * [Typescript](https://www.typescriptlang.org/download)
 
-<h2>🔒 Environment variables</h2>
+<h2>🗃 Data</h2>
 
-<p>Add the following variable to `.env` at the root of the project
-
-    DATABASE_URL="Connection to database via connection pooling"
-    DIRECT_URL="Direct connection to the database"
-
-<h2>🗃 Fill database with data</h2>
-
-<p>The app consumes external APIs to generate different user interfaces. Run the following to generate data:</p>
-
-* Fill fruits
-```bash
-bunx tsc data/seedFruits.ts && node data/seedFruits.js
-```
-
-* Fill Rock, Paper, Scissors
-```bash
-bunx tsc data/seedRPS.ts && node data/seedRPS.js
-```
-
-* Fill recipes
-```bash
-bunx tsc data/seedRecipes.ts && node data/seedRecipes.js
-```
-
-* Fill poems
-```bash
-bunx tsc data/seedPoems.ts && node data/seedPoems.js
-```
+<p>All content is stored as JSON in `data/` and read at build time through `lib/data.ts`. There is no database and no environment variables are needed. To change the content, edit those files and rebuild. Run `bun run refresh-content` to refetch the trivia, art, jokes and cards. Recipe photos live in `public/images/recipes/` and come from <a href="https://www.themealdb.com/">TheMealDB</a>.</p>
 
 <h2>🛠️ Installation Steps:</h2>
 
@@ -98,7 +73,6 @@ Technologies used in the project:
 *   Typescript
 *   React
 *   Framer Motion
-*   Prismajs
 *   PostgreSQL
 
 <h2>🛡️ License:</h2>

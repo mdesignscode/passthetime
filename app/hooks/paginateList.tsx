@@ -1,15 +1,19 @@
 "use client";
 
 import ArrowIcon from "@/Components/Icons/Arrow";
-import { buttonDisabled, buttonHover } from "@/Components/TailwindClasses";
 import classNames from "classnames";
 import { Dispatch, SetStateAction, useState } from "react";
+
+interface IPageButtonProps {
+  disabled?: boolean;
+  onPress?(): void;
+}
 
 interface IPaginateList<TDataType> {
   partialList: TDataType[];
   setPartialList: Dispatch<SetStateAction<TDataType[]>>;
-  PreviousButton: () => JSX.Element;
-  NextButton: () => JSX.Element;
+  PreviousButton: (props: IPageButtonProps) => JSX.Element;
+  NextButton: (props: IPageButtonProps) => JSX.Element;
   currentIndex: number;
   setCurrentIndex: Dispatch<SetStateAction<number>>;
   pageIndex: number;
@@ -53,37 +57,32 @@ export default function usePaginateList<TDataType>(
     setPageIndex((state) => state - 1);
   }
 
-  const PreviousButton = () => (
+  const PreviousButton = ({ disabled, onPress }: IPageButtonProps) => (
       <button
         aria-label="Show previous items in list"
-        disabled={!currentIndex}
-        className={classNames(
-          buttonHover,
-          {
-            [buttonDisabled]: !currentIndex,
-          },
-          "grid text-light transition-all"
-        )}
+        disabled={disabled ?? !currentIndex}
+        className="key"
         type="button"
-        onClick={handlePaginatePrevious}
+        onClick={() => {
+          handlePaginatePrevious();
+          onPress?.();
+        }}
       >
-        <ArrowIcon />
+        <ArrowIcon className="-rotate-90" />
       </button>
     ),
-    NextButton = () => (
+    NextButton = ({ disabled, onPress }: IPageButtonProps) => (
       <button
         aria-label="Show next items in list"
-        className={classNames(
-          buttonHover,
-          {
-            [buttonDisabled]: currentIndex + PAGE_COUNT > LAST_PAGE,
-          },
-          "rotate-180 hover:translate-y-2 grid text-light transition-all"
-        )}
+        disabled={disabled ?? currentIndex + PAGE_COUNT > LAST_PAGE}
+        className={classNames("key")}
         type="button"
-        onClick={handlePaginateNext}
+        onClick={() => {
+          handlePaginateNext();
+          onPress?.();
+        }}
       >
-        <ArrowIcon />
+        <ArrowIcon className="rotate-90" />
       </button>
     );
 

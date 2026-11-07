@@ -11,16 +11,21 @@ export default function MainScreen({
 }: {
   playObjects: TPlayObjects;
 }) {
-  console.log({ playObjects });
-
   return (
     <RPSProvider>
-      <PlayStats />
+      <div className="grid items-start gap-3 md:grid-cols-[1fr_19rem] md:gap-4">
+        <section
+          aria-label="Game"
+          className="wall min-h-72 md:min-h-96"
+        >
+          <div className="slot slot-goods slot-recess justify-center p-4 hover:!transform-none">
+            <PickAnObject playObjects={playObjects} />
+            <Playing objects={playObjects} />
+            <ShowResult />
+          </div>
+        </section>
 
-      <div className="m-auto">
-        <PickAnObject playObjects={playObjects} />
-        <Playing objects={playObjects} />
-        <ShowResult />
+        <PlayStats />
       </div>
     </RPSProvider>
   );

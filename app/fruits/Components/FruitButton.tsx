@@ -1,40 +1,34 @@
 "use client";
 
-import ScaleIn from "@/Components/ScaleIn";
-import { buttonPrimary } from "@/Components/TailwindClasses";
-import { GlobalContext } from "@/context/globalContext";
+import Packet from "@/Components/Packet";
 import { useContext } from "react";
 import { FruitContext } from "./context";
 
 export default function FruitButton({
   fruit,
-  index,
 }: {
   fruit: TFruit;
-  index: number;
 }) {
-  const { setShowInfo, setFruit, showInfo } = useContext(FruitContext);
-  const { setShowLightbox } = useContext(GlobalContext);
-
-  function handleShowInfo() {
-    setFruit(fruit);
-    setShowLightbox(true);
-    setShowInfo(true);
-  }
+  const { setFruit, fruit: selected } = useContext(FruitContext);
 
   return (
-    <ScaleIn index={index} className="flex-1 md:flex-auto">
+    <div className="flex">
       <button
         type="button"
-        className={buttonPrimary}
-        onClick={handleShowInfo}
+        className="slot"
+        onClick={() => setFruit(fruit)}
         aria-controls="fruit-info"
         aria-label={`Show ${fruit.name} information`}
-        aria-expanded={showInfo}
+        aria-pressed={selected?.id === fruit.id}
         id={`${fruit.name}-info-button`}
       >
-        {fruit.name}
+        <span className="slot-goods slot-recess w-full">
+          <Packet name={fruit.name} className="w-full" />
+        </span>
+        <span className="rail w-full">
+                    <span>{fruit.nutritions.calories} kcal</span>
+        </span>
       </button>
-    </ScaleIn>
+    </div>
   );
 }

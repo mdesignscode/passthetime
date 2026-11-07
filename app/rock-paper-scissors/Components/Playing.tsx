@@ -1,50 +1,36 @@
 "use client";
 
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { RPSContext } from "./context";
-import { TRPSObject } from "./PickAnObject";
 
-export default function Playing({ objects }: { objects: TRPSObject[] }) {
+const COUNT_DOWN = ["Rock", "Paper", "Scissors"];
+
+export default function Playing({ objects }: { objects: TPlayObject[] }) {
   const { playState, setPlayState, setComputerObject } = useContext(RPSContext),
     [text, setText] = useState("");
 
   useEffect(() => {
-    if (playState === "playing") {
-      // choose random object for computer
-      const randomInt = Math.floor(Math.random() * objects.length);
-      setComputerObject(objects[randomInt]);
+    if (playState !== "playing") return;
 
-      // Ready, set, go animation
-      const countDownText = ["Rock", "Paper", "Scissors"];
+    // choose random object for computer
+    setComputerObject(objects[Math.floor(Math.random() * objects.length)]);
 
-      countDownText.forEach((state, index) => {
-        setTimeout(() => {
-          setText(state);
+    const timers = COUNT_DOWN.map((state, index) =>
+      setTimeout(() => setText(state), index * 1000)
+    );
+    // show result UI
+    timers.push(
+      setTimeout(() => setPlayState("result"), COUNT_DOWN.length * 1000 + 100)
+    );
 
-          // show result UI
-          setTimeout(() => {
-            if (index === countDownText.length - 1) {
-              setPlayState("result");
-            }
-          }, 1100);
-        }, index * 1000);
-      });
-    }
+    return () => timers.forEach(clearTimeout);
   }, [setPlayState, objects, setComputerObject, playState]);
 
   return (
     playState === "playing" && (
-      <section>
-        {text === "Rock" && (
-          <p className="text-2xl animate__animated animate__zoomIn">Rock</p>
-        )}
-        {text === "Paper" && (
-          <p className="text-2xl animate__animated animate__zoomIn">Paper</p>
-        )}
-        {text === "Scissors" && (
-          <p className="text-2xl animate__animated animate__zoomIn">Scissors</p>
-        )}
-      </section>
+      <p role="status" className="marquee mx-auto w-full max-w-md text-center text-5xl md:text-7xl">
+        {text}
+      </p>
     )
   );
 }

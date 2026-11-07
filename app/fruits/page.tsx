@@ -1,29 +1,20 @@
-import prisma from "@/lib/prisma";
-import classNames from "classnames";
+import { fruits } from "lib/data";
+import Marquee from "@/Components/Marquee";
 import dynamic from "next/dynamic";
-import { mainElement } from "../Components/TailwindClasses";
 
 const RenderFruits = dynamic(() => import("./Components/RenderFruits"));
 
-export default async function Page() {
-  const fruits = prisma.fruit.findMany({
-    include: {
-      nutritions: true,
-    },
-  });
-
+export default function Page() {
   return (
-    <main
-      aria-label="Fruits page"
-      className={classNames(mainElement, "overflow-y-auto")}
-    >
-      <h1 className="font-bold text-xl md:text-2xl">🍓🏝 Fruit Island 🏝🍓</h1>
+    <main aria-label="Fruits page" className="machine-main">
+      <Marquee title="Fruit Island" />
 
-      <p className="text-lg text-center w-10/12 md:w-8/10 md:text-xl">
-       Find out how much nutritional value the fruits you consume daily contains, and the families they belong to.
+      <p className="marquee-note md:text-lg">
+        Find out how much nutritional value the fruits you consume daily
+        contains, and the families they belong to.
       </p>
 
-      <RenderFruits fruits={await fruits} />
+      <RenderFruits fruits={fruits} />
     </main>
   );
 }

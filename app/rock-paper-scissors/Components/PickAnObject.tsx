@@ -1,36 +1,20 @@
 "use client";
 
-import { buttonDisabled, buttonPrimary } from "@/Components/TailwindClasses";
-import ScaleIn from "@/app/Components/ScaleIn";
-import { GlobalContext } from "@/context/globalContext";
 import usePaginateList from "@/hooks/paginateList";
-import classNames from "classnames";
-import dynamic from "next/dynamic";
+import { GlobalContext } from "@/context/globalContext";
 import { useContext, useState } from "react";
+import Packet from "@/Components/Packet";
+import ShowObjects from "./ShowObjects";
 import { RPSContext } from "./context";
-
-const ShowObjects = dynamic(() => import("./ShowObjects"));
-
-export type TRPSObject = {
-  winningMatches: {
-    id: number;
-    name: string;
-    action: string;
-    rockPaperScissorId: number | null;
-  }[];
-} & {
-  id: number;
-  name: string;
-};
 
 export default function PickAnObject({
   playObjects,
 }: {
-  playObjects: TRPSObject[];
+  playObjects: TPlayObject[];
 }) {
   const [showObjects, setShowObjects] = useState(false),
     PAGE_COUNT = 20,
-    { partialList, NextButton, PreviousButton } = usePaginateList<TRPSObject>(
+    { partialList, NextButton, PreviousButton } = usePaginateList<TPlayObject>(
       playObjects,
       PAGE_COUNT
     ),
@@ -41,10 +25,6 @@ export default function PickAnObject({
   function handleShowObjects() {
     setShowLightbox(true);
     setShowObjects(true);
-  }
-
-  function handleSelectObject(object: TRPSObject) {
-    setPlayerObject(object);
   }
 
   function handleHideObjects() {
@@ -58,9 +38,32 @@ export default function PickAnObject({
 
   return (
     playState === "selectObject" && (
-      <ScaleIn className="flex flex-col gap-4" ariaLabel="Play options">
+      <div
+        className="grid items-stretch gap-4 sm:grid-cols-[minmax(9rem,13rem)_1fr] [&>span]:sm:min-h-56"
+        aria-label="Play options"
+        role="group"
+      >
+        {playerObject ? (
+          <Packet name={playerObject.name} className="min-h-28 !text-4xl sm:min-h-56" />
+        ) : (
+          <span className="stamp flex min-h-20 items-center justify-center rounded border-2 border-dashed border-ink p-4 text-center text-xl">
+            Empty slot
+          </span>
+        )}
+
+        <div className="flex flex-col justify-end gap-3">
+          <div aria-hidden="true" className="flex min-h-24 flex-1 gap-2 sm:min-h-36">
+            {playObjects.slice(0, 5).map((object, index) => (
+              <Packet
+                key={object.id}
+                name={object.name}
+                className={`flex-1 !text-base ${index > 2 ? "hidden md:flex" : ""}`}
+              />
+            ))}
+          </div>
+
         <button
-          className={classNames(buttonPrimary, "text-xl")}
+          className="key text-xl"
           type="button"
           onClick={handleShowObjects}
           aria-label="Show all objects"
@@ -78,16 +81,13 @@ export default function PickAnObject({
               : "Pick an object to play with"
           }
           disabled={!playerObject}
-          className={classNames(
-            buttonPrimary,
-            { [buttonDisabled]: !playerObject },
-            "tracking-widest uppercase text-xl"
-          )}
+          className="key key-go text-2xl"
           type="button"
           onClick={handleStartPlaying}
         >
           Play
         </button>
+        </div>
 
         {showObjects && (
           <ShowObjects
@@ -97,13 +97,12 @@ export default function PickAnObject({
               handleHideObjects,
               handleStartPlaying,
               playerObject,
-              showObjects,
               partialList,
-              handleSelectObject,
+              handleSelectObject: setPlayerObject,
             }}
           />
         )}
-      </ScaleIn>
+      </div>
     )
   );
 }

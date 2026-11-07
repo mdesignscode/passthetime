@@ -1,38 +1,19 @@
 import { Hono } from "hono";
-import prisma from "../../../lib/prisma";
+import { authors, fruits, poems, recipes } from "../../../lib/data";
 
 const app = new Hono();
 
-app.get("/fruits", async (c) => {
-  return c.json(await prisma.fruit.findMany());
-});
+app.get("/fruits", (c) => c.json(fruits));
 
-app.get("/poems", async (c) => {
-  const author = await prisma.author.findUnique({
-      where: {
-        id: 1,
-      },
-    }),
-    poem = await prisma.poem.findUnique({
-      where: {
-        id: 1,
-      },
-    }),
-    totalPoems = await prisma.poem.count(),
-    totalAuthors = await prisma.author.count();
+app.get("/poems", (c) =>
+  c.json({
+    poem: poems.find(({ id }) => id === 1),
+    author: authors.find(({ id }) => id === 1),
+    totalPoems: poems.length,
+    totalAuthors: authors.length,
+  })
+);
 
-  return c.json({ poem, author, totalPoems, totalAuthors });
-});
+app.get("/recipes", (c) => c.json(recipes.slice(0, 30)));
 
-app.get("/recipes", async (c) => {
-  return c.json(
-    await prisma.recipe.findMany({
-      take: 30,
-      orderBy: {
-        name: "asc",
-      },
-    })
-  );
-});
-
-export default app
+export default app;

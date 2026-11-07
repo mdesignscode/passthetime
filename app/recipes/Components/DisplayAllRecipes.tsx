@@ -1,25 +1,21 @@
 "use client";
 
 import ArrowIcon from "@/Components/Icons/Arrow";
-import { buttonDisabled } from "@/Components/TailwindClasses";
 import usePaginateList from "@/hooks/paginateList";
-import classNames from "classnames";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import { Prisma } from "prisma/generated/client";
 import { useState } from "react";
 import FilterRecipes from "./FilterRecipes";
-import { TRecipe } from "./RecipeButton";
+import RecipeButton from "./RecipeButton";
 
-const RecipeButton = dynamic(() => import("./RecipeButton"));
-const ScaleIn = dynamic(() => import("@/Components/ScaleIn"))
+function scrollToTop() {
+  document.querySelector("main")?.scrollTo({ top: 0, behavior: "smooth" });
+}
 
 export default function DisplayAllRecipes({
   recipes,
   tags,
 }: {
   recipes: TRecipe[];
-  tags: (Prisma.PickEnumerable<Prisma.TagsGroupByOutputType, "name"[]> & {})[];
+  tags: string[];
 }) {
   const PAGE_COUNT = 15,
     {
@@ -35,8 +31,7 @@ export default function DisplayAllRecipes({
     [totalPages, setTotalPages] = useState(TOTAL_PAGES_INITIALLY);
 
   return (
-    <section className="flex flex-col items-center gap-4">
-      {/* filter by tags */}
+    <section className="flex flex-col gap-3 md:gap-4">
       <FilterRecipes
         setPartialList={setPartialList}
         tags={tags}
@@ -46,55 +41,35 @@ export default function DisplayAllRecipes({
         setTotalPages={setTotalPages}
         PAGE_COUNT={PAGE_COUNT}
         TOTAL_PAGES_INITIALLY={TOTAL_PAGES_INITIALLY}
-        totalPages={totalPages}
       />
 
       <section
         aria-label="All recipes"
         id="recipesList"
-        className="w-5/6 flex flex-col items-center gap-4"
+        className="wall grid-cols-[repeat(auto-fill,minmax(14rem,1fr))]"
       >
-        {/* list of recipes */}
-        <section className="flex flex-col md:flex-row md:flex-wrap md:items-center md:justify-center gap-4">
-          {partialList.map((recipe, index) => (
-            <RecipeButton key={recipe.id} index={index} recipe={recipe} />
-          ))}
-        </section>
-        {/* paginate section */}
-        <ScaleIn>
-          <section
-            aria-label="Paginate recipes"
-            className="flex gap-4 text-lg items-center"
-          >
-            <Link href="/recipes#recipesList" className="-rotate-90">
-              <PreviousButton />
-            </Link>
-            <p>
-              Page {pageIndex} of {totalPages}
-            </p>
-            <Link
-              href="/recipes#recipesList"
-              className={classNames(
-                { [buttonDisabled]: pageIndex >= totalPages },
-                "-rotate-90"
-              )}
-            >
-              <NextButton />
-            </Link>
+        {partialList.map((recipe) => (
+          <RecipeButton key={recipe.id} recipe={recipe} />
+        ))}
+      </section>
 
-            <button
-              aria-label="Scroll to top"
-              onClick={() =>
-                document
-                  .querySelector("main")
-                  ?.scrollTo({ top: 0, behavior: "smooth" })
-              }
-              className="text-light animate__shakeY animate__animated"
-            >
-              <ArrowIcon />
-            </button>
-          </section>
-        </ScaleIn>
+      <section
+        aria-label="Paginate recipes"
+        className="flex flex-wrap items-center justify-center gap-4"
+      >
+        <PreviousButton disabled={pageIndex <= 1} onPress={scrollToTop} />
+        <p>
+          Page {pageIndex} of {totalPages}
+        </p>
+        <NextButton disabled={pageIndex >= totalPages} onPress={scrollToTop} />
+        <button
+          type="button"
+          aria-label="Scroll to top"
+          className="key"
+          onClick={scrollToTop}
+        >
+          <ArrowIcon />
+        </button>
       </section>
     </section>
   );

@@ -1,26 +1,18 @@
-import { mainElement } from "@/Components/TailwindClasses";
-import prisma from "lib/prisma";
+import Marquee from "@/Components/Marquee";
+import { playObjects } from "lib/data";
 import dynamic from "next/dynamic";
 
 const MainScreen = dynamic(() => import("./Components/MainScreen"), { ssr: false });
 
-export default async function Page() {
-  const playObjects = prisma.rockPaperScissor.findMany({
-    include: {
-      winningMatches: true,
-    },
-  });
-
+export default function Page() {
   return (
-    <main className={mainElement} aria-label="Rock, Paper, Scissors">
-      <h1 className="text-xl md:text-2xl font-bold">
-        👊🖐️✌️ Rock, Paper, Scissors 101 👊🖐️✌️
-      </h1>
-      <h2 className="text-lg md:text-xl">
+    <main className="machine-main" aria-label="Rock, Paper, Scissors">
+      <Marquee title="Rock, Paper, Scissors 101" />
+      <h2 className="marquee-note md:text-lg">
         Play Rock, Paper, Scissors with 101 objects!
       </h2>
 
-      <MainScreen playObjects={await playObjects} />
+      <MainScreen playObjects={playObjects} />
     </main>
   );
 }

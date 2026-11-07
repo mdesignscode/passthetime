@@ -27,6 +27,22 @@ describe("Visit home page", () => {
         path: "/recipes",
         name: "Recipes",
       },
+      {
+        path: "/gallery",
+        name: "Art Gallery",
+      },
+      {
+        path: "/trivia",
+        name: "Trivia",
+      },
+      {
+        path: "/higher-or-lower",
+        name: "Higher or Lower",
+      },
+      {
+        path: "/jokes",
+        name: "Jokes",
+      },
     ] as const;
 
     // get navbar element
