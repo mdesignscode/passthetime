@@ -24,6 +24,14 @@ interface IHomeMachine {
   authorCount: number;
   objects: string[];
   objectCount: number;
+  artwork: TArtwork;
+  artworkCount: number;
+  triviaCategories: string[];
+  triviaCount: number;
+  card: TCard;
+  cardCount: number;
+  joke: string;
+  jokeCount: number;
 }
 
 function Compartment({
@@ -31,12 +39,15 @@ function Compartment({
   title,
   fact,
   className,
+  isCompact = false,
   children,
 }: {
   code: string;
   title: string;
   fact: string;
   className?: string;
+  /** Half width on phones, where the rail only has room for the title. */
+  isCompact?: boolean;
   children: ReactNode;
 }) {
   const slot = findSlot(code)!,
@@ -54,9 +65,9 @@ function Compartment({
       href={slot.path}
       data-slot={code}
       onClick={handleClick}
-      className={classNames("slot", className)}
+      className={classNames("slot min-h-0", className)}
     >
-      <span className="slot-goods slot-recess flex items-stretch gap-2 overflow-hidden">
+      <span className="slot-goods slot-recess flex items-stretch gap-2 overflow-hidden [&_.packet]:min-h-0">
         {children}
       </span>
       <span className="rail !py-1.5">
@@ -66,7 +77,9 @@ function Compartment({
             {title}
           </span>
         </span>
-        <span className="flex-none">{fact}</span>
+        <span className={classNames("flex-none", isCompact && "hidden sm:inline")}>
+          {fact}
+        </span>
       </span>
     </Link>
   );
@@ -84,6 +97,14 @@ export default function HomeMachine({
   authorCount,
   objects,
   objectCount,
+  artwork,
+  artworkCount,
+  triviaCategories,
+  triviaCount,
+  card,
+  cardCount,
+  joke,
+  jokeCount,
 }: IHomeMachine) {
   const { machineMessage } = useContext(GlobalContext);
 
@@ -96,16 +117,17 @@ export default function HomeMachine({
         domains!
       </p>
 
-      <div className="grid flex-1 gap-3 md:gap-4 lg:grid-cols-[1fr_17rem]">
+      {/* on large screens the wall shares the viewport's height instead of growing to its contents */}
+      <div className="grid flex-1 gap-3 md:gap-4 lg:min-h-[28rem] lg:grid-cols-[1fr_17rem] lg:[grid-template-rows:minmax(0,1fr)]">
         <section
           aria-label="Activities"
-          className="wall grid-cols-2 auto-rows-[minmax(11rem,1fr)] md:grid-cols-12 md:[grid-template-rows:minmax(13rem,1.35fr)_minmax(10rem,1fr)]"
+          className="wall grid-cols-2 lg:min-h-0 auto-rows-[minmax(10rem,1fr)] md:grid-cols-12 md:[grid-template-rows:minmax(8.5rem,1.15fr)_repeat(2,minmax(8.5rem,1fr))]"
         >
           <Compartment
             code="A1"
             title="Fruits"
             fact={`${fruitCount} fruits`}
-            className="col-span-2 md:col-span-7"
+            className="col-span-2 md:col-span-5"
           >
             {fruits.map((fruit, index) => (
               <Packet
@@ -120,18 +142,19 @@ export default function HomeMachine({
           </Compartment>
 
           <Compartment
+            isCompact
             code="A2"
             title="Recipes"
             fact={`${recipeCount} recipes`}
-            className="col-span-2 md:col-span-5"
+            className="md:col-span-4"
           >
             {recipes.map((recipe, index) => (
               <span
                 key={recipe.name}
                 data-packet
                 className={classNames(
-                  "relative block min-h-24 flex-1 overflow-hidden rounded-sm shadow-md transition-transform",
-                  index > 1 && "hidden sm:block"
+                  "relative block min-h-24 flex-1 lg:min-h-0 overflow-hidden rounded-sm shadow-md transition-transform",
+                  index > 0 && "hidden sm:block"
                 )}
               >
                 <Image src={recipe.thumbnail} alt="" fill sizes="240px" className="object-cover" />
@@ -139,11 +162,20 @@ export default function HomeMachine({
             ))}
           </Compartment>
 
+          <Compartment isCompact code="A3" title="Art Gallery" fact={`${artworkCount} works`} className="md:col-span-3">
+            <span
+              data-packet
+              className="relative block min-h-24 flex-1 lg:min-h-0 overflow-hidden rounded-sm shadow-md transition-transform"
+            >
+              <Image src={artwork.image} alt="" fill sizes="240px" className="object-cover" />
+            </span>
+          </Compartment>
+
           <Compartment
             code="B1"
             title="Rock, Paper, Scissors"
             fact={`${objectCount} objects`}
-            className="col-span-2 md:col-span-5"
+            className="col-span-2 md:col-span-4"
           >
             {objects.map((object) => (
               <Packet
@@ -154,7 +186,7 @@ export default function HomeMachine({
             ))}
           </Compartment>
 
-          <Compartment code="B2" title="Poems" fact={`${poemCount} poems`} className="md:col-span-4">
+          <Compartment isCompact code="B2" title="Poems" fact={`${poemCount} poems`} className="md:col-span-5">
             <span data-packet className="receipt block w-full overflow-hidden !p-3 !pb-6 !text-sm !leading-snug transition-transform">
               <strong className="block truncate">
                 {poemTitle} by {poemAuthor}
@@ -167,9 +199,42 @@ export default function HomeMachine({
             </span>
           </Compartment>
 
-          <Compartment code="B3" title="Random Poem" fact={`${authorCount} poets`} className="md:col-span-3">
+          <Compartment isCompact code="B3" title="Random Poem" fact={`${authorCount} poets`} className="md:col-span-3">
             <span data-packet className="packet goods-1 w-full items-center justify-center [&_svg]:h-24 [&_svg]:w-24">
               <DiceIcon />
+            </span>
+          </Compartment>
+
+          <Compartment
+            code="C1"
+            title="Trivia"
+            fact={`${triviaCount} questions`}
+            className="col-span-2 md:col-span-5"
+          >
+            {triviaCategories.map((category) => (
+              <Packet
+                key={category}
+                name={category}
+                className="flex-1 !text-base md:!text-lg"
+              />
+            ))}
+          </Compartment>
+
+          <Compartment isCompact code="C2" title="Higher or Lower" fact={`${cardCount} cards`} className="md:col-span-3">
+            <span data-packet className="relative block min-h-24 flex-1 lg:min-h-0 transition-transform">
+              <Image src={card.image} alt="" fill sizes="120px" className="object-contain" />
+            </span>
+            <span className="relative hidden min-h-24 flex-1 lg:min-h-0 sm:block">
+              <Image src="/images/cards/back.webp" alt="" fill sizes="120px" className="object-contain" />
+            </span>
+          </Compartment>
+
+          <Compartment isCompact code="C3" title="Jokes" fact={`${jokeCount} jokes`} className="md:col-span-4">
+            <span
+              data-packet
+              className="receipt block w-full overflow-hidden !p-3 !pb-6 !text-sm !leading-snug transition-transform"
+            >
+              {joke}
             </span>
           </Compartment>
         </section>

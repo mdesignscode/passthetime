@@ -1,0 +1,482 @@
+[
+  {
+    "id": 28560,
+    "title": "The Bedroom",
+    "artist": "Vincent van Gogh",
+    "date": "1889",
+    "medium": "Oil on canvas",
+    "place": "Saint-Rémy-de-Provence",
+    "credit": "Helen Birch Bartlett Memorial Collection",
+    "image": "/images/art/28560.webp"
+  },
+  {
+    "id": 21023,
+    "title": "Buddha Shakyamuni Seated in Meditation (Dhyanamudra)",
+    "artist": "Unknown artist",
+    "date": "Chola period, about 12th century",
+    "medium": "Granite",
+    "place": "Nagapattinam",
+    "credit": "Purchased with funds provided by Mr. and Mrs. Robert Andrew Brown",
+    "image": "/images/art/21023.webp"
+  },
+  {
+    "id": 20684,
+    "title": "Paris Street; Rainy Day",
+    "artist": "Gustave Caillebotte",
+    "date": "1877",
+    "medium": "Oil on canvas",
+    "place": "Paris",
+    "credit": "Charles H. and Mary F. S. Worcester Collection",
+    "image": "/images/art/20684.webp"
+  },
+  {
+    "id": 27992,
+    "title": "A Sunday on La Grande Jatte — 1884",
+    "artist": "Georges Seurat",
+    "date": "1884–86, border added 1888–89",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Helen Birch Bartlett Memorial Collection",
+    "image": "/images/art/27992.webp"
+  },
+  {
+    "id": 75644,
+    "title": "Coronation Stone of Moctezuma Xocoyotzin",
+    "artist": "Mexica (Aztec)",
+    "date": "c. 1503",
+    "medium": "Basalt",
+    "place": "Tenochtitlan",
+    "credit": "Major Acquisitions Fund",
+    "image": "/images/art/75644.webp"
+  },
+  {
+    "id": 102611,
+    "title": "Veranda Post (Òpó Ògògá)",
+    "artist": "Olowe of Ise",
+    "date": "1910-14",
+    "medium": "Wood and pigment",
+    "place": "Ikere",
+    "credit": "Major Acquisitions Centennial Fund",
+    "image": "/images/art/102611.webp"
+  },
+  {
+    "id": 89503,
+    "title": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series \"Thirty-Six Views of Mount Fuji (Fugaku sanjurokkei)\"",
+    "artist": "Katsushika Hokusai",
+    "date": "1830/33",
+    "medium": "Color woodblock print; oban",
+    "place": "Japan",
+    "credit": "Clarence Buckingham Collection",
+    "image": "/images/art/89503.webp"
+  },
+  {
+    "id": 87479,
+    "title": "The Assumption of the Virgin",
+    "artist": "Domenico Theotokópoulos, called El Greco",
+    "date": "1577–79",
+    "medium": "Oil on canvas",
+    "place": "Greece",
+    "credit": "Gift of Nancy Atwood Sprague in memory of Albert Arnold Sprague",
+    "image": "/images/art/87479.webp"
+  },
+  {
+    "id": 64818,
+    "title": "Stacks of Wheat (End of Summer)",
+    "artist": "Claude Monet",
+    "date": "1890–91",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Gift of Arthur M. Wood, Sr. in memory of Pauline Palmer Wood",
+    "image": "/images/art/64818.webp"
+  },
+  {
+    "id": 16568,
+    "title": "Water Lilies",
+    "artist": "Claude Monet",
+    "date": "1906",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Mr. and Mrs. Martin A. Ryerson Collection",
+    "image": "/images/art/16568.webp"
+  },
+  {
+    "id": 14655,
+    "title": "Two Sisters (On the Terrace)",
+    "artist": "Pierre-Auguste Renoir",
+    "date": "1881",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Mr. and Mrs. Lewis Larned Coburn Memorial Collection",
+    "image": "/images/art/14655.webp"
+  },
+  {
+    "id": 80607,
+    "title": "Self-Portrait",
+    "artist": "Vincent van Gogh",
+    "date": "1887",
+    "medium": "Oil on artist's board, mounted on cradled panel",
+    "place": "Netherlands",
+    "credit": "Joseph Winterbotham Collection",
+    "image": "/images/art/80607.webp"
+  },
+  {
+    "id": 111442,
+    "title": "The Child's Bath",
+    "artist": "Mary Cassatt",
+    "date": "1893",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Robert A. Waller Fund",
+    "image": "/images/art/111442.webp"
+  },
+  {
+    "id": 61128,
+    "title": "At the Moulin Rouge",
+    "artist": "Henri de Toulouse-Lautrec",
+    "date": "1892–95",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Helen Birch Bartlett Memorial Collection",
+    "image": "/images/art/61128.webp"
+  },
+  {
+    "id": 16571,
+    "title": "Arrival of the Normandy Train, Gare Saint-Lazare",
+    "artist": "Claude Monet",
+    "date": "1877",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Mr. and Mrs. Martin A. Ryerson Collection",
+    "image": "/images/art/16571.webp"
+  },
+  {
+    "id": 111436,
+    "title": "The Basket of Apples",
+    "artist": "Paul Cezanne",
+    "date": "c. 1893",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Helen Birch Bartlett Memorial Collection",
+    "image": "/images/art/111436.webp"
+  },
+  {
+    "id": 11723,
+    "title": "Woman at Her Toilette",
+    "artist": "Berthe Morisot",
+    "date": "1875–80",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Stickney Fund",
+    "image": "/images/art/11723.webp"
+  },
+  {
+    "id": 15468,
+    "title": "Saint George and the Dragon",
+    "artist": "Bernat Martorell",
+    "date": "1434–35",
+    "medium": "Tempera on panel",
+    "place": "Spain",
+    "credit": "Gift of Mrs. Richard E. Danielson and Mrs. Chauncey McCormick",
+    "image": "/images/art/15468.webp"
+  },
+  {
+    "id": 90048,
+    "title": "Distant View of Niagara Falls",
+    "artist": "Thomas Cole",
+    "date": "1830",
+    "medium": "Oil on wood panel",
+    "place": "Niagara Falls",
+    "credit": "Friends of American Art Collection",
+    "image": "/images/art/90048.webp"
+  },
+  {
+    "id": 14598,
+    "title": "The Beach at Sainte-Adresse",
+    "artist": "Claude Monet",
+    "date": "1867",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Mr. and Mrs. Lewis Larned Coburn Memorial Collection",
+    "image": "/images/art/14598.webp"
+  },
+  {
+    "id": 80084,
+    "title": "The Crucifixion",
+    "artist": "Francisco de Zurbarán",
+    "date": "1627",
+    "medium": "Oil on canvas",
+    "place": "Spain",
+    "credit": "Robert A. Waller Memorial Fund",
+    "image": "/images/art/80084.webp"
+  },
+  {
+    "id": 8991,
+    "title": "Improvisation No. 30 (Cannons)",
+    "artist": "Vasily Kandinsky",
+    "date": "1913",
+    "medium": "Oil on canvas",
+    "place": "Germany",
+    "credit": "Arthur Jerome Eddy Memorial Collection",
+    "image": "/images/art/8991.webp"
+  },
+  {
+    "id": 25865,
+    "title": "The Herring Net",
+    "artist": "Winslow Homer",
+    "date": "1885",
+    "medium": "Oil on canvas",
+    "place": "Prouts Neck",
+    "credit": "Mr. and Mrs. Martin A. Ryerson Collection",
+    "image": "/images/art/25865.webp"
+  },
+  {
+    "id": 154235,
+    "title": "The Girl by the Window",
+    "artist": "Edvard Munch",
+    "date": "1893",
+    "medium": "Oil on canvas",
+    "place": "Norway",
+    "credit": "Searle Family Trust and Goldabelle McComb Finn endowments; Charles H. and Mary F. S. Worcester Collection",
+    "image": "/images/art/154235.webp"
+  },
+  {
+    "id": 16487,
+    "title": "The Bay of Marseille, Seen from L'Estaque",
+    "artist": "Paul Cezanne",
+    "date": "c. 1885",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Mr. and Mrs. Martin A. Ryerson Collection",
+    "image": "/images/art/16487.webp"
+  },
+  {
+    "id": 59847,
+    "title": "Cupid Chastised",
+    "artist": "Bartolomeo Manfredi",
+    "date": "1613",
+    "medium": "Oil on canvas",
+    "place": "Italy",
+    "credit": "Charles H. and Mary F. S. Worcester Collection",
+    "image": "/images/art/59847.webp"
+  },
+  {
+    "id": 869,
+    "title": "The Watermill with the Great Red Roof",
+    "artist": "Meindert Hobbema",
+    "date": "c. 1665",
+    "medium": "Oil on canvas",
+    "place": "Holland",
+    "credit": "Gift of Mr. and Mrs. Frank G. Logan",
+    "image": "/images/art/869.webp"
+  },
+  {
+    "id": 43714,
+    "title": "E10: English Dining Room of the Georgian Period, 1770–90",
+    "artist": "Narcissa Thorne",
+    "date": "c. 1937",
+    "medium": "Miniature room, mixed media",
+    "place": "United States",
+    "credit": "Gift of Mrs. James Ward Thorne",
+    "image": "/images/art/43714.webp"
+  },
+  {
+    "id": 61603,
+    "title": "Ballet at the Paris Opéra",
+    "artist": "Hilaire Germain Edgar Degas",
+    "date": "1877",
+    "medium": "Pastel over monotype on cream laid paper",
+    "place": "France",
+    "credit": "Gift of Mary and Leigh Block",
+    "image": "/images/art/61603.webp"
+  },
+  {
+    "id": 156538,
+    "title": "Chicago Stock Exchange Trading Room: Reconstruction at the Art Institute of Chicago",
+    "artist": "Adler & Sullivan, Architects",
+    "date": "1893/94 (original built)\n1972 (original demolished)\n1976/77 (reconstructed)",
+    "medium": "Mixed media recreation of room",
+    "place": "Art Institute of Chicago",
+    "credit": "Gift of Three Oaks Wrecking Company",
+    "image": "/images/art/156538.webp"
+  },
+  {
+    "id": 69780,
+    "title": "The Fountain, Villa Torlonia, Frascati, Italy",
+    "artist": "John Singer Sargent",
+    "date": "1907",
+    "medium": "Oil on canvas",
+    "place": "Frascati",
+    "credit": "Friends of American Art Collection",
+    "image": "/images/art/69780.webp"
+  },
+  {
+    "id": 109819,
+    "title": "Lozenge Composition with Yellow, Black, Blue, Red, and Gray",
+    "artist": "Piet Mondrian",
+    "date": "1921",
+    "medium": "Oil on canvas",
+    "place": "Netherlands",
+    "credit": "Gift of Edgar Kaufmann, Jr.",
+    "image": "/images/art/109819.webp"
+  },
+  {
+    "id": 56905,
+    "title": "Nocturne: Blue and Gold—Southampton Water",
+    "artist": "James McNeill Whistler",
+    "date": "1872",
+    "medium": "Oil on canvas",
+    "place": "London",
+    "credit": "Stickney Fund",
+    "image": "/images/art/56905.webp"
+  },
+  {
+    "id": 81558,
+    "title": "Acrobats at the Cirque Fernando (Francisca and Angelina Wartenberg)",
+    "artist": "Pierre-Auguste Renoir",
+    "date": "1879",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Potter Palmer Collection",
+    "image": "/images/art/81558.webp"
+  },
+  {
+    "id": 5848,
+    "title": "Landscape with Saint John on Patmos",
+    "artist": "Nicolas Poussin",
+    "date": "1640",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "A. A. Munger Collection",
+    "image": "/images/art/5848.webp"
+  },
+  {
+    "id": 4796,
+    "title": "Fishing Boats with Hucksters Bargaining for Fish",
+    "artist": "Joseph Mallord William Turner",
+    "date": "1837–38",
+    "medium": "Oil on canvas",
+    "place": "England",
+    "credit": "Mr. and Mrs. W. W. Kimball Collection",
+    "image": "/images/art/4796.webp"
+  },
+  {
+    "id": 109780,
+    "title": "Love of Winter",
+    "artist": "George Wesley Bellows",
+    "date": "1914",
+    "medium": "Oil on canvas",
+    "place": "New York",
+    "credit": "Friends of American Art Collection",
+    "image": "/images/art/109780.webp"
+  },
+  {
+    "id": 14572,
+    "title": "The Millinery Shop",
+    "artist": "Hilaire Germain Edgar Degas",
+    "date": "1879-86",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Mr. and Mrs. Lewis Larned Coburn Memorial Collection",
+    "image": "/images/art/14572.webp"
+  },
+  {
+    "id": 95998,
+    "title": "Old Man with a Gold Chain",
+    "artist": "Rembrandt van Rijn",
+    "date": "1631",
+    "medium": "Oil on panel",
+    "place": "Holland",
+    "credit": "Mr. and Mrs. W. W. Kimball Collection",
+    "image": "/images/art/95998.webp"
+  },
+  {
+    "id": 20579,
+    "title": "Hercules and the Lernaean Hydra",
+    "artist": "Gustave Moreau",
+    "date": "1875–76",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Gift of Mrs. Eugene A. Davidson",
+    "image": "/images/art/20579.webp"
+  },
+  {
+    "id": 24548,
+    "title": "Shiva as Lord of the Dance (Nataraja)",
+    "artist": "Unknown artist",
+    "date": "Chola period, about 10th/11th century",
+    "medium": "Bronze",
+    "place": "Tamil Nadu",
+    "credit": "Kate S. Buckingham Fund",
+    "image": "/images/art/24548.webp"
+  },
+  {
+    "id": 64339,
+    "title": "Coffin and Mummy of Paankhaenamun",
+    "artist": "Ancient Egyptian",
+    "date": "Third Intermediate Period, Dynasty 22, reign of Osorkon I (about 924–889 BCE)",
+    "medium": "Cartonnage, gold leaf, pigment, and mummified human remains",
+    "place": "Thebes",
+    "credit": "W. Moses Willner Fund",
+    "image": "/images/art/64339.webp"
+  },
+  {
+    "id": 151358,
+    "title": "Male Figure (Nkisi Nkondi)",
+    "artist": "Vili",
+    "date": "Possibly early to mid-19th century",
+    "medium": "Wood, metal, glass, fabric, fiber, cowrie shells, bone, leather, gourd, and feathers",
+    "place": "Republic of the Congo",
+    "credit": "Ada Turnbull Hertle Endowment",
+    "image": "/images/art/151358.webp"
+  },
+  {
+    "id": 27984,
+    "title": "Woman before an Aquarium",
+    "artist": "Henri Matisse",
+    "date": "1921–23",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Helen Birch Bartlett Memorial Collection",
+    "image": "/images/art/27984.webp"
+  },
+  {
+    "id": 16146,
+    "title": "Equestrienne (At the Cirque Fernando)",
+    "artist": "Henri de Toulouse-Lautrec",
+    "date": "1887–88",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Joseph Winterbotham Collection",
+    "image": "/images/art/16146.webp"
+  },
+  {
+    "id": 16499,
+    "title": "Jesus Mocked by the Soldiers",
+    "artist": "Édouard Manet",
+    "date": "1865",
+    "medium": "Oil on canvas",
+    "place": "France",
+    "credit": "Gift of James Deering",
+    "image": "/images/art/16499.webp"
+  },
+  {
+    "id": 146701,
+    "title": "Mountain Brook",
+    "artist": "Albert Bierstadt",
+    "date": "1863",
+    "medium": "Oil on canvas",
+    "place": "United States",
+    "credit": "Purchased with funds provided by Mrs. Herbert A. Vance; fund of an anonymous donor; Wesley M. Dixon Jr. Fund and Endowment; Henry Horner Straus and Mr. and Mrs. Frederick G. Wacker Jr. endowment funds; through prior acquisitions of various donors, including Samuel P. Avery Endowment, Mrs. George A. Carpenter, Frederick S. Colburn, Mr. and Mrs. Stanley Feinberg, Field Museum of Natural History, Mr. and Mrs. Frank Harding, International Minerals and Chemicals Corp., Mr. and Mrs. Ralph Loeff, Mrs. Frank C. Miller, Mahlan D. Moulds, Mrs. Clive Runnells, Mr. and Mrs. Stanley Stone, and the Charles H. and Mary F.S. Worcester Collection",
+    "image": "/images/art/146701.webp"
+  },
+  {
+    "id": 103887,
+    "title": "A Young Lady with a Parrot",
+    "artist": "Rosalba Carriera",
+    "date": "c. 1730",
+    "medium": "Pastel on blue laid paper, mounted on laminated paper board",
+    "place": "Venice",
+    "credit": "The Regenstein Collection",
+    "image": "/images/art/103887.webp"
+  }
+]

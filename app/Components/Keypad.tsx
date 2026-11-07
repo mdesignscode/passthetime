@@ -3,7 +3,7 @@
 import { GlobalContext } from "@/context/globalContext";
 import useDispense from "@/hooks/useDispense";
 import { KeyboardEvent, useContext, useState } from "react";
-import { SLOTS, findSlot } from "./slots";
+import { CODED_SLOTS, findSlot } from "./slots";
 
 const KEYS = ["A", "B", "C", "1", "2", "3"];
 
@@ -34,7 +34,7 @@ export default function Keypad({ id }: { id: string }) {
   }
 
   function surprise() {
-    const slot = SLOTS[Math.floor(Math.random() * SLOTS.length)];
+    const slot = CODED_SLOTS[Math.floor(Math.random() * CODED_SLOTS.length)];
     setEntry("");
     dispense(slot);
   }

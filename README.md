@@ -27,6 +27,9 @@ Here're some of the project's best features:
 *   Responsive and interactive web application
 *   Explore different kinds of fruit and information on them
 *   Play Rock Paper Scissors with 101 objects aginst the computer
+*   Test yourself with trivia, and build a streak at Higher or Lower
+*   Browse public-domain art from the Art Institute of Chicago
+*   Print jokes from the joke dispenser
 *   Explore hunderds of poems and recipes
 *   Consume external APIs to provide different functionaity
 
@@ -38,7 +41,7 @@ Here're some of the project's best features:
 
 <h2>🗃 Data</h2>
 
-<p>All content is stored as JSON in `data/` and read at build time through `lib/data.ts`. There is no database and no environment variables are needed. To change the content, edit those files and rebuild. Recipe photos live in `public/images/recipes/` and come from <a href="https://www.themealdb.com/">TheMealDB</a>.</p>
+<p>All content is stored as JSON in `data/` and read at build time through `lib/data.ts`. There is no database and no environment variables are needed. To change the content, edit those files and rebuild. Run `bun run refresh-content` to refetch the trivia, art, jokes and cards. Recipe photos live in `public/images/recipes/` and come from <a href="https://www.themealdb.com/">TheMealDB</a>.</p>
 
 <h2>🛠️ Installation Steps:</h2>
 

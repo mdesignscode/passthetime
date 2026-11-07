@@ -1,8 +1,12 @@
+import artJson from "../data/art.json";
 import authorsJson from "../data/authors.json";
+import cardsJson from "../data/cards.json";
 import fruitsJson from "../data/fruits.json";
+import jokesJson from "../data/jokes.json";
 import poemsJson from "../data/poems.json";
 import recipesJson from "../data/recipes.json";
 import objectsJson from "../data/rock-paper-scissors.json";
+import triviaJson from "../data/trivia.json";
 
 // All content lives in data/*.json and is read at build time; nothing is fetched at runtime.
 
@@ -38,3 +42,11 @@ export const poems: TPoemWithAuthor[] = poemsJson.map((poem) => ({
 }));
 
 export const findPoem = (id: number) => poems.find((poem) => poem.id === id);
+
+export const triviaQuestions: TTriviaQuestion[] = triviaJson;
+
+export const artworks: TArtwork[] = artJson;
+
+export const jokes: TJoke[] = jokesJson;
+
+export const cards: TCard[] = cardsJson;

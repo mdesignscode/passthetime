@@ -80,20 +80,22 @@ export default function Navbar() {
           !isOpen && "hidden"
         )}
       >
-        <ul className="flex flex-col gap-1 md:flex-row md:gap-1">
+        <ul className="flex flex-col gap-1 md:flex-row md:flex-wrap md:gap-0.5">
           {SLOTS.filter((slot) => slot.inNav).map((slot) => (
-            <li key={slot.code}>
+            <li key={slot.path}>
               <Link
                 href={slot.path}
                 aria-current={pathname === slot.path ? "page" : undefined}
                 className={classNames(
-                  "flex min-h-11 items-center gap-2 rounded px-2 text-sm transition-colors hover:bg-enamel md:min-h-9",
+                  "flex min-h-11 items-center gap-1.5 whitespace-nowrap rounded px-1.5 text-sm transition-colors hover:bg-enamel md:min-h-9",
                   pathname === slot.path && "bg-enamel font-semibold"
                 )}
               >
-                <span className="code" aria-hidden="true">
-                  {slot.code}
-                </span>
+                {slot.code && (
+                  <span className="code md:hidden 2xl:inline" aria-hidden="true">
+                    {slot.code}
+                  </span>
+                )}
                 {slot.name}
               </Link>
             </li>

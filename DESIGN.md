@@ -400,7 +400,7 @@ Where a chosen item lands: recessed enamel, a compact Close key that takes focus
 A two-position switch in a black well with Day and Night stamped on it. The active side is a raised pale cap; it swaps within 140ms.
 
 ### Named Rules
-**The Punchable Code Rule.** A slot code appears only where the keypad can punch it: on the home page's slots and in the navigation. Item rails in the fruit, recipe and poem walls carry one fact and no code.
+**The Punchable Code Rule.** A slot code appears only where the keypad can punch it: on the home page's slots and in the navigation. Home is reached by the logo and navigation and has no code. Navigation chips show only on phones and at 1536px and wider, where the links have room. Item rails in the fruit, recipe and poem walls carry one fact and no code.
 
 **The One Fact Rule.** An item rail states a single real fact from the data, such as calories, category and area, or a poem count. It never carries invented labels or a second fact.
 

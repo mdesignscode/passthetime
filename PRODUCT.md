@@ -14,7 +14,7 @@ Secondary: casual visitors who are bored and want something to do.
 
 ## Product Purpose
 
-Random Stuff is one site holding several small activities: browse fruits and their information, read poems by author or at random, browse and filter recipes, and play Rock, Paper, Scissors with 101 objects against the computer. It exists mainly as a portfolio piece. Success means a reviewer tries the activities and leaves convinced of the author's craft.
+Random Stuff is one site holding several small activities: browse fruits and their information, read poems by author or at random, browse and filter recipes, play Rock, Paper, Scissors with 101 objects against the computer, answer trivia, play Higher or Lower with a deck of cards, browse public-domain art, and print jokes. It exists mainly as a portfolio piece. Success means a reviewer tries the activities and leaves convinced of the author's craft.
 
 ## Positioning
 

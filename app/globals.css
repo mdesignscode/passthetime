@@ -283,6 +283,35 @@
     transform: rotateX(68deg);
   }
 
+  /* playing card turning over */
+  .flip-card {
+    position: relative;
+    aspect-ratio: 5 / 7;
+    width: min(38vw, 12rem);
+    perspective: 900px;
+  }
+
+  .flip-inner {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .flip-card.is-flipped .flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+  }
+
+  .flip-face-front {
+    transform: rotateY(180deg);
+  }
+
   /* lights switch */
   .rocker {
     display: inline-flex;
@@ -353,6 +382,32 @@
 
   .key-go:hover:not(:disabled) {
     background: #e03226;
+  }
+
+  /* trivia answers read as sentences, not stamped labels */
+  .key.key-answer {
+    justify-content: flex-start;
+    width: 100%;
+    font-family: var(--font-body), sans-serif;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-align: left;
+    text-transform: none;
+  }
+
+  .key.key-answer:disabled {
+    color: var(--ink);
+    background: var(--glass-shade);
+  }
+
+  .key.key-answer.key-right:disabled {
+    color: #fff;
+    background: #0a7a4f;
+  }
+
+  .key.key-answer.key-wrong:disabled {
+    color: #fff;
+    background: #cf2a1f;
   }
 
   .panel {

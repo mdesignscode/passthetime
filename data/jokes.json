@@ -1,0 +1,734 @@
+[
+  {
+    "id": 22,
+    "category": "Programming",
+    "setup": "If Bill Gates had a dime for every time Windows crashed ... Oh wait, he does.",
+    "punchline": null
+  },
+  {
+    "id": 140,
+    "category": "Misc",
+    "setup": "What's the difference between a hot potato and a flying pig?",
+    "punchline": "One's a heated yam, the other's a yeeted ham."
+  },
+  {
+    "id": 125,
+    "category": "Pun",
+    "setup": "I'm reading a book about anti-gravity. It's impossible to put down!",
+    "punchline": null
+  },
+  {
+    "id": 197,
+    "category": "Pun",
+    "setup": "The past, the present and the future walk into a bar.",
+    "punchline": "It was tense."
+  },
+  {
+    "id": 58,
+    "category": "Pun",
+    "setup": "Thank you student loans for getting me through college.",
+    "punchline": "I don't think I'll ever be able to repay you."
+  },
+  {
+    "id": 40,
+    "category": "Programming",
+    "setup": "Debugging: Removing the needles from the haystack.",
+    "punchline": null
+  },
+  {
+    "id": 167,
+    "category": "Pun",
+    "setup": "Two guys walked into a bar.",
+    "punchline": "The third guy ducked."
+  },
+  {
+    "id": 210,
+    "category": "Programming",
+    "setup": "What are bits?",
+    "punchline": "Tiny things left when you drop your computer down the stairs."
+  },
+  {
+    "id": 209,
+    "category": "Pun",
+    "setup": "What do you call a deer with no eyes?",
+    "punchline": "No eye deer."
+  },
+  {
+    "id": 43,
+    "category": "Programming",
+    "setup": "How do you tell HTML from HTML5?\n- Try it out in Internet Explorer\n- Did it work?\n- No?\n- It's HTML5.",
+    "punchline": null
+  },
+  {
+    "id": 48,
+    "category": "Programming",
+    "setup": ".NET developers are picky when it comes to food.",
+    "punchline": "They only like chicken NuGet."
+  },
+  {
+    "id": 80,
+    "category": "Misc",
+    "setup": "My wife left me because I'm too insecure and paranoid.",
+    "punchline": "Oh wait, never mind. She was just getting the mail."
+  },
+  {
+    "id": 44,
+    "category": "Programming",
+    "setup": "Have a great weekend!\nI hope your code behaves the same on Monday as it did on Friday.",
+    "punchline": null
+  },
+  {
+    "id": 189,
+    "category": "Pun",
+    "setup": "What did the customer say to the waiter?",
+    "punchline": "I'm all fed up with your service."
+  },
+  {
+    "id": 298,
+    "category": "Spooky",
+    "setup": "Why did the ghost go inside the bar?",
+    "punchline": "For the boos."
+  },
+  {
+    "id": 249,
+    "category": "Christmas",
+    "setup": "Who hides in the bakery at Christmas?",
+    "punchline": "A mince spy!"
+  },
+  {
+    "id": 222,
+    "category": "Misc",
+    "setup": "Why was the mushroom always invited to parties?",
+    "punchline": "Cause he's a fungi."
+  },
+  {
+    "id": 47,
+    "category": "Programming",
+    "setup": "Why did the functional programmer get thrown out of school?",
+    "punchline": "Because he refused to take classes."
+  },
+  {
+    "id": 200,
+    "category": "Misc",
+    "setup": "My wife is really mad at the fact that I have no sense of direction.\nSo I packed up my stuff and right.",
+    "punchline": null
+  },
+  {
+    "id": 199,
+    "category": "Pun",
+    "setup": "Today, my son asked \"Can I have a book mark?\" and I burst into tears.\n11 years old and he still doesn't know my name is Brian.",
+    "punchline": null
+  },
+  {
+    "id": 32,
+    "category": "Programming",
+    "setup": "What is the best prefix for global variables?",
+    "punchline": "//"
+  },
+  {
+    "id": 0,
+    "category": "Programming",
+    "setup": "I've got a really good UDP joke to tell you but I don’t know if you'll get it.",
+    "punchline": null
+  },
+  {
+    "id": 33,
+    "category": "Programming",
+    "setup": "Today I learned that changing random stuff until your program works is \"hacky\" and a \"bad coding practice\" but if you do it fast enough it's \"Machine Learning\" and pays 4x your current salary.",
+    "punchline": null
+  },
+  {
+    "id": 231,
+    "category": "Programming",
+    "setup": "Why do programmers prefer using the dark mode?",
+    "punchline": "Because light attracts bugs."
+  },
+  {
+    "id": 192,
+    "category": "Programming",
+    "setup": "What is the most used language in programming?",
+    "punchline": "Profanity."
+  },
+  {
+    "id": 86,
+    "category": "Pun",
+    "setup": "I hate Russian matryoshka dolls.",
+    "punchline": "They're so full of themselves."
+  },
+  {
+    "id": 170,
+    "category": "Pun",
+    "setup": "A grocery store cashier asked if I would like my milk in a bag.",
+    "punchline": "I told her \"No, thanks. The carton works fine\"."
+  },
+  {
+    "id": 281,
+    "category": "Pun",
+    "setup": "I was feeling depressed, my wife put her hand on my back and said \"Earth.\"",
+    "punchline": "It meant the world to me."
+  },
+  {
+    "id": 3,
+    "category": "Programming",
+    "setup": "A programmer puts two glasses on his bedside table before going to sleep.\nA full one, in case he gets thirsty, and an empty one, in case he doesn't.",
+    "punchline": null
+  },
+  {
+    "id": 93,
+    "category": "Misc",
+    "setup": "My mother said, \"You won't amount to anything because you always procrastinate.\"",
+    "punchline": "I said, \"Oh yeah... Just you wait.\""
+  },
+  {
+    "id": 18,
+    "category": "Programming",
+    "setup": "\"Honey, go to the store and buy some eggs.\"\n\"OK.\"\n\"Oh and while you're there, get some milk.\"\nHe never returned.",
+    "punchline": null
+  },
+  {
+    "id": 241,
+    "category": "Christmas",
+    "setup": "Why does Santa have three gardens?",
+    "punchline": "So he can 'ho ho ho'!"
+  },
+  {
+    "id": 276,
+    "category": "Misc",
+    "setup": "\"99.9% of the people are dumb!\"",
+    "punchline": "\"Fortunately I belong to the remaining 1%\""
+  },
+  {
+    "id": 31,
+    "category": "Programming",
+    "setup": "Why did the JavaScript heap close shop?",
+    "punchline": "It ran out of memory."
+  },
+  {
+    "id": 271,
+    "category": "Misc",
+    "setup": "What does the mermaid wear to math class?",
+    "punchline": "Algae-bra."
+  },
+  {
+    "id": 295,
+    "category": "Spooky",
+    "setup": "What is in a ghost's nose?",
+    "punchline": "Boo-gers."
+  },
+  {
+    "id": 267,
+    "category": "Pun",
+    "setup": "Why shouldn't you visit an expensive wig shop?",
+    "punchline": "It's too high a price \"toupee.\""
+  },
+  {
+    "id": 45,
+    "category": "Programming",
+    "setup": "Judge: \"I sentence you to the maximum punishment...\"\nMe (thinking): \"Please be death, please be death...\"\nJudge: \"Learn Java!\"\nMe: \"Damn.\"",
+    "punchline": null
+  },
+  {
+    "id": 284,
+    "category": "Pun",
+    "setup": "Which part of the hospital has the least privacy?",
+    "punchline": "The ICU."
+  },
+  {
+    "id": 138,
+    "category": "Misc",
+    "setup": "If you're here for the yodeling lesson, please form an orderly orderly orderly queue.",
+    "punchline": null
+  },
+  {
+    "id": 11,
+    "category": "Programming",
+    "setup": "Why do programmers confuse Halloween and Christmas?",
+    "punchline": "Because Oct 31 = Dec 25"
+  },
+  {
+    "id": 316,
+    "category": "Pun",
+    "setup": "What do you call a caveman's fart?",
+    "punchline": "A blast from the past."
+  },
+  {
+    "id": 23,
+    "category": "Programming",
+    "setup": "The glass is neither half-full nor half-empty, the glass is twice as big as it needs to be.",
+    "punchline": null
+  },
+  {
+    "id": 266,
+    "category": "Pun",
+    "setup": "What's the difference between a poorly dressed man on a unicycle and a well dressed man on a bicycle?",
+    "punchline": "Attire."
+  },
+  {
+    "id": 55,
+    "category": "Programming",
+    "setup": "What is a dying programmer's last program?",
+    "punchline": "Goodbye, world!"
+  },
+  {
+    "id": 205,
+    "category": "Pun",
+    "setup": "How did Harry Potter get down the hill?",
+    "punchline": "Walking...\nJK, Rolling."
+  },
+  {
+    "id": 179,
+    "category": "Programming",
+    "setup": "Knock knock.\nWho's there?\nRecursion.\nRecursion who?\nKnock knock.",
+    "punchline": null
+  },
+  {
+    "id": 176,
+    "category": "Pun",
+    "setup": "What do you call 4 Mexicans in quicksand?",
+    "punchline": "Quatro Sinko."
+  },
+  {
+    "id": 1,
+    "category": "Programming",
+    "setup": "How many programmers does it take to screw in a light bulb?",
+    "punchline": "None. It's a hardware problem."
+  },
+  {
+    "id": 182,
+    "category": "Spooky",
+    "setup": "Why didn't the skeleton go for prom?",
+    "punchline": "Because it had nobody."
+  },
+  {
+    "id": 29,
+    "category": "Programming",
+    "setup": "What do you call a group of 8 Hobbits?",
+    "punchline": "A Hobbyte."
+  },
+  {
+    "id": 264,
+    "category": "Programming",
+    "setup": "Why did the database administrator leave his wife?",
+    "punchline": "She had one-to-many relationships."
+  },
+  {
+    "id": 73,
+    "category": "Pun",
+    "setup": "A horse walks into a bar.\n\"Hey\", the Bartender says.\n\"Sure\", the horse replies.",
+    "punchline": null
+  },
+  {
+    "id": 305,
+    "category": "Misc",
+    "setup": "Yo mama is so old, she knew Burger King while he was still a prince.",
+    "punchline": null
+  },
+  {
+    "id": 294,
+    "category": "Spooky",
+    "setup": "Why do ghosts go on diets?",
+    "punchline": "So they can keep their ghoulish figures."
+  },
+  {
+    "id": 256,
+    "category": "Misc",
+    "setup": "My wife and I have reached the difficult decision that we do not want children.\nIf anybody does, please just send me your contact details and we can drop them off tomorrow.",
+    "punchline": null
+  },
+  {
+    "id": 235,
+    "category": "Pun",
+    "setup": "I was reading a great book about an immortal dog the other day. It was impossible to put down.",
+    "punchline": null
+  },
+  {
+    "id": 147,
+    "category": "Pun",
+    "setup": "The gas Argon walks into a bar.\nThe barkeeper says \"What would you like to drink?\"",
+    "punchline": "But Argon doesn't react."
+  },
+  {
+    "id": 175,
+    "category": "Pun",
+    "setup": "What do you call a witch at the beach?",
+    "punchline": "A Sandwich."
+  },
+  {
+    "id": 194,
+    "category": "Misc",
+    "setup": "Relationship Status: just tried to reach for my dog's paw and he pulled it away so I pretended I was reaching for the remote.",
+    "punchline": null
+  },
+  {
+    "id": 5,
+    "category": "Programming",
+    "setup": "A SQL statement walks into a bar and sees two tables.\nIt approaches, and asks \"may I join you?\"",
+    "punchline": null
+  },
+  {
+    "id": 77,
+    "category": "Misc",
+    "setup": "I WRITE MY JOKES IN CAPITALS.",
+    "punchline": "THIS ONE WAS WRITTEN IN PARIS."
+  },
+  {
+    "id": 285,
+    "category": "Pun",
+    "setup": "A Roman walks into a bar and raises 2 fingers and says to the bartender...",
+    "punchline": "\"Five beers, please.\""
+  },
+  {
+    "id": 51,
+    "category": "Programming",
+    "setup": "So what's a set of predefined steps the government might take to preserve the environment?",
+    "punchline": "An Al-Gore-ithm."
+  },
+  {
+    "id": 259,
+    "category": "Programming",
+    "setup": "Why is Linux safe?",
+    "punchline": "Hackers peak through Windows only."
+  },
+  {
+    "id": 317,
+    "category": "Pun",
+    "setup": "Why should you never talk to pi?",
+    "punchline": "Because it will go on forever."
+  },
+  {
+    "id": 20,
+    "category": "Programming",
+    "setup": "\"We messed up the keming again guys.\"",
+    "punchline": null
+  },
+  {
+    "id": 10,
+    "category": "Programming",
+    "setup": "Hey, wanna hear a joke?",
+    "punchline": "Parsing HTML with regex."
+  },
+  {
+    "id": 311,
+    "category": "Pun",
+    "setup": "Do you know what killed the man who had a two ton pumpkin fall on him?",
+    "punchline": "He was squashed."
+  },
+  {
+    "id": 283,
+    "category": "Pun",
+    "setup": "The other day my wife asked me to pass her lipstick, but I accidentally gave her a glue stick.",
+    "punchline": "She still isn't talking to me."
+  },
+  {
+    "id": 46,
+    "category": "Programming",
+    "setup": "What's the object-oriented way to become wealthy?",
+    "punchline": "Inheritance."
+  },
+  {
+    "id": 248,
+    "category": "Christmas",
+    "setup": "What do elves post on Social Media?",
+    "punchline": "Elf-ies!"
+  },
+  {
+    "id": 296,
+    "category": "Spooky",
+    "setup": "What's it like to be kissed by a vampire?",
+    "punchline": "It's a pain in the neck."
+  },
+  {
+    "id": 208,
+    "category": "Pun",
+    "setup": "Why did the chicken cross the road, roll in the mud and cross the road again?",
+    "punchline": "He was a dirty double-crosser!"
+  },
+  {
+    "id": 293,
+    "category": "Programming",
+    "setup": "why do python programmers wear glasses?",
+    "punchline": "Because they can't C."
+  },
+  {
+    "id": 279,
+    "category": "Pun",
+    "setup": "To prove he was right, the flat-earther walked to the end of the Earth.",
+    "punchline": "He eventually came around."
+  },
+  {
+    "id": 14,
+    "category": "Programming",
+    "setup": "What do you call a developer who doesn't comment code?",
+    "punchline": "A developer."
+  },
+  {
+    "id": 89,
+    "category": "Pun",
+    "setup": "Oysters hate to give away their pearls because they are shellfish.",
+    "punchline": null
+  },
+  {
+    "id": 220,
+    "category": "Programming",
+    "setup": "Two SQL tables sit at the bar. A query approaches and asks \"Can I join you?\"",
+    "punchline": null
+  },
+  {
+    "id": 282,
+    "category": "Pun",
+    "setup": "My employer came running to me and said, \"I was looking for you all day! Where the hell have you been?\"",
+    "punchline": "I replied, \"Good employees are hard to find.\""
+  },
+  {
+    "id": 237,
+    "category": "Pun",
+    "setup": "I have a joke about trickle down economics, but 99% of you will never get it.",
+    "punchline": null
+  },
+  {
+    "id": 26,
+    "category": "Programming",
+    "setup": "What do you get if you lock a monkey in a room with a typewriter for 8 hours?",
+    "punchline": "A regular expression."
+  },
+  {
+    "id": 7,
+    "category": "Programming",
+    "setup": "Why is 6 afraid of 7 in hexadecimal Canada?",
+    "punchline": "Because 7 8 9 A?"
+  },
+  {
+    "id": 145,
+    "category": "Misc",
+    "setup": "This morning I accidentally made my coffee with Red Bull instead of water.",
+    "punchline": "I was already on the highway when I noticed I forgot my car at home."
+  },
+  {
+    "id": 251,
+    "category": "Christmas",
+    "setup": "Why couldn't the skeleton go to the Christmas party?",
+    "punchline": "Because he had no body to go with!"
+  },
+  {
+    "id": 278,
+    "category": "Pun",
+    "setup": "Which is faster, Hot or cold?",
+    "punchline": "Hot, because you can catch a cold"
+  },
+  {
+    "id": 258,
+    "category": "Programming",
+    "setup": "UDP is better in the COVID era since it avoids unnecessary handshakes.",
+    "punchline": null
+  },
+  {
+    "id": 38,
+    "category": "Programming",
+    "setup": "A man is smoking a cigarette and blowing smoke rings into the air. His girlfriend becomes irritated with the smoke and says \"Can't you see the warning on the cigarette pack? Smoking is hazardous to your health!\" to which the man replies, \"I am a programmer.  We don't worry about warnings; we only worry about errors.\"",
+    "punchline": null
+  },
+  {
+    "id": 313,
+    "category": "Pun",
+    "setup": "What happened to the man who got behind on payments to his exorcist?",
+    "punchline": "He got repossessed."
+  },
+  {
+    "id": 245,
+    "category": "Christmas",
+    "setup": "Who is Santa's favourite singer?",
+    "punchline": "Elf-is Presley!"
+  },
+  {
+    "id": 254,
+    "category": "Misc",
+    "setup": "Why are cats so good at video games?",
+    "punchline": "They have nine lives."
+  },
+  {
+    "id": 244,
+    "category": "Christmas",
+    "setup": "What says Oh Oh Oh?",
+    "punchline": "Santa walking backwards!"
+  },
+  {
+    "id": 221,
+    "category": "Pun",
+    "setup": "Why do cows wear bells?",
+    "punchline": "Because their horns don't work!"
+  },
+  {
+    "id": 193,
+    "category": "Pun",
+    "setup": "What's the best thing about Switzerland?",
+    "punchline": "I don't know, but the flag is a big plus."
+  },
+  {
+    "id": 190,
+    "category": "Pun",
+    "setup": "To whoever stole my copy of Microsoft Office, I will find you. You have my Word!",
+    "punchline": null
+  },
+  {
+    "id": 75,
+    "category": "Misc",
+    "setup": "What is the least spoken language in the world?",
+    "punchline": "Sign language."
+  },
+  {
+    "id": 191,
+    "category": "Pun",
+    "setup": "Why did the koala get rejected?",
+    "punchline": "Because he did not have any koalafication."
+  },
+  {
+    "id": 302,
+    "category": "Pun",
+    "setup": "I can't believe I got fired from the calendar factory.",
+    "punchline": "All I did was take a day off."
+  },
+  {
+    "id": 24,
+    "category": "Programming",
+    "setup": "A byte walks into a bar looking miserable.\nThe bartender asks it: \"What's wrong buddy?\"\n\"Parity error.\" it replies. \n\"Ah that makes sense, I thought you looked a bit off.\"",
+    "punchline": null
+  },
+  {
+    "id": 286,
+    "category": "Pun",
+    "setup": "I stayed up all night wondering where the sun went.",
+    "punchline": "Then it dawned on me."
+  },
+  {
+    "id": 253,
+    "category": "Pun",
+    "setup": "Why do front end developers eat lunch alone?",
+    "punchline": "Because they don't know how to join tables."
+  },
+  {
+    "id": 72,
+    "category": "Misc",
+    "setup": "A neutron walks into a bar and asks for a price on a drink.\nThe barkeeper says: \"For you... no charge!\"",
+    "punchline": null
+  },
+  {
+    "id": 225,
+    "category": "Programming",
+    "setup": "Why do they call it hyper terminal?",
+    "punchline": "Too much Java."
+  },
+  {
+    "id": 315,
+    "category": "Pun",
+    "setup": "Did you hear about the crime in the parking garage?",
+    "punchline": "It was wrong on so many levels."
+  },
+  {
+    "id": 35,
+    "category": "Programming",
+    "setup": "There are only 10 kinds of people in this world: those who know binary and those who don't.",
+    "punchline": null
+  },
+  {
+    "id": 91,
+    "category": "Misc",
+    "setup": "What's the difference between an in-law and an outlaw?",
+    "punchline": "An outlaw is wanted."
+  },
+  {
+    "id": 216,
+    "category": "Misc",
+    "setup": "How do construction workers party?",
+    "punchline": "They raise the roof."
+  },
+  {
+    "id": 198,
+    "category": "Pun",
+    "setup": "What did the cell say when his sister cell stepped on his foot?",
+    "punchline": "Mitosis."
+  },
+  {
+    "id": 243,
+    "category": "Christmas",
+    "setup": "What kind of motorbike does Santa ride?",
+    "punchline": "A Holly Davidson!"
+  },
+  {
+    "id": 297,
+    "category": "Spooky",
+    "setup": "What does a turkey dress up as for Halloween?",
+    "punchline": "A gobblin'!"
+  },
+  {
+    "id": 17,
+    "category": "Programming",
+    "setup": "How can you tell an extroverted programmer?",
+    "punchline": "He looks at YOUR shoes when he's talking."
+  },
+  {
+    "id": 301,
+    "category": "Pun",
+    "setup": "I just got fired from my job at the keyboard factory.",
+    "punchline": "They told me I wasn't putting in enough shifts."
+  },
+  {
+    "id": 64,
+    "category": "Pun",
+    "setup": "Did you hear about the cheese factory that exploded in France?",
+    "punchline": "There was nothing but de brie."
+  },
+  {
+    "id": 4,
+    "category": "Programming",
+    "setup": "Java and C were telling jokes. It was C's turn, so he writes something on the wall, points to it and says \"Do you get the reference?\" But Java didn't.",
+    "punchline": null
+  },
+  {
+    "id": 230,
+    "category": "Pun",
+    "setup": "How much did your chimney cost?",
+    "punchline": "Nothing, it was on the house."
+  },
+  {
+    "id": 57,
+    "category": "Pun",
+    "setup": "I asked my wife if I was the only one she's been with.",
+    "punchline": "She said, \"Yes, the others were at least sevens or eights.\""
+  },
+  {
+    "id": 28,
+    "category": "Programming",
+    "setup": "Two C strings walk into a bar.\nThe bartender asks \"What can I get ya?\"\nThe first string says \"I'll have a gin and tonic.\"\nThe second string thinks for a minute, then says \"I'll take a tequila sunriseJF()#$JF(#)$(@J#()$@#())!*FNIN!OBN134ufh1ui34hf9813f8h8384h981h3984h5F!##@\"\nThe first string apologizes, \"You'll have to excuse my friend, he's not null-terminated.\"",
+    "punchline": null
+  },
+  {
+    "id": 270,
+    "category": "Misc",
+    "setup": "Never date a baker. They're too kneady.",
+    "punchline": null
+  },
+  {
+    "id": 247,
+    "category": "Christmas",
+    "setup": "What do Santa's little helpers learn at school?",
+    "punchline": "The elf-abet!\n"
+  },
+  {
+    "id": 292,
+    "category": "Christmas",
+    "setup": "Whats the Grinchs least favorite band?",
+    "punchline": "The Who."
+  },
+  {
+    "id": 307,
+    "category": "Misc",
+    "setup": "What's the difference between England and a tea bag?",
+    "punchline": "The tea bag stays in the cup longer."
+  },
+  {
+    "id": 234,
+    "category": "Misc",
+    "setup": "My parents raised me as an only child, which really annoyed my younger brother.",
+    "punchline": null
+  }
+]

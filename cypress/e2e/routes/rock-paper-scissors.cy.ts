@@ -37,7 +37,8 @@ describe("Visit Rock, Paper, Scissors page", () => {
 
       // play a round
       cy.contains("button", "Play").click();
-      cy.get('[aria-label="Player result"]')
+      // the countdown alone takes over three seconds
+      cy.get('[aria-label="Player result"]', { timeout: 8000 })
         .invoke("text")
         .then((text) => {
           const playerWon = text === "You Won";

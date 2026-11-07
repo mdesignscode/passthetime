@@ -1,0 +1,314 @@
+[
+  {
+    "code": "2S",
+    "name": "2 of Spades",
+    "rank": 2,
+    "image": "/images/cards/2S.webp"
+  },
+  {
+    "code": "3S",
+    "name": "3 of Spades",
+    "rank": 3,
+    "image": "/images/cards/3S.webp"
+  },
+  {
+    "code": "4S",
+    "name": "4 of Spades",
+    "rank": 4,
+    "image": "/images/cards/4S.webp"
+  },
+  {
+    "code": "5S",
+    "name": "5 of Spades",
+    "rank": 5,
+    "image": "/images/cards/5S.webp"
+  },
+  {
+    "code": "6S",
+    "name": "6 of Spades",
+    "rank": 6,
+    "image": "/images/cards/6S.webp"
+  },
+  {
+    "code": "7S",
+    "name": "7 of Spades",
+    "rank": 7,
+    "image": "/images/cards/7S.webp"
+  },
+  {
+    "code": "8S",
+    "name": "8 of Spades",
+    "rank": 8,
+    "image": "/images/cards/8S.webp"
+  },
+  {
+    "code": "9S",
+    "name": "9 of Spades",
+    "rank": 9,
+    "image": "/images/cards/9S.webp"
+  },
+  {
+    "code": "0S",
+    "name": "10 of Spades",
+    "rank": 10,
+    "image": "/images/cards/0S.webp"
+  },
+  {
+    "code": "JS",
+    "name": "Jack of Spades",
+    "rank": 11,
+    "image": "/images/cards/JS.webp"
+  },
+  {
+    "code": "QS",
+    "name": "Queen of Spades",
+    "rank": 12,
+    "image": "/images/cards/QS.webp"
+  },
+  {
+    "code": "KS",
+    "name": "King of Spades",
+    "rank": 13,
+    "image": "/images/cards/KS.webp"
+  },
+  {
+    "code": "AS",
+    "name": "Ace of Spades",
+    "rank": 14,
+    "image": "/images/cards/AS.webp"
+  },
+  {
+    "code": "2H",
+    "name": "2 of Hearts",
+    "rank": 2,
+    "image": "/images/cards/2H.webp"
+  },
+  {
+    "code": "3H",
+    "name": "3 of Hearts",
+    "rank": 3,
+    "image": "/images/cards/3H.webp"
+  },
+  {
+    "code": "4H",
+    "name": "4 of Hearts",
+    "rank": 4,
+    "image": "/images/cards/4H.webp"
+  },
+  {
+    "code": "5H",
+    "name": "5 of Hearts",
+    "rank": 5,
+    "image": "/images/cards/5H.webp"
+  },
+  {
+    "code": "6H",
+    "name": "6 of Hearts",
+    "rank": 6,
+    "image": "/images/cards/6H.webp"
+  },
+  {
+    "code": "7H",
+    "name": "7 of Hearts",
+    "rank": 7,
+    "image": "/images/cards/7H.webp"
+  },
+  {
+    "code": "8H",
+    "name": "8 of Hearts",
+    "rank": 8,
+    "image": "/images/cards/8H.webp"
+  },
+  {
+    "code": "9H",
+    "name": "9 of Hearts",
+    "rank": 9,
+    "image": "/images/cards/9H.webp"
+  },
+  {
+    "code": "0H",
+    "name": "10 of Hearts",
+    "rank": 10,
+    "image": "/images/cards/0H.webp"
+  },
+  {
+    "code": "JH",
+    "name": "Jack of Hearts",
+    "rank": 11,
+    "image": "/images/cards/JH.webp"
+  },
+  {
+    "code": "QH",
+    "name": "Queen of Hearts",
+    "rank": 12,
+    "image": "/images/cards/QH.webp"
+  },
+  {
+    "code": "KH",
+    "name": "King of Hearts",
+    "rank": 13,
+    "image": "/images/cards/KH.webp"
+  },
+  {
+    "code": "AH",
+    "name": "Ace of Hearts",
+    "rank": 14,
+    "image": "/images/cards/AH.webp"
+  },
+  {
+    "code": "2D",
+    "name": "2 of Diamonds",
+    "rank": 2,
+    "image": "/images/cards/2D.webp"
+  },
+  {
+    "code": "3D",
+    "name": "3 of Diamonds",
+    "rank": 3,
+    "image": "/images/cards/3D.webp"
+  },
+  {
+    "code": "4D",
+    "name": "4 of Diamonds",
+    "rank": 4,
+    "image": "/images/cards/4D.webp"
+  },
+  {
+    "code": "5D",
+    "name": "5 of Diamonds",
+    "rank": 5,
+    "image": "/images/cards/5D.webp"
+  },
+  {
+    "code": "6D",
+    "name": "6 of Diamonds",
+    "rank": 6,
+    "image": "/images/cards/6D.webp"
+  },
+  {
+    "code": "7D",
+    "name": "7 of Diamonds",
+    "rank": 7,
+    "image": "/images/cards/7D.webp"
+  },
+  {
+    "code": "8D",
+    "name": "8 of Diamonds",
+    "rank": 8,
+    "image": "/images/cards/8D.webp"
+  },
+  {
+    "code": "9D",
+    "name": "9 of Diamonds",
+    "rank": 9,
+    "image": "/images/cards/9D.webp"
+  },
+  {
+    "code": "0D",
+    "name": "10 of Diamonds",
+    "rank": 10,
+    "image": "/images/cards/0D.webp"
+  },
+  {
+    "code": "JD",
+    "name": "Jack of Diamonds",
+    "rank": 11,
+    "image": "/images/cards/JD.webp"
+  },
+  {
+    "code": "QD",
+    "name": "Queen of Diamonds",
+    "rank": 12,
+    "image": "/images/cards/QD.webp"
+  },
+  {
+    "code": "KD",
+    "name": "King of Diamonds",
+    "rank": 13,
+    "image": "/images/cards/KD.webp"
+  },
+  {
+    "code": "AD",
+    "name": "Ace of Diamonds",
+    "rank": 14,
+    "image": "/images/cards/AD.webp"
+  },
+  {
+    "code": "2C",
+    "name": "2 of Clubs",
+    "rank": 2,
+    "image": "/images/cards/2C.webp"
+  },
+  {
+    "code": "3C",
+    "name": "3 of Clubs",
+    "rank": 3,
+    "image": "/images/cards/3C.webp"
+  },
+  {
+    "code": "4C",
+    "name": "4 of Clubs",
+    "rank": 4,
+    "image": "/images/cards/4C.webp"
+  },
+  {
+    "code": "5C",
+    "name": "5 of Clubs",
+    "rank": 5,
+    "image": "/images/cards/5C.webp"
+  },
+  {
+    "code": "6C",
+    "name": "6 of Clubs",
+    "rank": 6,
+    "image": "/images/cards/6C.webp"
+  },
+  {
+    "code": "7C",
+    "name": "7 of Clubs",
+    "rank": 7,
+    "image": "/images/cards/7C.webp"
+  },
+  {
+    "code": "8C",
+    "name": "8 of Clubs",
+    "rank": 8,
+    "image": "/images/cards/8C.webp"
+  },
+  {
+    "code": "9C",
+    "name": "9 of Clubs",
+    "rank": 9,
+    "image": "/images/cards/9C.webp"
+  },
+  {
+    "code": "0C",
+    "name": "10 of Clubs",
+    "rank": 10,
+    "image": "/images/cards/0C.webp"
+  },
+  {
+    "code": "JC",
+    "name": "Jack of Clubs",
+    "rank": 11,
+    "image": "/images/cards/JC.webp"
+  },
+  {
+    "code": "QC",
+    "name": "Queen of Clubs",
+    "rank": 12,
+    "image": "/images/cards/QC.webp"
+  },
+  {
+    "code": "KC",
+    "name": "King of Clubs",
+    "rank": 13,
+    "image": "/images/cards/KC.webp"
+  },
+  {
+    "code": "AC",
+    "name": "Ace of Clubs",
+    "rank": 14,
+    "image": "/images/cards/AC.webp"
+  }
+]
